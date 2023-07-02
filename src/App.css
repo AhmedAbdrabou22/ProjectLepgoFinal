@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Belanosima&family=Tajawal:wght@300&display=swap');
 .App {
   text-align: center;
 }
@@ -27,6 +28,8 @@
 .App-link {
   color: #61dafb;
 }
+
+
 
 @keyframes App-logo-spin {
   from {
