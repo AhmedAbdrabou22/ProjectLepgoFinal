@@ -14,9 +14,9 @@ const Footer = () => {
     return (
         <div className="footer-background footer mt-3 pt-2">
             <Container className="">
-                <div className='d-flex justify-content-between  align-items-center'>
+                <div className='d-flex justify-content-between s  align-items-center'>
                     <div className='policy w-40'>
-                        <div className='d-flex justify-content-center align-items-center'>
+                        <div className='d-flex justify-content-center align-items-center s'>
                             <div>
                                 <ul>
                                     <h5>الاكثر زياره</h5>
@@ -54,7 +54,7 @@ const Footer = () => {
                     </div>
 
                     <div className='contact w-50'>
-                        <div className='d-flex justify-content-evenly align-items-center'>
+                        <div className='d-flex justify-content-evenly align-items-center s'>
                             <div className='contacCashes'>
                                 <h4>طرق الدفع</h4>
                                 <img src={cash} alt="Cahs" />

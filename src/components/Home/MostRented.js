@@ -35,7 +35,7 @@ const MostRented = () => {
         ],
     };
     return (
-        <div className='retendDiv'>
+        <div className='retendDiv mt-5'>
             <SubTitle title="الاكثر ايجارا" />
             <div className='sliderRented'>
                 <Slider {...settings} className='slider-item-retend'>

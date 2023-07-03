@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Belanosima&family=Tajawal:wght@300&display=swap');
 .App {
   text-align: center;
+  font-family: 'Belanosima', sans-serif;
+  font-family: 'Tajawal', sans-serif;
+  overflow-x: hidden;
+  font-weight: 800;
 }
 
 .App-logo {
@@ -37,5 +41,11 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@media(max-width:768px){
+  body{
+    overflow-x: hidden;
   }
 }

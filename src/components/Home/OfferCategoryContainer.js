@@ -2,17 +2,19 @@ import React from 'react'
 import SubTitle from "../utility/subTitle.js"
 import OfferCard from '../Cards/OfferCard.js'
 import { Container, Row } from 'react-bootstrap'
+import rangeRover from "../../images/range-rover-1806931.png"
+import bicycle from "../../images/bicycles-737190@2x.png"
 const OfferCategoryContainer = () => {
     return (
         <div className='mt-5'>
             <SubTitle title="العروض المتاحه" TitleMore ="جميع العروض" pathText = "/allOffers"/>
-                <Row className="my-2 d-flex  justify-content-between">
-                    <OfferCard />
-                    <OfferCard />
-                    <OfferCard />
-                    <OfferCard />
-                    <OfferCard />
-                    <OfferCard />
+                <Row className="d-flex  justify-content-between">
+                    <OfferCard img={rangeRover}/>
+                    <OfferCard img={bicycle}/>
+                    <OfferCard img={rangeRover}/>
+                    <OfferCard img={bicycle}/>
+                    <OfferCard img={rangeRover}/>
+                    <OfferCard img={bicycle}/>
                 </Row>
         </div>
     )
