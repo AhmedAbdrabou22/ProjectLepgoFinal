@@ -15,7 +15,9 @@ import IconChat from "../../images/chat.svg"
 import IconShopping from "../../images/bdcb0c3f6d67999723518ef3c2ad5494.svg"
 import IconFavourite from "../../images/6f0a18fad030e38fc7194c6a4c334793.svg"
 import notifyLepgo from "../../images/notification-new.svg"
+import SignUp from '../../pages/Auth/SignUp';
 const NavBar = () => {
+
     return (
         <div>
             <Navbar className="navbar-top bgNavBar" style={{ padding: "20px" , borderBottom:"1px solid #0000001A" , background:"white" }} expand="sm">
@@ -62,8 +64,10 @@ const NavBar = () => {
 
                             <Nav.Link style={{ borderRight: "3px solid #0000001A", height: "40px", padding: "0 15px" }}
                                 href=""
+                                
                                 className="nav-text d-flex align-items-center justify-content-center">
-                                <p style={{ color: "black", marginTop: "15px" }}>حسابي</p>
+                                <p style={{ color: "black", marginTop: "15px" }}><SignUp/></p>
+                                {/* <p><SignUp/></p> */}
                                 <img style={{ paddingRight: "8px" }} src={IconProfile} className="login-img" alt="sfvs" />
                             </Nav.Link>
                             <Nav.Link style={{ borderRight: "3px solid #0000001A", height: "40px", padding: "0 15px" }}
