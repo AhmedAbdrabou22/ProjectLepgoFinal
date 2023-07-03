@@ -6,7 +6,6 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import CategoryHeader from './CategoryHeader';
 // import NavDropdown from 'react-bootstrap/NavDropdown';
-import Form from 'react-bootstrap/Form';
 import { FormControl } from 'react-bootstrap'
 import lepgoImage from "../../images/LEPGO.svg"
 import IconProduct from "../../images/add_to_photos.svg"
