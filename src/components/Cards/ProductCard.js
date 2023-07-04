@@ -16,7 +16,7 @@ const ProductCard = () => {
     };
     const shadowClass = isHovered ? "shadowIt" : "";
     return (
-        <Col xs="6" sm="6" md="4" lg="3" className="my-4 d-flex justify-content-around ">
+        <Col xs="12" sm="12" md="4" lg="3" className="my-4 d-flex justify-content-around ">
             <Card className={`${shadowClass} ${myClass}`} onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave} style={{ background: "#F9F9FA", borderRadius: "20px", transition: "0.3s", padding: "8px" }}>
                 <OverlayTrigger
