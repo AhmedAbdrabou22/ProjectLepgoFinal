@@ -76,7 +76,7 @@ const NavBar = () => {
                                 <img style={{ paddingRight: "8px" }} src={IconChat} className="login-img" alt="sfvs" />
                             </Nav.Link>
                             <Nav.Link style={{ borderRight: "3px solid #0000001A", height: "40px", padding: "0 15px" }}
-                                href=""
+                                href="/favourite"
                                 className="nav-text d-flex align-items-center justify-content-center">
                                 <p style={{ color: "black", marginTop: "15px" }}>المفضله</p>
                                 <img style={{ paddingRight: "8px" }} src={IconFavourite} className="login-img" alt="sfvs" />
