@@ -7,6 +7,7 @@ import GetAllOffers from './pages/Offers/GetAllOffers';
 import SignUp from './pages/Auth/SignUp';
 import FavouritePage from './pages/Favourite/FavouritePage';
 import ShopingPage from './pages/ShopingPage/ShopingPage';
+import SpecificProduct from "./pages/SpecificProductPAge/SpecificProduct"
 function App() {
   return (
     <div className="App">
@@ -18,6 +19,7 @@ function App() {
         <Route path="/register" element={<SignUp/>}></Route>
         <Route path="/favourite" element={<FavouritePage/>}></Route>
         <Route path="/shoping" element={<ShopingPage/>}></Route>
+        <Route path="/product/:id" element={<SpecificProduct/>}></Route>
         </Routes>
       </BrowserRouter>
       <Footer />
