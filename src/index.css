@@ -12,7 +12,8 @@ body {
   font-family: 'Tajawal', sans-serif;
   overflow-x: hidden;
 }
-a{
+
+a {
   text-decoration: none;
 }
 
@@ -84,7 +85,7 @@ code {
 }
 
 .cat-text-header {
-  color: #000000;
+  color: #302F2F;
   font-family: "Almarai";
   font-size: 16px;
   font-weight: bold;
@@ -140,7 +141,7 @@ code {
   font-size: 16px;
   font-weight: 400;
   padding: 5px 0;
-  color: black;
+  color: #302F2F;
 }
 
 .card-filter-item:hover {
@@ -151,7 +152,6 @@ code {
   width: 100%;
   text-align: center;
   margin: auto;
-  /* margin-left: -50px; */
 }
 
 .slider-item div img {
@@ -199,26 +199,27 @@ code {
 
 
 
-.sliderRented .slider-item-retend div{
-  width:100%;
+.sliderRented .slider-item-retend div {
+  width: 100%;
   padding: 8px;
 }
 
 
 
-.ProductContainer{
-  margin-top: -320px;
+.ProductContainer {
+  margin-top: -250px;
 }
 
-.productCard{
+.productCard {
   position: relative;
 }
-.productCard .imgFav{
+
+.productCard .imgFav {
   position: absolute;
-  top:15px;
-  left:15px;
-  background-color:#F9F9FA;
-  width:40px;
+  top: 15px;
+  left: 15px;
+  background-color: #F9F9FA;
+  width: 40px;
   height: 40px;
   line-height: 40px;
   border-radius: 50%;
@@ -240,26 +241,31 @@ code {
 /**
  * Style Forms
  */
-.formInput{
+.formInput {
   position: relative;
 }
-input{
-  padding:10px;
+
+input {
+  padding: 10px;
   border: 2px solid #A8A8A8 !important;
 }
-.imgInput , .lock{
+
+.imgInput, .lock {
   position: absolute;
-  left:10%;
-  top:30%;
+  left: 10%;
+  top: 30%;
 }
-.lock{
-  top:19%;
+
+.lock {
+  top: 19%;
 }
-input:hover{
+
+input:hover {
   border: 2px solid #CB955B !important;
 }
-.button{
-  padding:10px;
+
+.button {
+  padding: 10px;
   border-radius: 10px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
@@ -271,19 +277,73 @@ input:hover{
   -ms-transition: 0.3s;
   -o-transition: 0.3s;
 }
-.button:hover{
+
+.button:hover {
   background-color: #08324B !important;
   color: white !important;
 }
+
 /**
  * Style Forms
  */
 
-@media(max-width:768px) {
+
+/*Style Favourite card */
+
+.infos {
+  color: #08324B;
+
+  text-align: right;
+}
+.favItem{
+  position: relative;
+  flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+  background-color: #F9F9FA;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+.priceDetails{
+  position: absolute;
+  top:10%;
+  left:0;
+}
+
+.detailFavItem{
+  line-height: 150px;
+}
+
+/*Style Favourite card */
+
+@media(max-width:1024px) {
   body {
     overflow-x: hidden;
   }
-  .s{
+
+
+  .s {
     flex-direction: column;
+  }
+  .favItem{
+    flex-direction: column;
+    padding: 10px;
+    height:500px;
+  }
+  .infos{
+    text-align: center !important;
+  }
+  .infoDetails{
+    margin: auto;
+  }
+  .priceDetails{
+    top:70%;
+}
+  .detailFavItem , .detailsFavItemduration{
+    display: inline-block;
+    margin: 10px;
   }
 }

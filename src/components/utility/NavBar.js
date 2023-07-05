@@ -19,7 +19,7 @@ const NavBar = () => {
 
     return (
         <div>
-            <Navbar className="navbar-top bgNavBar" style={{ padding: "20px" , borderBottom:"1px solid #0000001A" , background:"white" }} expand="sm">
+            <Navbar expand="lg" className="navbar-top bgNavBar" style={{ padding: "20px" , borderBottom:"1px solid #0000001A" , background:"white" }}>
                 <Container>
                     <Navbar.Brand className='mx-2'>
                         <a href="/">
@@ -82,7 +82,7 @@ const NavBar = () => {
                                 <img style={{ paddingRight: "8px" }} src={IconFavourite} className="login-img" alt="sfvs" />
                             </Nav.Link>
                             <Nav.Link style={{ borderRight: "3px solid #0000001A", height: "40px", padding: "0 15px" }}
-                                href=""
+                                href="/shoping"
                                 className="nav-text d-flex align-items-center justify-content-center">
                                 <p style={{ color: "black", marginTop: "15px" }}>العربه</p>
                                 <img style={{ paddingRight: "8px" }} src={IconShopping} className="login-img" alt="sfvs" />

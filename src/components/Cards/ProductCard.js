@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Button, Card, Col } from 'react-bootstrap'
+import {Card, Col } from 'react-bootstrap'
 import bmw from "../../images/Group 598.png"
 import heart from "../../images/heart.svg"
 import { OverlayTrigger, Tooltip } from 'react-bootstrap';

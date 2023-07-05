@@ -11,7 +11,7 @@ const CategoryHeader = () => {
     const handler = () => { };
     return (
         <div>
-            <Navbar expand="lg" className="" style={{ background: "white" }}>
+            <Navbar expand="lg" className='shadow' style={{ background: "white"}}>
                 <Container>
                     {/* <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand> */}
                     <Nav.Link className='mt-4'>

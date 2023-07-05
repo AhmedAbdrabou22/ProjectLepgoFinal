@@ -15,7 +15,7 @@ const MostRented = () => {
         autoplaySpeed: 2000,
         cssEase: "linear",
         centerMode: false,
-        centerPadding: "10px",
+        centerPadding: "0px",
         responsive: [
             {
                 breakpoint: 768,
