@@ -18,8 +18,8 @@ import SignUp from '../../pages/Auth/SignUp';
 const NavBar = () => {
 
     return (
-        <div>
-            <Navbar expand="lg" className="navbar-top bgNavBar" style={{ padding: "20px" , borderBottom:"1px solid #0000001A" , background:"white" }}>
+        <div style={{position:"fixed" , zIndex:"25" , width:"100%"}}>
+            <Navbar expand="lg" className="navbar-top bgNavBar" style={{ padding: "20px", background:"white" }}>
                 <Container>
                     <Navbar.Brand className='mx-2'>
                         <a href="/">
@@ -55,7 +55,7 @@ const NavBar = () => {
                         />
                         <Nav>
                             <Nav.Link style={{ borderRight: "3px solid #0000001A", width: "200px", height: "40px", padding: "0 5px" }}
-                                href=""
+                                href="/addProduct"
                                 className="nav-text d-flex align-items-center text-center justify-content-center">
                                 <p style={{ color: "black", marginTop: "15px" }}>اضافة منتج للحجز</p>
                                 <img style={{ paddingRight: "8px" }} src={IconProduct} className="login-img" alt="sfvs" />

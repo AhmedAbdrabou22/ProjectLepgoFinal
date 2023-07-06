@@ -6,7 +6,7 @@ import MostRented from '../../components/Home/MostRented'
 import ProductCardContainer from '../../components/Home/ProductCardContainer'
 const homePage = () => {
     return (
-        <div>
+        <div style={{paddingTop:"180px"}}>
             <Slider />
             <HomeCategory />
             <OfferCategoryContainer/>

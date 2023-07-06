@@ -9,6 +9,7 @@ import FavouritePage from './pages/Favourite/FavouritePage';
 import ShopingPage from './pages/ShopingPage/ShopingPage';
 import SpecificProduct from "./pages/SpecificProductPAge/SpecificProduct"
 import CategoryCardsDetails from './pages/DetailsCategoryPages/CategoryCardsDetails';
+import AddProductPage from './pages/AddProduct/AddProductPage';
 function App() {
   return (
     <div className="App">
@@ -22,6 +23,7 @@ function App() {
         <Route path="/shoping" element={<ShopingPage/>}></Route>
         <Route path="/product/:id" element={<SpecificProduct/>}></Route>
         <Route path="/categoryDetails" element={<CategoryCardsDetails/>}></Route>
+        <Route path="/addProduct" element={<AddProductPage/>}></Route>
         </Routes>
       </BrowserRouter>
       <Footer />

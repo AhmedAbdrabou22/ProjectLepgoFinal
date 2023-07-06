@@ -343,6 +343,57 @@ input:hover {
 }
 /*Style image Gallery*/
 
+/**style section uppload Image */
+.file-input input[type="file"] {
+  position: absolute;
+  height: 0;
+  width: 0;
+  overflow: hidden;
+}
+.file-input label {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.file-input label:hover {
+  background-color: #0069d9;
+}
+
+.file-input label:active {
+  background-color: #0053a3;
+}
+.file-input label {
+  position: relative;
+  margin: 10px;
+}
+.image-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  text-align: center;
+}
+
+.image-container img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  margin: 10px;
+  border-radius: 5px;
+}
+.addProduct input[type="text"]{
+  padding:10px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  outline: "none";
+}
+/**style section uppload Image */
+
 @media(max-width:1024px) {
   body {
     overflow-x: hidden;
