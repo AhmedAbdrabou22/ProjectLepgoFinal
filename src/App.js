@@ -8,6 +8,7 @@ import SignUp from './pages/Auth/SignUp';
 import FavouritePage from './pages/Favourite/FavouritePage';
 import ShopingPage from './pages/ShopingPage/ShopingPage';
 import SpecificProduct from "./pages/SpecificProductPAge/SpecificProduct"
+import CategoryCardsDetails from './pages/DetailsCategoryPages/CategoryCardsDetails';
 function App() {
   return (
     <div className="App">
@@ -20,6 +21,7 @@ function App() {
         <Route path="/favourite" element={<FavouritePage/>}></Route>
         <Route path="/shoping" element={<ShopingPage/>}></Route>
         <Route path="/product/:id" element={<SpecificProduct/>}></Route>
+        <Route path="/categoryDetails" element={<CategoryCardsDetails/>}></Route>
         </Routes>
       </BrowserRouter>
       <Footer />

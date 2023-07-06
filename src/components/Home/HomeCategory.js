@@ -3,6 +3,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import artBoard from "../../images/Artboard 4@4x@2x.png"
+import { Link } from 'react-router-dom';
 
 const HomeCategory = () => {
     const settings = {
@@ -23,7 +24,7 @@ const HomeCategory = () => {
                     slidesToShow: 3,
                     slidesToScroll: 1,
                 },
-                dots:true,
+                dots: true,
             },
             {
                 breakpoint: 1024,
@@ -38,7 +39,9 @@ const HomeCategory = () => {
         <div className='mt-5 sliderCategory'>
             <Slider {...settings} className='slider-item'>
                 <div>
-                    <img src={artBoard} alt="1" />
+                    <Link to="/categoryDetails">
+                        <img src={artBoard} alt="1" />
+                    </Link>
                 </div>
                 <div>
                     <img src={artBoard} alt="2" />
