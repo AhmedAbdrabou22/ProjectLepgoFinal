@@ -6,16 +6,18 @@ import DetailsProduct from "../../components/ProductComponents/DetailsProduct.js
 
 const SpecificProduct = () => {
     return (
-        <Container>
-            <Row className="py-3">
-                <Col lg="4" className="">
-                    <ImageGallery/>
-                </Col>
-                <Col lg="8" className="">
-                    <DetailsProduct/>
-                </Col>
-            </Row>
-        </Container>
+        <div style={{paddingTop:"180px"}}>
+            <Container>
+                <Row className="py-3">
+                    <Col lg="4" className="">
+                        <ImageGallery />
+                    </Col>
+                    <Col lg="8" className="">
+                        <DetailsProduct />
+                    </Col>
+                </Row>
+            </Container>
+        </div>
     )
 }
 

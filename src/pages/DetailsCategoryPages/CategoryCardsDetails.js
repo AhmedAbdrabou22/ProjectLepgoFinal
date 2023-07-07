@@ -5,7 +5,7 @@ import { Row } from 'react-bootstrap'
 import MostRented from '../../components/Home/MostRented'
 const categoryCardsDetails = () => {
     return (
-        <div style={{ minHeight: "768px" }}>
+        <div style={{ minHeight: "768px" ,paddingTop:"180px"}}>
             <SubTitle title="عقارات" />
             <Row className='d-flex justify-content-between align-items-center'>
                 <ProductCard />
