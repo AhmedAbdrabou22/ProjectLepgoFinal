@@ -54,6 +54,13 @@ const NavBar = () => {
                             aria-label="Search"
                         />
                         <Nav>
+                        <Nav.Link style={{ borderRight: "3px solid #0000001A", width: "100px", height: "40px", padding: "0 5px" }}
+                                href="/addProduct"
+                                className="nav-text d-flex align-items-center text-center justify-content-center">
+                                <p style={{ color: "black", marginTop: "15px" }}>en</p>
+                                {/* <img style={{ paddingRight: "8px" }} src={IconProduct} className="login-img" alt="sfvs" /> */}
+                            </Nav.Link>
+
                             <Nav.Link style={{ borderRight: "3px solid #0000001A", width: "200px", height: "40px", padding: "0 5px" }}
                                 href="/addProduct"
                                 className="nav-text d-flex align-items-center text-center justify-content-center">

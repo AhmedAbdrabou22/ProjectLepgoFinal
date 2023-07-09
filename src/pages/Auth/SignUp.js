@@ -6,6 +6,7 @@ import lock from "../../images/lock.svg"
 import gmail from "../../images/gmail.svg"
 import user from "../../images/user.svg"
 import phone from "../../images/phone.svg"
+import logo from "../../images/logoIt.png"
 // import Login from './Login';
 function SignUp() {
     const [show, setShow] = useState(false);
@@ -38,8 +39,8 @@ function SignUp() {
                 <Modal.Body>
                     <div>
                         <div className='mx-auto'>
-                            <img src={lepgoLogo} alt="Lepgo Logo" style={{ width: "150px", height: "150px", borderRadius: "50%" }} />
-                            <p style={{ color: "#424750", marginTop: "-50px" }}>مرحبا بك</p>
+                            <img src={logo} alt="Lepgo Logo" style={{ width: "150px", height: "150px", borderRadius: "50%" }} />
+                            <p style={{ color: "#424750" }}>مرحبا بك</p>
                             <p style={{ color: "#424750" }}>قم بالتسجيل الدخول للمتابعة</p>
                             <p style={{ color: "#424750" }}>ليس لديك حساب؟<span onClick={handleShowRegister} style={{ color: "#CB955B", cursor: "pointer" }}>اشترك دلوقتي</span></p>
                         </div>
@@ -66,7 +67,7 @@ function SignUp() {
                 <Modal.Body>
                     <div>
                         <div className='mx-auto'>
-                            <img src={lepgoLogo} alt="Lepgo Logo" style={{ width: "150px", height: "100px", borderRadius: "50%" }} />
+                            <img src={logo} alt="Lepgo Logo" style={{ width: "150px", borderRadius: "50%" }} />
                             <p style={{ color: "#08324B" }}>يرجي تعبئة المعلومات التالية</p>
                             <p style={{ color: "#424750" }}> لديك حساب؟<span onClick={handleShow} style={{ color: "#CB955B", cursor: "pointer" }}>تسجيل الدخول</span></p>
                         </div>
