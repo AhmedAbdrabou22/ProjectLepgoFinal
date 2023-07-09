@@ -13,7 +13,7 @@ import contac4 from "../../images/Group 370.svg"
 const Footer = () => {
     return (
         <div className="footer-background footer mt-3 pt-2">
-            <Container className="">
+            <Container className="" fluid={true}>
                 <div className='d-flex justify-content-between s  align-items-center'>
                     <div className='policy w-40'>
                         <div className='d-flex justify-content-center align-items-center s'>

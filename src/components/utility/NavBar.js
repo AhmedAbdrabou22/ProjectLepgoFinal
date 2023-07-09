@@ -18,9 +18,9 @@ import SignUp from '../../pages/Auth/SignUp';
 const NavBar = () => {
 
     return (
-        <div style={{position:"fixed" , zIndex:"25" , width:"100%"}}>
-            <Navbar expand="lg" className="navbar-top bgNavBar" style={{ padding: "20px", background:"white" }}>
-                <Container>
+        <div style={{ position: "fixed", zIndex: "25", width: "100%" }}>
+            <Navbar expand="lg" className="navbar-top bgNavBar" style={{ padding: "20px", background: "white" }}>
+                <Container fluid={true}>
                     <Navbar.Brand className='mx-2'>
                         <a href="/">
                             <img src={lepgoImage} className="logo" alt="sfvs" />
@@ -38,7 +38,7 @@ const NavBar = () => {
                     <Nav>
                         <Nav.Link>
                             <div className='formloaction'>
-                                <select style={{border:"none"}}>
+                                <select style={{ border: "none" }}>
                                     <option>التسليم الي المنصورة</option>
                                 </select>
                             </div>
@@ -63,9 +63,9 @@ const NavBar = () => {
 
                             <Nav.Link style={{ borderRight: "3px solid #0000001A", height: "40px", padding: "0 15px" }}
                                 href=""
-                                
+
                                 className="nav-text d-flex align-items-center justify-content-center">
-                                <p style={{ color: "black", marginTop: "15px" }}><SignUp/></p>
+                                <p style={{ color: "black", marginTop: "15px" }}><SignUp /></p>
                                 {/* <p><SignUp/></p> */}
                                 <img style={{ paddingRight: "8px" }} src={IconProfile} className="login-img" alt="sfvs" />
                             </Nav.Link>
@@ -91,7 +91,7 @@ const NavBar = () => {
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
-            <CategoryHeader/>
+            <CategoryHeader />
         </div>
     )
 }

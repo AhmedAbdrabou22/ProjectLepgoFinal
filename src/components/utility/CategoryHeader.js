@@ -11,9 +11,10 @@ const CategoryHeader = () => {
     const handler = () => { };
     return (
         <div>
-            <Navbar expand="lg" className='shadow' style={{ background: "white"}}>
-                <Container>
-                    {/* <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand> */}
+            <Navbar expand="lg" className='' style={{ background: "white" , alignItems:"center"}} 
+>
+                <Container  fluid={true}>
+                    <Nav className="mx-auto">
                     <Nav.Link className='mt-4'>
                         <UnopDropdown
                             onAppear={handler}
@@ -79,7 +80,7 @@ const CategoryHeader = () => {
                     </Nav.Link>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
-                        <Nav className="me-auto">
+                        <Nav className="mx-4">
                             <div className="cat-text-header">العروض المتاحة</div>
                             <div className="cat-text-header">أجهزة الكترونية</div>
                             <div className="cat-text-header">عقارات</div>
@@ -95,9 +96,10 @@ const CategoryHeader = () => {
                             <div className="cat-text-header">ادوات الصيد</div>
                             <div className="cat-text-header">ادوات الصيد</div>
                             <div className="cat-text-header">أراض زراعية</div>
-                            <div className="search-count-text d-flex "></div>
+                            <div className="cat-text-header">أراض زراعية</div>
                         </Nav>
                     </Navbar.Collapse>
+                    </Nav>
                 </Container>
             </Navbar>
         </div>

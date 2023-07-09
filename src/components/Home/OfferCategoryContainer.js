@@ -6,7 +6,7 @@ import rangeRover from "../../images/range-rover-1806931.png"
 import bicycle from "../../images/bicycles-737190@2x.png"
 const OfferCategoryContainer = () => {
     return (
-        <div className='mt-5'>
+        <Container className='mt-5'>
             <SubTitle title="العروض المتاحه" TitleMore ="جميع العروض" pathText = "/allOffers"/>
                 <Row className="d-flex  justify-content-between">
                     <OfferCard img={rangeRover}/>
@@ -16,7 +16,7 @@ const OfferCategoryContainer = () => {
                     <OfferCard img={rangeRover}/>
                     <OfferCard img={bicycle}/>
                 </Row>
-        </div>
+        </Container>
     )
 }
 

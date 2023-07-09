@@ -4,6 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import artBoard from "../../images/Artboard 4@4x@2x.png"
 import { Link } from 'react-router-dom';
+import {Container} from "react-bootstrap"
 
 const HomeCategory = () => {
     const settings = {
@@ -36,7 +37,7 @@ const HomeCategory = () => {
         ],
     };
     return (
-        <div className='mt-5 sliderCategory'>
+        <Container className='mt-5 sliderCategory'>
             <Slider {...settings} className='slider-item'>
                 <div>
                     <Link to="/categoryDetails">
@@ -101,7 +102,7 @@ const HomeCategory = () => {
                     <img src={artBoard} alt="5" />
                 </div>
             </Slider>
-        </div>
+        </Container>
     )
 }
 

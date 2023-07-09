@@ -14,7 +14,7 @@ const UploadCondition = () => {
         }
     }
     return (
-        <Col xs="6" sm="6" md="4" lg="2" className='w-50' style={{ position: "absolute", top: "26%", left: "0" }}>
+        <Col xs="1" sm="1" md="1" lg="1" className='w-50' style={{ position: "absolute", top: "26%", left: "0" }}>
             <div style={{ textAlign: "right"  }} className='addProduct'>
                 <div>
                     <label>تحديد نوع المنتج</label>

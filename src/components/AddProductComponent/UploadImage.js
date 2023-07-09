@@ -13,7 +13,7 @@ const UploadImage = () => {
         fileInput.click();
     };
     return (
-        <Col xs="6" sm="6" md="4" lg="2" className='w-50' style={{position:"fixed", top:"26%", right:"0"}}>
+        <Col xs="1" sm="1" md="1" lg="1" className='w-50' style={{position:"fixed", top:"26%", right:"0"}}>
             <div>
                 <div className="file-input">
                     <input type="file" id="file" accept="image/*" multiple={true} max={`4`} onChange={handleImageUpload} style={{ visibility: "hidden" }} />

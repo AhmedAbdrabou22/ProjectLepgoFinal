@@ -4,6 +4,7 @@ import RentedCard from '../Cards/RentedCard'
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import {Container} from "react-bootstrap"
 const MostRented = () => {
     const settings = {
         dots: false,
@@ -35,7 +36,7 @@ const MostRented = () => {
         ],
     };
     return (
-        <div className='retendDiv mt-5'>
+        <Container className='retendDiv mt-5'>
             <SubTitle title="الاكثر ايجارا" />
             <div className='sliderRented'>
                 <Slider {...settings} className='slider-item-retend'>
@@ -65,7 +66,7 @@ const MostRented = () => {
                     </div>
                 </Slider>
             </div>
-        </div>
+        </Container>
     )
 }
 

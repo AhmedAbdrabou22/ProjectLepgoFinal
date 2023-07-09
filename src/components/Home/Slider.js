@@ -4,6 +4,7 @@ import sliderimg from "../../images/slider1.png";
 import slider4 from "../../images/slider4.png";
 import prod3 from "../../images/prod3.png";
 import prod4 from "../../images/prod4.png";
+import {Container} from "react-bootstrap"
 const Slider = () => {
     const [index, setIndex] = useState(0);
 
@@ -11,7 +12,7 @@ const Slider = () => {
         setIndex(selectedIndex);
     };
     return (
-        <div>
+        <Container>
             <Carousel activeIndex={index} onSelect={handleSelect}>
                 <Carousel.Item className="slider-background" style={{ background: "#CBBCA4" }} interval={2000}>
                     <div className="d-flex flex-row justify-content-center align-items-center">
@@ -72,7 +73,7 @@ const Slider = () => {
                     </div>
                 </Carousel.Item>
             </Carousel>
-        </div>
+        </Container>
     )
 }
 
