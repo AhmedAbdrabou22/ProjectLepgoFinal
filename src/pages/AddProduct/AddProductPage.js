@@ -6,7 +6,7 @@ const AddProductPage = () => {
     return (
         <Container style={{ minHeight: "1500px", paddingTop: "180px" }}>
             <div className='d-flex w-100 m-auto' style={{ flexDirection: "column" }}>
-                <div className='w-50 m-auto text-center'>
+                <div className='m-auto text-center r' style={{padding:"20px"}}>
                     <UploadImage />
                     <UploadCondition />
                 </div>

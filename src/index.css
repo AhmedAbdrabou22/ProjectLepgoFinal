@@ -479,4 +479,13 @@ textarea{
     display: inline-block;
     margin: 10px;
   }
+  .f{
+    flex-direction: column;
+  }
+  .s{
+    width:350px !important;
+  }
+  .r{
+    width:100%;
+  }
 }

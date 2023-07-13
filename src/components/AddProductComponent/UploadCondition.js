@@ -19,33 +19,33 @@ const UploadCondition = () => {
                 <div>
                     <label>تحديد نوع المنتج</label>
                     <br />
-                    <input type='text' className='w-75 mt-2' placeholder='........اكتب هنا' />
+                    <input type='text' className='w-100 mt-2' placeholder='........اكتب هنا' />
                 </div>
                 <div className='mt-4'>
                     <label>إسم المنتج</label>
                     <br />
-                    <input type='text' className='w-75 mt-2' placeholder='........اكتب هنا' />
+                    <input type='text' className='w-100 mt-2' placeholder='........اكتب هنا' />
                 </div>
-                <div className='mt-4 w-75 d-flex justify-content-between align-items-center'>
-                    <div>
+                <div className='mt-4 d-flex justify-content-between  align-items-center'>
+                    <div className='w-50'>
                         <label>سعر الحجز</label>
                         <br />
-                        <input type='text' className='w-100 mt-2' placeholder="السعر" />
+                        <input type='text' className='w-75 mt-2' placeholder="السعر" />
                     </div>
-                    <div>
+                    <div  className='w-50'>
                         <label>خصم(إختياري)</label>
                         <br />
-                        <input type='text' className='w-100 mt-2' placeholder="نسبة الخصم" />
+                        <input type='text' className='w-75 mt-2' placeholder="نسبة الخصم" />
                     </div>
                 </div>
-                <div className='mt-4 w-75 d-flex justify-content-between align-items-center'>
-                    <div>
+                <div className='mt-4 d-flex align-items-center'>
+                    <div  className='w-50'>
                         <label>  مدة الحجز </label>
                         <br />
                         <input type='text' className='w-100 mt-2' placeholder="السعر" />
                     </div>
 
-                    <div className='time'>
+                    <div className='time w-50'  style={{marginRight:"50px"}}>
                         <div className='d-flex align-items-center'>
                             <div className='plustime' onClick={increaseTime}>
                                 <img src={plus} alt="plus" />
@@ -58,18 +58,18 @@ const UploadCondition = () => {
                     </div>
                 </div>
 
-                <div className='mt-4 w-75 d-flex justify-content-between align-items-center'>
-                    <div>
+                <div className='mt-4 d-flex  align-items-center'>
+                    <div  className='w-50'>
                         <label>المحافظه</label>
                         <br />
-                        <input type='text' className='w-100 mt-2' placeholder="المحافظة" />
+                        <input type='text' className='w-75 mt-2' placeholder="المحافظة" />
                     </div>
-                    <div>
+                    <div  className='w-50'>
                         <label>المحافظه</label>
                         <br />
-                        <input type='text' className='w-100 mt-2' placeholder="المحافظة" />
+                        <input type='text' className='w-75 mt-2' placeholder="المحافظة" />
                     </div>
-                    <div className='locationTime'>
+                    <div className='locationTime '>
                         <img src={LocationSvg} alt="Location"/>
                     </div>
                 </div>
@@ -84,7 +84,7 @@ const UploadCondition = () => {
                     <br/>
                     <textarea className='mt-2'  style={{resize: 'none'}} cols={80} rows={10}></textarea>
                 </div>
-                <div className='text-center  w-75  mt-3'>
+                <div className='text-center    mt-3'>
                     <Button style={{backgroundColor:"#CB955B" , outline:"none"}} className='w-50'>أضف الان</Button>
                 </div>
             </div>
