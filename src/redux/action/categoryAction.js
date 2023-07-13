@@ -11,3 +11,5 @@ const getAllCategory = () => {
         }
     }
 }
+
+export {getAllCategory}
