@@ -9,10 +9,10 @@ import { faTruck } from '@fortawesome/free-solid-svg-icons';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import '@fortawesome/fontawesome-free/css/all.css'
-const ProductCard = () => {
+const ProductCard = ({ title, desc, img }) => {
     const myClass = 'productCard';
     const [isHovered, SetHovered] = useState(false);
-    
+
     const [isClicked, SetClicked] = useState(false);
 
     const handleMouseEnter = () => {
@@ -24,7 +24,7 @@ const ProductCard = () => {
     };
     const shadowClass = isHovered ? "shadowIt" : "";
 
-    const turnOn = (event)=>{
+    const turnOn = (event) => {
         event.preventDefault();
         SetClicked(!isClicked)
     }
@@ -44,11 +44,16 @@ const ProductCard = () => {
                             <FontAwesomeIcon icon={faHeart} onClick={turnOn} className={`${redClass}`} style={{ color: "white" }} />
                         </div>
                     </OverlayTrigger>
-                    <Card.Img variant="top" src={bmw} />
+                    <Card.Img variant="top" src={img} style={{ width: "300px", height: "250px", background: "red" }} />
                     <Card.Body style={{ textAlign: "right" }}>
-                        <Card.Text style={{ textDecoration: "none" }}>إم دبليو</Card.Text>
-                        <Card.Text style={{ textAlign: "right", textDecoration: "none", fontWeight: "500" }}>
-                            <p>أكثر السيارات رفاهية وفخامةوجود حيث أنها تمتلك وجه أماميه</p>
+                        <Card.Text>{title}
+                        </Card.Text>
+                        <Card.Text className='textDescription'  style={{ textAlign: "right", textDecoration: "none", fontWeight: "500" }}>
+                            <p>
+                                {desc}
+                            </p>
+                        </Card.Text>
+                        <Card.Text>
                             <div style={{ fontWeight: "700" }}>
                                 <span style={{ color: "#08324B" }}> 500  جنيه</span>
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
