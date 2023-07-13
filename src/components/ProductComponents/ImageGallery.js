@@ -25,8 +25,8 @@ const IMageDisplay = () => {
     ];
     return (
         <div style={{ minHeight: "780px" }}>
-            <div  className="product-gallary-card">
-                <ImageGallery items={images} />
+            <div  className="product-gallary-card" style={{maxWidth:"100%" , objectFit:"cover" , maxHeight:"350px"}}>
+                <ImageGallery items={images} style={{maxHeight:"50px",objectFit:"cover"}} />
             </div>
         </div>
     )

@@ -14,7 +14,7 @@ const UploadCondition = () => {
         }
     }
     return (
-        <Col xs="1" sm="1" md="1" lg="1" className='w-50' style={{ position: "absolute", top: "26%", left: "0" }}>
+        <div>
             <div style={{ textAlign: "right"  }} className='addProduct'>
                 <div>
                     <label>تحديد نوع المنتج</label>
@@ -88,7 +88,7 @@ const UploadCondition = () => {
                     <Button style={{backgroundColor:"#CB955B" , outline:"none"}} className='w-50'>أضف الان</Button>
                 </div>
             </div>
-        </Col>
+        </div>
     )
 }
 
