@@ -2,27 +2,33 @@ import React, { useEffect, useState } from 'react'
 import ProductCard from '../Cards/ProductCard'
 import { Container, Row } from 'react-bootstrap'
 import SubTitle from '../utility/subTitle'
-import baseUrl from "../../Api/baseUrl.js"
+import { useDispatch, useSelector } from "react-redux"
+import { getAllProducts } from '../../redux/action/ProductAction'
+import Spinner from 'react-bootstrap/Spinner';
 const ProductCardContainer = () => {
-    const [data , setData] = useState([]);
-    const getAllData =async () =>{
-        const res = await baseUrl.get("/api/v1/products")
-        setData(res.data.data)
-    }
-    useEffect(() =>{
-        getAllData();
-    },[])
+
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(getAllProducts())
+    }, [])
+    const Products = useSelector(state => state.allProducts.product)
+    const loading = useSelector(state => state.allProducts.loading)
+
+
     return (
         <div className='ProductContainer'>
             <Container>
                 <SubTitle title="منتجات قد تعجبك" />
                 <Row className='d-flex justify-content-between align-items-center'>
-                    {
-                        data ? (
-                            data.map((item)=>{
-                                return <ProductCard title={item.title} desc={item.desc} img={item.image}/>
+                {
+                        Products.data ? (
+                            Products.data.map((product) => {
+                                return (<ProductCard title={product.title} id={product.id} img={product.image} rates={product.total_rate} />)
                             })
-                        ):(<h1>No Data</h1>)
+                        ) : (<div className="loading" id="loading">
+                        <h2>Loading</h2>
+                    </div>)
                     }
                 </Row>
             </Container>

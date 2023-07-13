@@ -156,8 +156,9 @@ code {
 }
 
 .slider-item div img {
-  background-color: #F8F8F8;
-  width: 60%;
+  background-color: #F2F2F2;
+  width: 70%;
+  height: 70px;
   border-radius: 50%;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
@@ -529,5 +530,27 @@ textarea {
 
   .r {
     width: 100%;
+  }
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading h2 {
+  font-size: 36px;
+  color: #333;
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }

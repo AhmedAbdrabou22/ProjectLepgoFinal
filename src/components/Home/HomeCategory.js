@@ -1,12 +1,23 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import artBoard from "../../images/Artboard 4@4x@2x.png"
 import { Link } from 'react-router-dom';
-import {Container} from "react-bootstrap"
+import { Container } from "react-bootstrap"
+import { useDispatch, useSelector } from "react-redux"
+import { getAllCategory } from '../../redux/action/categoryAction.js'
+import Spinner from 'react-bootstrap/Spinner';
 
 const HomeCategory = () => {
+
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(getAllCategory());
+    }, [])
+
+    const categories = useSelector(state => state.allCategory.category)
+    console.log(categories.data);
+
     const settings = {
         dots: false,
         infinite: true,
@@ -17,7 +28,7 @@ const HomeCategory = () => {
         autoplaySpeed: 2000,
         cssEase: "linear",
         centerMode: false,
-        centerPadding: "10px",
+        centerPadding: "0px",
         responsive: [
             {
                 breakpoint: 768,
@@ -39,68 +50,20 @@ const HomeCategory = () => {
     return (
         <Container className='mt-5 sliderCategory'>
             <Slider {...settings} className='slider-item'>
-                <div>
-                    <Link to="/categoryDetails">
-                        <img src={artBoard} alt="1" />
-                    </Link>
-                </div>
-                <div>
-                    <img src={artBoard} alt="2" />
-                </div>
-                <div>
-                    <img src={artBoard} alt="3" />
-                </div>
-                <div>
-                    <img src={artBoard} alt="4" />
-                </div>
-                <div>
-                    <img src={artBoard} alt="5" />
-                </div>
-                <div>
-                    <img src={artBoard} alt="1" />
-                </div>
-                <div>
-                    <img src={artBoard} alt="2" />
-                </div>
-                <div>
-                    <img src={artBoard} alt="3" />
-                </div>
-                <div>
-                    <img src={artBoard} alt="4" />
-                </div>
-                <div>
-                    <img src={artBoard} alt="5" />
-                </div>
-                <div>
-                    <img src={artBoard} alt="1" />
-                </div>
-                <div>
-                    <img src={artBoard} alt="2" />
-                </div>
-                <div>
-                    <img src={artBoard} alt="3" />
-                </div>
-                <div>
-                    <img src={artBoard} alt="4" />
-                </div>
-                <div>
-                    <img src={artBoard} alt="5" />
-                </div>
-                <div>
-                    <img src={artBoard} alt="1" />
-                </div>
-                <div>
-                    <img src={artBoard} alt="2" />
-                </div>
-                <div>
-                    <img src={artBoard} alt="3" />
-                </div>
-                <div>
-                    <img src={artBoard} alt="4" />
-                </div>
-                <div>
-                    <img src={artBoard} alt="5" />
-                </div>
+                {
+                    categories.data ? (
+                        categories.data.map((item) => {
+                            return (<div>
+                                <Link to="/categoryDetails">
+                                    <img src={item.image} alt="1" />
+                                </Link>
+                                <p style={{ marginRight: "15px" }}>{item.title_ar}</p>
+                            </div>)
+                        })
+                    ) : (<div className="loading" id="loading">
+                        <h2>Loading</h2>
+                    </div>)
+                }
             </Slider>
         </Container>
     )
