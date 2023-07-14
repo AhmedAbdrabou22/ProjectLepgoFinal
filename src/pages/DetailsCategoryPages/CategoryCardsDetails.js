@@ -28,9 +28,7 @@ const CategoryCardsDetails = () => {
                             Products.data.map((product) => {
                                 return (<ProductCard title={product.title} id={product.id} img={product.image} rates={product.total_rate} />)
                             })
-                        ) : (<div className="loading" id="loading">
-                        <h2>Loading</h2>
-                    </div>)
+                        ) : (<Spinner/>)
                     }
                 </Row>
             </Container>

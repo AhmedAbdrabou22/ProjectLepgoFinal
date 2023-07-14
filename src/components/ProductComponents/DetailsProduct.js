@@ -1,9 +1,9 @@
 import React from 'react'
 import { Col, Row } from 'react-bootstrap'
 
-const DetailsProduct = () => {
+const DetailsProduct = ({title , desc , conditions , place}) => {
     return (
-        <div style={{ textAlign: "right" }} className='mx-5'>
+        <div style={{ textAlign: "right"}} className='mx-5 detailsProduct'>
             <div className='d-flex justify-content-between align-items-center'>
                 <div className='headText'>
                     التفاصيل
@@ -14,18 +14,18 @@ const DetailsProduct = () => {
             </div>
 
             <div className='mt-5'>
-                <p style={{ color: "#9399A3" }}>فيلا الساحل الشمالي</p>
-                <p style={{ color: "#08324B", fontSize: "25px" }}>فيلا 2طابق مكونه من 4غرف نوم و1 ريسبشن كبير ومطبخ كبيرو لها حمام سباح والفيلا مجهزة باحدث الأجهزة والمفروشات العصرية</p>
+                <p style={{ color: "#9399A3" }}>{title}</p>
+                <p style={{ color: "#08324B", fontSize: "25px" }}>{desc}</p>
             </div>
             <div className='location mt-5'>
                 <p style={{ color: "#424750", display: "inline" }}>المكان : </p>
-                <p style={{ color: "#9399A3", display: "inline" }}>الساحل الشمالي/قطعة اولي</p>
+                <p style={{ color: "#9399A3", display: "inline" }}>{place}</p>
             </div>
             <div className='mt-4'>
                 <p style={{ color: "#424750" }}>شروط الحجز</p>
                 <div className='conditionBook'>
                     <p>
-                        الهوية الشخصية: عادةً ما يُطلب من المستأجرين تقديم صورة من البطاقة الشخصية أو جواز السفر-- للتحقق من هويتهم الراتب والدخل: قد يُطلب من المستأجرين تقديم إثبات عن مصدر دخلهم الشهري، مثل كشف حساب-- بنكي أو شهادة راتب أو وثيقة تؤكد قدرتهم على تحمل تكاليف الإيجار دفعة تأمين: قد يُطلب من المستأجر دفع مبلغ تأمين يعادل شهر أو شهرين من قيمة الإيجار، ويعود-- هذا المبلغ إليه بعد انتهاء فترة العقد شريطة عدم وجود أضرار أو تلفيات في الشقة مدة الإيجار: تحدد في العقد مدة الإيجار المتفق عليها بين المالك والمستأجر. قد تكون مدة سنة واحدة-- أو تجديدها تلقائيًا لفترة محددة، وقد يتم تحديد عقد سنوي أو شهري الأضرار والتلفيات: عادةً ما يتم تحميل المستأجر بمسؤولية صيانة الشقة واستعادتها في حالتها الأصلية-- عند انتهاء فترة الإيجار، باستثناء التلفيات الناتجة عن الاستخدام العادي قواعد المبنى: قد يتم توضيح بعض القواعد المنزلية التي يجب على المستأجر الالتزام بها، مثل قواعد-- الصمت أو الحظر على تربية الحيوانات الأليفة أو التدخين داخل الشقة
+                       {conditions}
                     </p>
                 </div>
             </div>

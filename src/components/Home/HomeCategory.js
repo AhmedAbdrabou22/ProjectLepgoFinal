@@ -16,7 +16,6 @@ const HomeCategory = () => {
     }, [])
 
     const categories = useSelector(state => state.allCategory.category)
-    console.log(categories.data);
 
     const settings = {
         dots: false,
@@ -52,7 +51,7 @@ const HomeCategory = () => {
             <Slider {...settings} className='slider-item'>
                 {
                     categories.data ? (
-                        categories.data.map((item) => {
+                        categories.data.map((item , index) => {
                             return (<div>
                                 <Link to="/categoryDetails">
                                     <img src={item.image} alt="1" />
@@ -60,9 +59,7 @@ const HomeCategory = () => {
                                 <p style={{ marginRight: "15px" }}>{item.title_ar}</p>
                             </div>)
                         })
-                    ) : (<div className="loading" id="loading">
-                        <h2>Loading</h2>
-                    </div>)
+                    ) : (<Spinner/>)
                 }
             </Slider>
         </Container>

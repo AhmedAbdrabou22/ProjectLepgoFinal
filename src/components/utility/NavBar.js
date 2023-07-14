@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 // import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 // import Form from 'react-bootstrap/Form';
@@ -6,7 +6,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import CategoryHeader from './CategoryHeader';
 // import NavDropdown from 'react-bootstrap/NavDropdown';
-import { FormControl } from 'react-bootstrap'
+import { FormControl, NavDropdown } from 'react-bootstrap'
 import lepgoImage from "../../images/LEPGO.svg"
 import IconProduct from "../../images/add_to_photos.svg"
 import IconProfile from "../../images/674aaa8a5939fb3fb007e77121fb1581.svg"
@@ -14,8 +14,23 @@ import IconChat from "../../images/chat.svg"
 import IconShopping from "../../images/bdcb0c3f6d67999723518ef3c2ad5494.svg"
 import IconFavourite from "../../images/6f0a18fad030e38fc7194c6a4c334793.svg"
 import notifyLepgo from "../../images/notification-new.svg"
-import SignUp from '../../pages/Auth/SignUp';
 const NavBar = () => {
+
+    // const [userData, setUserData] = useState('')
+    let user = ""
+    if (localStorage.getItem('user') != null){
+        user = JSON.parse(localStorage.getItem('user'))
+    }else{
+        user = ""
+    }
+
+    const logOut = ()=>{
+        localStorage.removeItem('user')
+        user="";
+        window.location.href="/"
+    }
+
+        // console.log(user.data.user.name);
 
     return (
         <div style={{ position: "fixed", zIndex: "25", width: "100%" }}>
@@ -54,41 +69,52 @@ const NavBar = () => {
                             aria-label="Search"
                         />
                         <Nav>
-                        <Nav.Link style={{ borderRight: "3px solid #0000001A", width: "100px", height: "40px", padding: "0 5px" }}
+                            <Nav.Link  style={{ borderRight: "3px solid #0000001A", width: "100px", margin:"auto", height: "40px", padding: "0 5px" }}
                                 href="/addProduct"
                                 className="nav-text d-flex align-items-center text-center justify-content-center">
                                 <p style={{ color: "black", marginTop: "15px" }}>en</p>
-                                {/* <img style={{ paddingRight: "8px" }} src={IconProduct} className="login-img" alt="sfvs" /> */}
                             </Nav.Link>
 
-                            <Nav.Link style={{ borderRight: "3px solid #0000001A", width: "200px", height: "40px", padding: "0 5px" }}
+                            <Nav.Link    style={{ borderRight: "3px solid #0000001A", width: "200px", margin:"auto" , height: "40px", padding: "0 5px" }}
                                 href="/addProduct"
                                 className="nav-text d-flex align-items-center text-center justify-content-center">
                                 <p style={{ color: "black", marginTop: "15px" }}>اضافة منتج للحجز</p>
                                 <img style={{ paddingRight: "8px" }} src={IconProduct} className="login-img" alt="sfvs" />
                             </Nav.Link>
 
-                            <Nav.Link style={{ borderRight: "3px solid #0000001A", height: "40px", padding: "0 15px" }}
-                                href=""
+                            {
+                                user !== "" ? (
+                                    <NavDropdown    title={user.data.user.name} style={{ borderRight: "3px solid #0000001A", padding: "0 5px" }} id="basic-nav-dropdown">
+                                        <NavDropdown.Item href="/user/profile">الصفحة الشخصيه</NavDropdown.Item>
+                                        <NavDropdown.Divider />
+                                        <NavDropdown.Item href="/" onClick={logOut}>
+                                            تسجيل الخروج
+                                        </NavDropdown.Item>
+                                    </NavDropdown>
+                                ) : (<Nav.Link    style={{ borderRight: "3px solid #0000001A", height: "40px", padding: "0 15px" }}
+                                    href="/login"
 
-                                className="nav-text d-flex align-items-center justify-content-center">
-                                <p style={{ color: "black", marginTop: "15px" }}><SignUp /></p>
-                                {/* <p><SignUp/></p> */}
-                                <img style={{ paddingRight: "8px" }} src={IconProfile} className="login-img" alt="sfvs" />
-                            </Nav.Link>
-                            <Nav.Link style={{ borderRight: "3px solid #0000001A", height: "40px", padding: "0 15px" }}
+                                    className="nav-text d-flex align-items-center justify-content-center">
+                                    <p style={{ color: "black", marginTop: "15px" }}>
+                                        حسابي
+                                    </p>
+                                    <img style={{ paddingRight: "8px" }} src={IconProfile} className="login-img" alt="sfvs" />
+                                </Nav.Link>)
+                            }
+
+                            <Nav.Link    style={{ borderRight: "3px solid #0000001A", height: "40px", padding: "0 15px" }}
                                 href=""
                                 className="nav-text d-flex align-items-center justify-content-center">
                                 <p style={{ color: "black", marginTop: "15px" }}>الدردشه</p>
                                 <img style={{ paddingRight: "8px" }} src={IconChat} className="login-img" alt="sfvs" />
                             </Nav.Link>
-                            <Nav.Link style={{ borderRight: "3px solid #0000001A", height: "40px", padding: "0 15px" }}
+                            <Nav.Link   style={{ borderRight: "3px solid #0000001A", height: "40px", padding: "0 15px" }}
                                 href="/favourite"
                                 className="nav-text d-flex align-items-center justify-content-center">
                                 <p style={{ color: "black", marginTop: "15px" }}>المفضله</p>
                                 <img style={{ paddingRight: "8px" }} src={IconFavourite} className="login-img" alt="sfvs" />
                             </Nav.Link>
-                            <Nav.Link style={{ borderRight: "3px solid #0000001A", height: "40px", padding: "0 15px" }}
+                            <Nav.Link  style={{ borderRight: "3px solid #0000001A", height: "40px", padding: "0 15px" }}
                                 href="/shoping"
                                 className="nav-text d-flex align-items-center justify-content-center">
                                 <p style={{ color: "black", marginTop: "15px" }}>العربه</p>

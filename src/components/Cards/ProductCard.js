@@ -9,7 +9,8 @@ import { faTruck } from '@fortawesome/free-solid-svg-icons';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import '@fortawesome/fontawesome-free/css/all.css'
-const ProductCard = ({ title, desc, img }) => {
+import FavouritContainer from '../FavouriteComponent/FavouritContainer';
+const ProductCard = ({ title, desc, img , id }) => {
     const myClass = 'productCard';
     const [isHovered, SetHovered] = useState(false);
 
@@ -32,7 +33,7 @@ const ProductCard = ({ title, desc, img }) => {
     const redClass = isClicked ? "havRed" : "";
     return (
         <Col xs="12" sm="12" md="6" lg="3" className="my-4 d-flex justify-content-around ">
-            <Link to="/product/:id" style={{ textDecoration: "none" }}>
+            <Link to={`/product/${id}`} style={{ textDecoration: "none" }}>
                 <Card className={`${shadowClass} ${myClass}`} onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave} style={{ background: "#F9F9FA", borderRadius: "20px", transition: "0.3s", padding: "8px" }}>
                     <OverlayTrigger

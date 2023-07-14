@@ -486,7 +486,90 @@ textarea {
   overflow: hidden;
 }
 
-/** */
+/**Style Regioster Component */
+.RegisterComponent , .workAt{
+  width:25% !important;
+}
+/**Style Regioster Component */
+/** Stly Personal Page*/
+.admin-side-text:hover {
+  background-color: #272727;
+  color: white;
+  font-size: 14px;
+}
+.admin-content-text {
+  color: #555550;
+  font-size: 21px;
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 28px;
+  text-align: right;
+}
+.item-delete-edit {
+  color: black;
+  font-size: 16px;
+  letter-spacing: 0;
+  text-align: center;
+  cursor: pointer;
+}
+.text-form {
+  color: #979797;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 20px;
+  text-align: right;
+}
+.input-form {
+  height: 37px;
+  width: 100%;
+  border: 1px solid #979797;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+.input-form-area {
+  width: 100%;
+  border: 1px solid #979797;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+.select {
+  box-sizing: border-box;
+  height: 40px;
+  color: #979797;
+  width: 100%;
+  border: 1px solid #979797;
+  border-radius: 8px;
+}
+.btn-save {
+  border: none;
+  color: white;
+  background-color: #CB955B;
+  height: 46px;
+  width: 150px;
+  border-radius: 9px;
+  -webkit-border-radius: 9px;
+  -moz-border-radius: 9px;
+  -ms-border-radius: 9px;
+  -o-border-radius: 9px;
+}
+.btn-save:hover {
+  background-color: #08324B;
+  color:white;
+}
+.btn-a {
+  border: none;
+  color: white;
+  height: 45px;
+  border-radius: 9px;
+  background-color: #272727;
+}
+.btn-a:hover {
+  color: rgb(164, 164, 164);
+}
+.updateWidth{
+  width:100px !important;
+}
+/** Stly Personal Page*/
 @media(max-width:1024px) {
   body {
     overflow-x: hidden;
@@ -530,6 +613,15 @@ textarea {
 
   .r {
     width: 100%;
+  }
+  .RegisterComponent , .workAt{
+    width:100% !important;
+  }
+  .nav-text{
+    border-right: none !important;
+  }
+  .detailsProduct{
+    padding-top:140px
   }
 }
 
