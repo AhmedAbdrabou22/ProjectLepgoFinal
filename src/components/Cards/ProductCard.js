@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Card, Col } from 'react-bootstrap'
-import bmw from "../../images/Group 598.png"
-import heart from "../../images/heart.svg"
+// import bmw from "../../images/Group 598.png"
+// import heart from "../../images/heart.svg"
 import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { Link } from "react-router-dom"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -9,7 +9,7 @@ import { faTruck } from '@fortawesome/free-solid-svg-icons';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import '@fortawesome/fontawesome-free/css/all.css'
-import FavouritContainer from '../FavouriteComponent/FavouritContainer';
+// import FavouritContainer from '../FavouriteComponent/FavouritContainer';
 const ProductCard = ({ title, desc, img , id , rates , duration , amount }) => {
     const myClass = 'productCard';
     const [isHovered, SetHovered] = useState(false);
