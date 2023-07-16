@@ -6,6 +6,8 @@ import rangeRover from "../../images/range-rover-1806931.png"
 import bicycle from "../../images/bicycles-737190@2x.png"
 const OfferCategoryContainer = () => {
 
+    
+
     return (
         <Container className='mt-5'>
             <SubTitle title="العروض المتاحه" TitleMore ="جميع العروض" pathText = "/allOffers"/>

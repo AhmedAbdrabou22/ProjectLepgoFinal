@@ -10,7 +10,7 @@ import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import '@fortawesome/fontawesome-free/css/all.css'
 import FavouritContainer from '../FavouriteComponent/FavouritContainer';
-const ProductCard = ({ title, desc, img , id }) => {
+const ProductCard = ({ title, desc, img , id , rates , duration , amount }) => {
     const myClass = 'productCard';
     const [isHovered, SetHovered] = useState(false);
 
@@ -56,9 +56,9 @@ const ProductCard = ({ title, desc, img , id }) => {
                         </Card.Text>
                         <Card.Text>
                             <div style={{ fontWeight: "700" }}>
-                                <span style={{ color: "#08324B" }}> 500  جنيه</span>
+                                <span style={{ color: "#08324B" }}> {amount}  جنيه</span>
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <span style={{ color: "#CB955B" }}>لمدة 1 يوم </span>
+                                <span style={{ color: "#CB955B" }}>لمدة {duration} يوم </span>
                             </div>
                             <div className='d-flex justify-content-between align-items-center my-2'>
                                 <div style={{ display: "flex", background: "#CB955B", color: "#08324B", padding: "5px 15px", borderRadius: "10px" }}>
@@ -66,7 +66,7 @@ const ProductCard = ({ title, desc, img , id }) => {
                                 </div>
                                 <div>
                                     <span style={{ color: "#FFA841" }}><FontAwesomeIcon icon={faStar} />
-                                        4.5</span>
+                                        {rates}</span>
                                 </div>
                             </div>
                         </Card.Text>

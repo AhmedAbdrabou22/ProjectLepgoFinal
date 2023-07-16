@@ -46,7 +46,7 @@ const ProductCardContainer = () => {
                     {
                         Products.data ? (
                             Products.data.map((product) => {
-                                return (<ProductCard title={product.title} id={product.id} img={product.image} rates={product.total_rate} />)
+                                return (<ProductCard title={product.title} id={product.id} duration={product.duration} img={product.image} rates={product.total_rate} amount={product.amount}/>)
                             })
                         ) : (<Spinner />)
                     }
