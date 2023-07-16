@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import {createNewUsers} from '../../redux/action/AuthAction';
 import { useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
+import {VerifyEmailCode} from '../../redux/action/AuthAction';
 
 const Register = () => {
     const dispatch = useDispatch();
@@ -64,16 +65,21 @@ const Register = () => {
             email,
             password,
             phone_number: phone,
-            address
+            address,
         }))
+        // await dispatch(VerifyEmailCode())
         setLoading(false)
     }
-    const data = useSelector(state => state.UserReducer.createUSer)
+    const data = useSelector(state => state.UserReducer.createUSer);
+    // const getVerify = useSelector(state => state.UserReducer.verifyemail)
     useEffect(() => {
         if (loading === false) {
             if (data) {
                 if(data.data.token){
                     localStorage.setItem('token', data.data.token);
+                    localStorage.setItem('user', JSON.stringify(data));
+                    console.log(data);
+                    // console.log(getVerify);
                     swal("تم التسجيل ينجاح")
                     setName('');
                     setEmail('');
@@ -81,7 +87,7 @@ const Register = () => {
                     setPassword('');
                     setAddress('');
                     setTimeout(()=>{
-                        navigate('/login')
+                        window.location.href='/';
                     },500)
                 }
             }else{

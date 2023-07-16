@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import {LoginUser} from '../../redux/action/AuthAction';
+import { LoginUser, VerifyEmailCode } from '../../redux/action/AuthAction';
 import { useNavigate } from 'react-router-dom';
+
 import swal from 'sweetalert';
 const LoginHook = () => {
 
@@ -19,7 +20,7 @@ const LoginHook = () => {
         setPassword(event.target.value)
     }
 
-    const onSubmit =async ()=>{
+    const onSubmit = async () => {
         setLoading(true)
         await dispatch(LoginUser({
             email,
@@ -30,18 +31,18 @@ const LoginHook = () => {
     const data = useSelector(state => state.UserReducer.LoginUser)
     useEffect(() => {
         if (loading === false) {
-            if(data){
-                if(data.status === 201){
+            if (data) {
+                if (data.status === 201) {
                     console.log(data);
-                    localStorage.setItem('token' , data.data.token) 
-                    localStorage.setItem('user', JSON.stringify(data))
-                    swal("Success")
-                    setTimeout(()=>{
-                        window.location.href="/";
-                    },1500)
+                    localStorage.setItem('token', data.data.token)
+                    localStorage.setItem('user', JSON.stringify(data));
+                    swal("Success");
+                    setTimeout(() => {
+                        window.location.href = "/";
+                    }, 1500)
                 }
                 setLoading(true)
-            }else{
+            } else {
                 console.log("Noooo");
                 localStorage.removeItem('token')
                 localStorage.removeItem('user')
@@ -50,7 +51,7 @@ const LoginHook = () => {
         }
     }, [loading])
 
-    return [ email ,password, onChangeEmail , onChangePassword , onSubmit]
+    return [email, password, onChangeEmail, onChangePassword, onSubmit]
 }
 
 export default LoginHook;

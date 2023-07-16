@@ -487,9 +487,10 @@ textarea {
 }
 
 /**Style Regioster Component */
-.RegisterComponent , .workAt{
-  width:25% !important;
+.RegisterComponent, .workAt {
+  width: 25% !important;
 }
+
 /**Style Regioster Component */
 /** Stly Personal Page*/
 .admin-side-text:hover {
@@ -497,6 +498,7 @@ textarea {
   color: white;
   font-size: 14px;
 }
+
 .admin-content-text {
   color: #555550;
   font-size: 21px;
@@ -505,6 +507,7 @@ textarea {
   line-height: 28px;
   text-align: right;
 }
+
 .item-delete-edit {
   color: black;
   font-size: 16px;
@@ -512,6 +515,7 @@ textarea {
   text-align: center;
   cursor: pointer;
 }
+
 .text-form {
   color: #979797;
   font-size: 16px;
@@ -519,6 +523,7 @@ textarea {
   line-height: 20px;
   text-align: right;
 }
+
 .input-form {
   height: 37px;
   width: 100%;
@@ -526,12 +531,14 @@ textarea {
   border-radius: 8px;
   background-color: #f9f9f9;
 }
+
 .input-form-area {
   width: 100%;
   border: 1px solid #979797;
   border-radius: 8px;
   background-color: #f9f9f9;
 }
+
 .select {
   box-sizing: border-box;
   height: 40px;
@@ -540,6 +547,7 @@ textarea {
   border: 1px solid #979797;
   border-radius: 8px;
 }
+
 .btn-save {
   border: none;
   color: white;
@@ -552,10 +560,12 @@ textarea {
   -ms-border-radius: 9px;
   -o-border-radius: 9px;
 }
+
 .btn-save:hover {
   background-color: #08324B;
-  color:white;
+  color: white;
 }
+
 .btn-a {
   border: none;
   color: white;
@@ -563,12 +573,15 @@ textarea {
   border-radius: 9px;
   background-color: #272727;
 }
+
 .btn-a:hover {
   color: rgb(164, 164, 164);
 }
-.updateWidth{
-  width:100px !important;
+
+.updateWidth {
+  width: 100px !important;
 }
+
 /** Stly Personal Page*/
 @media(max-width:1024px) {
   body {
@@ -614,14 +627,17 @@ textarea {
   .r {
     width: 100%;
   }
-  .RegisterComponent , .workAt{
-    width:100% !important;
+
+  .RegisterComponent, .workAt {
+    width: 100% !important;
   }
-  .nav-text{
+
+  .nav-text {
     border-right: none !important;
   }
-  .detailsProduct{
-    padding-top:140px
+
+  .detailsProduct {
+    padding-top: 140px
   }
 }
 
@@ -642,7 +658,57 @@ textarea {
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
 }
+
+
+/*Style 404 not Found */
+
+/*======================
+    404 page
+=======================*/
+
+
+.page_404 {
+  padding: 40px 0;
+  background: #fff;
+  font-family: 'Arvo', serif;
+}
+
+.four_zero_four_bg {
+  background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
+  height: 400px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.four_zero_four_bg h1 {
+  font-size: 80px;
+}
+
+.link_404 {
+  color: #fff !important;
+  padding: 10px 20px;
+  background: #39ac31;
+  margin: 20px 0;
+  display: inline-block;
+}
+
+.contant_box_404 {
+  margin-top: -50px;
+}
+
+@media only screen and (max-width: 767px) {
+  .four_zero_four_bg h1 {
+    font-size: 50px;
+  }
+  .contant_box_404 {
+    margin-top: 20px;
+  }
+}
+
+/*Style 404 not Found */

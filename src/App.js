@@ -13,6 +13,8 @@ import AddProductPage from './pages/AddProduct/AddProductPage';
 import LoginPage from './pages/Auth/Login';
 import SignUp from './pages/Auth/SignUp';
 import UserProfilePage from './pages/User/UserProfilePage';
+import ForgetPass from './pages/Auth/ForgetPass';
+import VerifyEmailPage from './pages/Auth/VerifyEmailPage';
 function App() {
   return (
     <div className="App">
@@ -25,11 +27,13 @@ function App() {
         <Route path="/favourite" element={<FavouritePage/>}></Route>
         <Route path="/shoping" element={<ShopingPage/>}></Route>
         <Route path="/product/:id" element={<SpecificProduct/>}></Route>
-        <Route path="/categoryDetails" element={<CategoryCardsDetails/>}></Route>
+        <Route path="/categorydetails/:id" element={<CategoryCardsDetails/>}></Route>
         <Route path="/addProduct" element={<AddProductPage/>}></Route>
         <Route path="/login" element={<LoginPage/>}></Route>
         <Route path="/register" element={<SignUp/>}></Route>
         <Route path="/user/profile" element={<UserProfilePage/>}></Route>
+        <Route path="/forget-pass" element={<ForgetPass/>}></Route>
+        <Route path="/verify-email" element={<VerifyEmailPage/>}></Route>
         </Routes>
       </BrowserRouter>
       <Footer />

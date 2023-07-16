@@ -23,4 +23,40 @@ const LoginUser = (data) => {
     }
 }
 
-export {createNewUsers , LoginUser}
+const ForgetPass = (data) => {
+    return async (dispatch) => {
+        try {
+            let res = await baseURL.post('/api/v1/users/forgot-password' ,data)
+
+            dispatch({ type: 'ForgetPass', payload: res })
+        }catch(e){
+            dispatch({ type: 'ForgetPass', payload: e.res })
+        }
+    }
+}
+
+const VerifyEmailCode = (data) => {
+    return async (dispatch) => {
+        try {
+            let res = await baseURL.get('/api/v1/users/verfiy-email' ,data)
+
+            dispatch({ type: 'VerifyEmail', payload: res })
+        }catch(e){
+            dispatch({ type: 'VerifyEmail', payload: e.res })
+        }
+    }
+}
+const VerifyEmailCodeNumOtp = (data) => {
+    return async (dispatch) => {
+        try {
+            let res = await baseURL.post('/api/v1/users/verfiy-email/otp' ,data)
+
+            dispatch({ type: 'VerifyEmailOtp', payload: res })
+            console.log(res);
+        }catch(e){
+            dispatch({ type: 'VerifyEmailOtp', payload: e.res })
+        }
+    }
+}
+
+export {createNewUsers , LoginUser , ForgetPass ,VerifyEmailCode ,VerifyEmailCodeNumOtp}

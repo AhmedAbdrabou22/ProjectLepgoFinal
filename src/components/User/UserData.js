@@ -47,25 +47,11 @@ const UserData = () => {
                     <Row>
                         <Col xs="12" className="d-flex">
                             <div className="p-2">العنوان:</div>
-                            <div className="p-1 item-delete-edit">{userData.data.user.address}</div>
-                        </Col>
-                    </Row>
-                    <Row className="m-auto text-cente">
-                        <Col xs="10" sm="8" md="6" className="">
-                            <div className="admin-content-text">تغير كملة المرور</div>
-                            <input
-                                type="text"
-                                className="input-form w-75 d-block mt-1 px-3"
-                                placeholder="ادخل كلمة المرور القديمة"
-                            />
-                            <input
-                                type="text"
-                                className="input-form w-75 d-block mt-3 px-3"
-                                placeholder="ادخل كلمة المرور الجديده"
-                            />
-                            <div className='m-auto'>
-                                <button className="btn-save d-inline mt-5 ">حفظ كلمة السر</button>
-                            </div>
+                            <div className="p-1 item-delete-edit">{
+                                userData.data.user.address ? (
+                                    userData.data.user.address
+                                ) :('لم يتم تسجيل')
+                            }</div>
                         </Col>
                     </Row>
                 </div>

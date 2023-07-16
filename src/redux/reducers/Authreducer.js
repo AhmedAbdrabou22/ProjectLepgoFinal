@@ -1,6 +1,9 @@
 const initial = {
     createUSer: [],
     LoginUser: [],
+    forgetpass: [],
+    verifyemail: [],
+    VerifyEmailOtp :[],
     loading: true,
 }
 
@@ -16,6 +19,24 @@ const UserReducer = (state = initial, action) => {
             return{
                 ...state,
                 LoginUser: action.payload,
+                loading: false
+            }
+        case "ForgetPass":
+            return{
+                ...state,
+                forgetpass: action.payload,
+                loading: false
+            }
+        case "VerifyEmail":
+            return{
+                ...state,
+                verifyemail: action.payload,
+                loading: false
+            }
+        case "VerifyEmailOtp":
+            return{
+                ...state,
+                VerifyEmailOtp: action.payload,
                 loading: false
             }
         default:
