@@ -2,13 +2,13 @@ import baseURL from '../../Api/baseUrl'
 
 const createNewUsers = (data) => {
     return async (dispatch) => {
-        const config = {
-            headers: {
-                Authorization: `Bearer ${localStorage.getItem("token")}`
-            }
-        }
+        // const config = {
+        //     headers: {
+        //         Authorization: `Bearer ${localStorage.getItem("token")}`
+        //     }
+        // }
         try {
-            let res = await baseURL.post('/api/v1/users/register', data ,config)
+            let res = await baseURL.post('/api/v1/users/register', data)
 
             dispatch({ type: 'getAllUsers', payload: res })
         } catch (e) {
@@ -18,13 +18,13 @@ const createNewUsers = (data) => {
 }
 const LoginUser = (data) => {
     return async (dispatch) => {
-        const config = {
-            headers: {
-                Authorization: `Bearer ${localStorage.getItem("token")}`
-            }
-        }
+        // const config = {
+        //     headers: {
+        //         Authorization: `Bearer ${localStorage.getItem("token")}`
+        //     }
+        // }
         try {
-            let res = await baseURL.post('/api/v1/users/login', data , config)
+            let res = await baseURL.post('/api/v1/users/login', data)
 
             dispatch({ type: 'getLoginUser', payload: res })
         } catch (e) {
@@ -35,13 +35,13 @@ const LoginUser = (data) => {
 
 const ForgetPass = (data) => {
     return async (dispatch) => {
-        const config = {
-            headers: {
-                Authorization: `Bearer ${localStorage.getItem("token")}`
-            }
-        }
+        // const config = {
+        //     headers: {
+        //         Authorization: `Bearer ${localStorage.getItem("token")}`
+        //     }
+        // }
         try {
-            let res = await baseURL.post('/api/v1/users/forgot-password', data ,config)
+            let res = await baseURL.post('/api/v1/users/forgot-password', data)
 
             dispatch({ type: 'ForgetPass', payload: res })
         } catch (e) {
@@ -52,13 +52,13 @@ const ForgetPass = (data) => {
 
 const VerifyEmailCode = (data) => {
     return async (dispatch) => {
-        const config = {
-            headers: {
-                Authorization: `Bearer ${localStorage.getItem("token")}`
-            }
-        }
+        // const config = {
+        //     headers: {
+        //         Authorization: `Bearer ${localStorage.getItem("token")}`
+        //     }
+        // }
         try {
-            let res = await baseURL.get('/api/v1/users/verfiy-email', data, config)
+            let res = await baseURL.get('/api/v1/users/verfiy-email', data)
 
             dispatch({ type: 'VerifyEmail', payload: res })
         } catch (e) {
@@ -68,13 +68,13 @@ const VerifyEmailCode = (data) => {
 }
 const VerifyEmailCodeNumOtp = (data) => {
     return async (dispatch) => {
-        const config = {
-            headers: {
-                Authorization: `Bearer ${localStorage.getItem("token")}`
-            }
-        }
+        // const config = {
+        //     headers: {
+        //         Authorization: `Bearer ${localStorage.getItem("token")}`
+        //     }
+        // }
         try {
-            let res = await baseURL.post('/api/v1/users/verfiy-email/otp', data, config)
+            let res = await baseURL.post('/api/v1/users/verfiy-email/otp', data)
 
             dispatch({ type: 'VerifyEmailOtp', payload: res })
             console.log(res);

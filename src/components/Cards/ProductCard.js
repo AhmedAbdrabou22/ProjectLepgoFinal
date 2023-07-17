@@ -44,7 +44,7 @@ const ProductCard = ({ title, desc, img, id, rates, duration, amount  , favProd}
 
     const turnOn = (event) => {
         event.preventDefault();
-        if(!favProd.some(fitem => fitem === id)){
+        if(favProd.some(fitem => fitem !== id)){
             addProductToWishList()
         }
         // setIsFav(!isFav)

@@ -60,7 +60,7 @@ const ProductCardContainer = () => {
     useEffect(()=>{
         if(loading === false){
             if(res){
-                // console.log(res.data); 
+                console.log(res.data); 
                 setFavProducts(res.data.map(item=>item.product_id))
             }
         }

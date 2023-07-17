@@ -3,12 +3,12 @@ import baseURL from '../../Api/baseUrl'
 
 
 const FavouriteItem = (body) => {
-    return async (dispatch) => {
-        const config = {
-            headers: {
-                Authorization: `Bearer ${localStorage.getItem("token")}`
-            }
+    const config = {
+        headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`
         }
+    }
+    return async (dispatch) => {
         try {
             let res = await baseURL.post('/api/v1/favorites/store' ,body ,config) 
             dispatch({ type: "PostFavouriteItem", payload: res.data })
