@@ -37,8 +37,13 @@ const ForgetPass = (data) => {
 
 const VerifyEmailCode = (data) => {
     return async (dispatch) => {
+        const config = {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem("token")}`
+            }
+        }
         try {
-            let res = await baseURL.get('/api/v1/users/verfiy-email' ,data)
+            let res = await baseURL.get('/api/v1/users/verfiy-email' ,data ,config)
 
             dispatch({ type: 'VerifyEmail', payload: res })
         }catch(e){
@@ -48,8 +53,13 @@ const VerifyEmailCode = (data) => {
 }
 const VerifyEmailCodeNumOtp = (data) => {
     return async (dispatch) => {
+        const config = {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem("token")}`
+            }
+        }
         try {
-            let res = await baseURL.post('/api/v1/users/verfiy-email/otp' ,data)
+            let res = await baseURL.post('/api/v1/users/verfiy-email/otp' ,data , config)
 
             dispatch({ type: 'VerifyEmailOtp', payload: res })
             console.log(res);

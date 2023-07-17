@@ -1,6 +1,6 @@
 import baseURL from '../../Api/baseUrl'
-import { AllCategory ,Get_Errors} from '../type'
-const getAllCategory = () => {
+import {Get_Errors} from '../type'
+const GetAllOffersShow = () => {
     const config = {
         headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`
@@ -8,12 +8,12 @@ const getAllCategory = () => {
     }
     return async (dispatch) => {
         try {
-            let res = await baseURL.get('/api/v1/categories' , config) 
-            dispatch({ type: AllCategory, payload: res.data })
+            let res = await baseURL.get('/api/v1/offers' ,config) 
+            dispatch({ type: "GetAllOffers", payload: res.data })
         } catch (e) {
             dispatch({ type: Get_Errors, payload: "Error through Loadin Data" + e })
         }
     }
 }
 
-export {getAllCategory}
+export {GetAllOffersShow}

@@ -45,8 +45,8 @@ const ProductCardContainer = () => {
                 <Row className='d-flex justify-content-between align-items-center'>
                     {
                         Products.data ? (
-                            Products.data.map((product) => {
-                                return (<ProductCard title={product.title} id={product.id} duration={product.duration} img={product.image} rates={product.total_rate} amount={product.amount}/>)
+                            Products.data.map((product , index) => {
+                                return (<ProductCard title={product.title} key={index} id={product.id} duration={product.duration} img={product.image} rates={product.total_rate} amount={product.amount} desc = {product.desc}/>)
                             })
                         ) : (<Spinner />)
                     }
