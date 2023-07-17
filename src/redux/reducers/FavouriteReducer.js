@@ -5,6 +5,7 @@
 const initial = {
     favouriteList: [],
     getFavouriteItems :[],
+    deleteItems:[],
     loading: true,
 }
 
@@ -20,6 +21,12 @@ const FavouriteItemReducer = (state = initial, action) => {
             return {
                 ...state,
                 getFavouriteItems: action.payload,
+                loading: false
+            }
+        case "DeleteFavITem":
+            return {
+                ...state,
+                deleteItems: action.payload,
                 loading: false
             }
         default:

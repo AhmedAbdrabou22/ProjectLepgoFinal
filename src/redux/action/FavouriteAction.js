@@ -19,6 +19,24 @@ const FavouriteItem = (body) => {
 }
 
 
+
+const DeleteFavouriteItem = (prodId) => {
+    const config = {
+        headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`
+        }
+    }
+    return async (dispatch) => {
+        try {
+            let res = await baseURL.delete(`/api/v1/favorites/${prodId}`, config) 
+            dispatch({ type: "DeleteFavITem", payload: res.data })
+        } catch (e) {
+            dispatch({ type: "DeleteFavITem", payload: "Error through Loadin Data" + e })
+        }
+    }
+}
+
+
 const ShowFavouriteItem = () => {
     const config = {
         headers: {
@@ -35,4 +53,4 @@ const ShowFavouriteItem = () => {
     }
 }
 
-export {FavouriteItem , ShowFavouriteItem}
+export {FavouriteItem , ShowFavouriteItem , DeleteFavouriteItem}

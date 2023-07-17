@@ -596,7 +596,7 @@ textarea {
   .favItem {
     flex-direction: column;
     padding: 10px;
-    height: 500px;
+    height: 600px;
   }
 
   .infos {
@@ -612,7 +612,7 @@ textarea {
   }
 
   .detailFavItem, .detailsFavItemduration {
-    display: inline-block;
+    display: inline;
     margin: 10px;
   }
 

@@ -10,14 +10,14 @@ import { faTruck } from '@fortawesome/free-solid-svg-icons';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { useDispatch, useSelector } from "react-redux"
 import '@fortawesome/fontawesome-free/css/all.css'
-import { FavouriteItem } from '../../redux/action/FavouriteAction';
+import { DeleteFavouriteItem, FavouriteItem } from '../../redux/action/FavouriteAction';
 // import FavouritContainer from '../FavouriteComponent/FavouritContainer';
 import swal from 'sweetalert';
 
 
 
 
-const ProductCard = ({ title, desc, img, id, rates, duration, amount  , favProd}) => {
+const ProductCard = ({ title, desc, img, id, rates, duration, amount, favProd  ,arrId }) => {
 
 
 
@@ -28,7 +28,7 @@ const ProductCard = ({ title, desc, img, id, rates, duration, amount  , favProd}
     const myClass = 'productCard';
     const [isHovered, SetHovered] = useState(false);
 
-    const [favImg , setFavimg] = useState(heart);
+    const [favImg, setFavimg] = useState(heart);
 
     // const [isFav , setIsFav] = useState(false)
 
@@ -44,7 +44,11 @@ const ProductCard = ({ title, desc, img, id, rates, duration, amount  , favProd}
 
     const turnOn = (event) => {
         event.preventDefault();
-        if(favProd.some(fitem => fitem !== id)){
+        console.log(favProd);
+        if (favProd.some(fitem => fitem === id)) {
+            RemoveProductToWishList()
+            // console.log(fitem);
+        } else {
             addProductToWishList()
         }
         // setIsFav(!isFav)
@@ -52,34 +56,45 @@ const ProductCard = ({ title, desc, img, id, rates, duration, amount  , favProd}
 
 
 
-
-    useEffect(()=>{
-        if(favProd.some(fitem => fitem === id) === true){
+    useEffect(() => {
+        if (favProd.some(fitem => fitem === id) === true) {
             setFavimg(heartred)
-        }else{
+        } else {
             setFavimg(heart)
         }
-    },[favProd.some(fitem => fitem === id)])
+    }, [favProd.some(fitem => fitem === id)])
+
+
+
+
 
     const data = useSelector(state => state.FavouriteItemReducer.favouriteList)
 
-
-
-
-
-    const addProductToWishList = async ()=>{
-    await dispatch(FavouriteItem({
-            product_id : id,
+    const addProductToWishList = async () => {
+        await dispatch(FavouriteItem({
+            product_id: id,
         }))
-
-        if(data){
+        if (data) {
             console.log(data);
             swal("تم اضافة المنتج الي المفضله")
         }
         setFavimg(heartred)
     }
 
+    const res = useSelector(state => state.FavouriteItemReducer.deleteItems)
 
+    const RemoveProductToWishList = async () => {
+        await dispatch(DeleteFavouriteItem(arrId))
+        if (res) {
+            console.log(res.data);
+            // swal("تم حذف المنتج من المفضله")
+        }
+        setFavimg(heart)
+    }
+
+
+
+    // console.log(arr);
 
 
 
@@ -104,7 +119,7 @@ const ProductCard = ({ title, desc, img, id, rates, duration, amount  , favProd}
                         overlay={<Tooltip id="tooltip" style={{ backgroundColor: "red" }}>اضفها الي المفضله</Tooltip>}
                     >
                         <div className='imgFav'>
-                            <img src={favImg} onClick={turnOn}  style={{ color: "white" }} alt="heart"/>
+                            <img src={favImg} onClick={turnOn} style={{ color: "white" }} alt="heart" />
                         </div>
                     </OverlayTrigger>
                     <Card.Img variant="top" src={img} style={{ width: "300px", height: "250px", background: "red" }} />
