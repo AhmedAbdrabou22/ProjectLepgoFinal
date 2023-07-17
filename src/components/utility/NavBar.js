@@ -37,7 +37,7 @@ const NavBar = () => {
             <Navbar expand="lg" className="navbar-top bgNavBar" style={{ padding: "20px", background: "white" }}>
                 <Container fluid={true}>
                     <Navbar.Brand className='mx-2'>
-                        <a href="/">
+                        <a href="/home">
                             <img src={lepgoImage} className="logo" alt="sfvs" />
                         </a>
                     </Navbar.Brand>

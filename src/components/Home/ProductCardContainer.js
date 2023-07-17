@@ -6,9 +6,14 @@ import { useDispatch, useSelector } from "react-redux"
 import { getAllProducts, getAllProductsPage } from '../../redux/action/ProductAction'
 import Spinner from 'react-bootstrap/Spinner';
 import PaginationCompontent from '../utility/Pagination'
+import { ShowFavouriteItem } from '../../redux/action/FavouriteAction'
 const ProductCardContainer = () => {
 
     const dispatch = useDispatch();
+    const dispatch2 = useDispatch();
+    const [loading , setLoading] = useState(true)
+
+    const [FavProducts , setFavProducts] = useState([]);
 
     useEffect(() => {
         dispatch(getAllProductsPage())
@@ -37,6 +42,32 @@ const ProductCardContainer = () => {
 
     }
 
+    const res = useSelector(state => state.FavouriteItemReducer.getFavouriteItems)
+
+    useEffect(()=>{
+        const get = async()=>{
+            setLoading(true)
+            await dispatch2(ShowFavouriteItem());
+            setLoading(false)
+        }
+        get();
+    } , [])
+
+    // if(res){
+    //     console.log(res);
+    // }
+
+    useEffect(()=>{
+        if(loading === false){
+            if(res){
+                // console.log(res.data); 
+                setFavProducts(res.data.map(item=>item.product_id))
+            }
+        }
+    } , [loading])
+
+
+    // console.log(FavProducts);
 
     return (
         <div className='ProductContainer'>
@@ -46,7 +77,7 @@ const ProductCardContainer = () => {
                     {
                         Products.data ? (
                             Products.data.map((product , index) => {
-                                return (<ProductCard title={product.title} key={index} id={product.id} duration={product.duration} img={product.image} rates={product.total_rate} amount={product.amount} desc = {product.desc}/>)
+                                return (<ProductCard favProd={FavProducts} title={product.title} key={index} id={product.id} duration={product.duration} img={product.image} rates={product.total_rate} amount={product.amount} desc = {product.desc}/>)
                             })
                         ) : (<Spinner />)
                     }

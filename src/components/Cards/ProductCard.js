@@ -7,11 +7,9 @@ import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { Link } from "react-router-dom"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTruck } from '@fortawesome/free-solid-svg-icons';
-import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { useDispatch, useSelector } from "react-redux"
 import '@fortawesome/fontawesome-free/css/all.css'
-import baseURL from '../../Api/baseUrl';
 import { FavouriteItem } from '../../redux/action/FavouriteAction';
 // import FavouritContainer from '../FavouriteComponent/FavouritContainer';
 import swal from 'sweetalert';
@@ -19,7 +17,7 @@ import swal from 'sweetalert';
 
 
 
-const ProductCard = ({ title, desc, img, id, rates, duration, amount }) => {
+const ProductCard = ({ title, desc, img, id, rates, duration, amount  , favProd}) => {
 
 
 
@@ -32,7 +30,7 @@ const ProductCard = ({ title, desc, img, id, rates, duration, amount }) => {
 
     const [favImg , setFavimg] = useState(heart);
 
-    const [isFav , setIsFav] = useState(false)
+    // const [isFav , setIsFav] = useState(false)
 
 
     const handleMouseEnter = () => {
@@ -46,19 +44,22 @@ const ProductCard = ({ title, desc, img, id, rates, duration, amount }) => {
 
     const turnOn = (event) => {
         event.preventDefault();
-        setIsFav(!isFav)
+        if(!favProd.some(fitem => fitem === id)){
+            addProductToWishList()
+        }
+        // setIsFav(!isFav)
     }
 
 
 
 
     useEffect(()=>{
-        if(isFav === false){
-            setFavimg(heart)
+        if(favProd.some(fitem => fitem === id) === true){
+            setFavimg(heartred)
         }else{
-            addProductToWishList();
+            setFavimg(heart)
         }
-    },[isFav])
+    },[favProd.some(fitem => fitem === id)])
 
     const data = useSelector(state => state.FavouriteItemReducer.favouriteList)
 
@@ -66,16 +67,16 @@ const ProductCard = ({ title, desc, img, id, rates, duration, amount }) => {
 
 
 
-    const addProductToWishList = ()=>{
-        dispatch(FavouriteItem({
+    const addProductToWishList = async ()=>{
+    await dispatch(FavouriteItem({
             product_id : id,
         }))
-        setFavimg(heartred)
 
         if(data){
             console.log(data);
-            swal("تم اضافة المنتج الي المفضله بس انا عارفك مش هتشتري حاجه يتهدر في الريسورس وخلاص")
+            swal("تم اضافة المنتج الي المفضله")
         }
+        setFavimg(heartred)
     }
 
 

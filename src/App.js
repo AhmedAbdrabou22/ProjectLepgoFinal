@@ -21,7 +21,8 @@ function App() {
       <NavBar />
       <BrowserRouter>
         <Routes>
-        <Route index element={<Home />} />
+        <Route index element={<SignUp />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/allOffers" element={<GetAllOffers/>}></Route>
         <Route path="/register" element={<SignUp/>}></Route>
         <Route path="/favourite" element={<FavouritePage/>}></Route>

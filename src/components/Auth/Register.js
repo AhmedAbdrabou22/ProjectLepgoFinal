@@ -87,7 +87,7 @@ const Register = () => {
                     setPassword('');
                     setAddress('');
                     setTimeout(()=>{
-                        window.location.href='/';
+                        window.location.href='/home';
                     },500)
                 }
             }else{

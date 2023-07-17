@@ -2,22 +2,32 @@ import baseURL from '../../Api/baseUrl'
 
 const createNewUsers = (data) => {
     return async (dispatch) => {
+        const config = {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem("token")}`
+            }
+        }
         try {
-            let res = await baseURL.post('/api/v1/users/register' ,data)
+            let res = await baseURL.post('/api/v1/users/register', data ,config)
 
             dispatch({ type: 'getAllUsers', payload: res })
-        }catch(e){
+        } catch (e) {
             dispatch({ type: 'getAllUsers', payload: e.res })
         }
     }
 }
 const LoginUser = (data) => {
     return async (dispatch) => {
+        const config = {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem("token")}`
+            }
+        }
         try {
-            let res = await baseURL.post('/api/v1/users/login' ,data)
+            let res = await baseURL.post('/api/v1/users/login', data , config)
 
             dispatch({ type: 'getLoginUser', payload: res })
-        }catch(e){
+        } catch (e) {
             dispatch({ type: 'getLoginUser', payload: e.res })
         }
     }
@@ -25,11 +35,16 @@ const LoginUser = (data) => {
 
 const ForgetPass = (data) => {
     return async (dispatch) => {
+        const config = {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem("token")}`
+            }
+        }
         try {
-            let res = await baseURL.post('/api/v1/users/forgot-password' ,data)
+            let res = await baseURL.post('/api/v1/users/forgot-password', data ,config)
 
             dispatch({ type: 'ForgetPass', payload: res })
-        }catch(e){
+        } catch (e) {
             dispatch({ type: 'ForgetPass', payload: e.res })
         }
     }
@@ -43,10 +58,10 @@ const VerifyEmailCode = (data) => {
             }
         }
         try {
-            let res = await baseURL.get('/api/v1/users/verfiy-email' ,data ,config)
+            let res = await baseURL.get('/api/v1/users/verfiy-email', data, config)
 
             dispatch({ type: 'VerifyEmail', payload: res })
-        }catch(e){
+        } catch (e) {
             dispatch({ type: 'VerifyEmail', payload: e.res })
         }
     }
@@ -59,14 +74,14 @@ const VerifyEmailCodeNumOtp = (data) => {
             }
         }
         try {
-            let res = await baseURL.post('/api/v1/users/verfiy-email/otp' ,data , config)
+            let res = await baseURL.post('/api/v1/users/verfiy-email/otp', data, config)
 
             dispatch({ type: 'VerifyEmailOtp', payload: res })
             console.log(res);
-        }catch(e){
+        } catch (e) {
             dispatch({ type: 'VerifyEmailOtp', payload: e.res })
         }
     }
 }
 
-export {createNewUsers , LoginUser , ForgetPass ,VerifyEmailCode ,VerifyEmailCodeNumOtp}
+export { createNewUsers, LoginUser, ForgetPass, VerifyEmailCode, VerifyEmailCodeNumOtp }

@@ -38,7 +38,7 @@ const LoginHook = () => {
                     localStorage.setItem('user', JSON.stringify(data));
                     swal("Success");
                     setTimeout(() => {
-                        window.location.href = "/";
+                        window.location.href = "/home";
                     }, 1500)
                 }
                 setLoading(true)
