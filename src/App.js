@@ -21,8 +21,8 @@ function App() {
       <NavBar />
       <BrowserRouter>
         <Routes>
-        <Route index element={<SignUp />} />
-        <Route path="/home" element={<Home />} />
+        <Route index element={<Home />} />
+        {/* <Route path="/home" element={<Home />} /> */}
         <Route path="/allOffers" element={<GetAllOffers/>}></Route>
         <Route path="/register" element={<SignUp/>}></Route>
         <Route path="/favourite" element={<FavouritePage/>}></Route>
@@ -31,7 +31,7 @@ function App() {
         <Route path="/categorydetails/:id" element={<CategoryCardsDetails/>}></Route>
         <Route path="/addProduct" element={<AddProductPage/>}></Route>
         <Route path="/login" element={<LoginPage/>}></Route>
-        <Route path="/register" element={<SignUp/>}></Route>
+        {/* <Route path="/register" element={<SignUp/>}></Route> */}
         <Route path="/user/profile" element={<UserProfilePage/>}></Route>
         <Route path="/forget-pass" element={<ForgetPass/>}></Route>
         <Route path="/verify-email" element={<VerifyEmailPage/>}></Route>

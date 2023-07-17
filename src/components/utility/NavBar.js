@@ -18,6 +18,7 @@ const NavBar = () => {
 
     // const [userData, setUserData] = useState('')
     let user = ""
+    
     if (localStorage.getItem('user') != null){
         user = JSON.parse(localStorage.getItem('user'))
     }else{
@@ -37,7 +38,7 @@ const NavBar = () => {
             <Navbar expand="lg" className="navbar-top bgNavBar" style={{ padding: "20px", background: "white" }}>
                 <Container fluid={true}>
                     <Navbar.Brand className='mx-2'>
-                        <a href="/home">
+                        <a href="/">
                             <img src={lepgoImage} className="logo" alt="sfvs" />
                         </a>
                     </Navbar.Brand>
