@@ -63,17 +63,7 @@ useEffect(()=>{
 } , [loading])
 
 
-// console.log(FavProducts);
-// if(Products.data){
-//     console.log(Products.data);
-// }
 
-// if(Products){
-//     console.log(Products);
-//     if(res){
-//         console.log(res);
-//     }
-// }
 
     return (
         <div style={{ minHeight: "768px", paddingTop: "180px" }}>
@@ -83,9 +73,7 @@ useEffect(()=>{
                         dataId.data  ? (
                             dataId.data.map((item)=>{
                                 return (
-                                    <ProductCard favProd={FavProducts}  desc={item.desc} title={item.title} img={item.image} id={item.id}/>
-                                    // <h1>Data</h1>
-                                    // <CategoryCard  favProd={FavProducts} desc={item.desc} title={item.title} img={item.image} id={item.id}/>
+                                    <ProductCard favProd={FavProducts} rates={item.total_rate} amount={item.amount} duration={item.duration}   desc={item.desc} title={item.title} img={item.image} id={item.id}/>
                                 )
                             })
                         ):(<EmptyPage/>)
