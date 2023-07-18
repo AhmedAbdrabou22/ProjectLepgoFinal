@@ -10,6 +10,9 @@ import { useParams } from 'react-router-dom'
 // import baseURL from '../../Api/baseUrl'
 import axios from 'axios'
 import EmptyPage from '../../components/utility/EmptyPage'
+import CategoryCard from '../../components/Cards/categoryCard'
+import { useDispatch, useSelector } from 'react-redux'
+import { ShowFavouriteItem } from '../../redux/action/FavouriteAction'
 const CategoryCardsDetails = () => {
     const params = useParams();
     const [dataId , setData] = useState([]);
@@ -28,6 +31,50 @@ if(dataId){
 }
 
 
+const dispatch = useDispatch();
+    const dispatch2 = useDispatch();
+    const [loading , setLoading] = useState(true)
+
+    const [FavProducts , setFavProducts] = useState([]);
+
+useEffect(()=>{
+    const get = async()=>{
+        setLoading(true)
+        await dispatch(ShowFavouriteItem());
+        setLoading(false)
+    }
+    get();
+} , [])
+
+
+const res = useSelector(state => state.FavouriteItemReducer.getFavouriteItems)
+
+// if(res){
+//     console.log(res);
+// }
+
+useEffect(()=>{
+    if(loading === false && localStorage.getItem('user')){
+        if(res){
+            console.log(res.data); 
+            setFavProducts(res.data.map(item=>item.product_id))
+        }
+    }
+} , [loading])
+
+
+// console.log(FavProducts);
+// if(Products.data){
+//     console.log(Products.data);
+// }
+
+// if(Products){
+//     console.log(Products);
+//     if(res){
+//         console.log(res);
+//     }
+// }
+
     return (
         <div style={{ minHeight: "768px", paddingTop: "180px" }}>
             <Container>
@@ -36,7 +83,9 @@ if(dataId){
                         dataId.data  ? (
                             dataId.data.map((item)=>{
                                 return (
-                                    <ProductCard desc={item.desc} title={item.title} img={item.image} id={item.id}/>
+                                    <ProductCard favProd={FavProducts}  desc={item.desc} title={item.title} img={item.image} id={item.id}/>
+                                    // <h1>Data</h1>
+                                    // <CategoryCard  favProd={FavProducts} desc={item.desc} title={item.title} img={item.image} id={item.id}/>
                                 )
                             })
                         ):(<EmptyPage/>)

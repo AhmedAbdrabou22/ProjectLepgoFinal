@@ -33,11 +33,12 @@ const FavouritContainer = () => {
     useEffect(()=>{
         if(loading === false){
             if(res){
-                console.log(res.data); 
+                // console.log(res.data); 
                 setFavProducts(res.data.map(item=>item.product_id))
             }
         }
     } , [loading])
+    console.log(res);
     let count = FavProducts.length;
     return (
         <div>
@@ -46,7 +47,7 @@ const FavouritContainer = () => {
                 res.data ?(
                     res.data.map((item)=>{
                         return(
-                            <FavouriteCard img={item.image} title={item.title} desc={item.desc} amount={item.amount} city={item.city} duration = {item.duration}/>
+                            <FavouriteCard img={item.image} title={item.title} desc={item.desc} amount={item.amount} city={item.city} duration = {item.duration} identity={item.id}  id={item.product_id} rate={item.total_rate}/>
                         )
                     })
                 ):(<Spinner/>)

@@ -61,9 +61,9 @@ const ProductCardContainer = () => {
     // }
 
     useEffect(()=>{
-        if(loading === false){
+        if(loading === false && localStorage.getItem('user')){
             if(res){
-                // console.log(res.data); 
+                console.log(res.data); 
                 setFavProducts(res.data.map(item=>item.product_id))
             }
         }
@@ -71,6 +71,16 @@ const ProductCardContainer = () => {
 
 
     // console.log(FavProducts);
+    // if(Products.data){
+    //     console.log(Products.data);
+    // }
+
+    if(Products){
+        console.log(Products);
+        if(res){
+            console.log(res);
+        }
+    }
 
     return (
         <div className='ProductContainer'>
