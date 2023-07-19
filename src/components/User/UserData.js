@@ -6,6 +6,7 @@ const UserData = () => {
 
     if (localStorage.getItem('user') != null) {
         userData = JSON.parse(localStorage.getItem('user'))
+        console.log(userData.data.user.address)
     } else {
         userData = ""
     }

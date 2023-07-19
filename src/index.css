@@ -393,7 +393,7 @@ input:hover {
   border-radius: 5px;
 }
 
-.addProduct input[type="text"] {
+.addProduct input[type="text"] , .addProduct select {
   padding: 10px;
   border-radius: 10px;
   -webkit-border-radius: 10px;
@@ -401,6 +401,8 @@ input:hover {
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
   outline: "none";
+
+  /* border: 1px solid red; */
 }
 
 /**style section uppload Image */
@@ -546,6 +548,10 @@ textarea {
   width: 100%;
   border: 1px solid #979797;
   border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
 }
 
 .btn-save {

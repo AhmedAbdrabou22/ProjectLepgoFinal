@@ -5,7 +5,7 @@ import gmail from "../../images/gmail.svg"
 import logo from "../../images/logoIt.png"
 
 const VerifyEmailPage = () => {
-    const [code, onChangeCode, onSubmit] = VerifyEmail();
+    const [otp, onChangeCode, onSubmit] = VerifyEmail();
     return (
         <Container style={{ minHeight: "680px", paddingTop: "190px" }} className="workAt">
         <Row className="py-5 d-flex justify-content-center ">
@@ -18,8 +18,8 @@ const VerifyEmailPage = () => {
                 <from className='w-100 d-block py-2 text-center'>
                     <div className='formInput w-75 mx-auto'>
                         <img src={gmail} className='imgInput' alt="img" />
-                        <input type='email' className='w-100 py-2 form-control' placeholder='كود التفعيل' style={{ textAlign: "right", margin: "auto" }} required
-                        value={code}
+                        <input type='text' className='w-100 py-2 form-control' placeholder='كود التفعيل' style={{ textAlign: "right", margin: "auto" }} required
+                        value={otp}
                         onChange={onChangeCode}
                         />
                     </div>

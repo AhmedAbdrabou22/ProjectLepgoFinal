@@ -12,6 +12,7 @@ const UploadImage = () => {
         const fileInput = document.getElementById('file');
         fileInput.click();
     };
+    console.log(images);
     return (
         <div>
             <div>

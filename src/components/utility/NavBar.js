@@ -103,7 +103,7 @@ const NavBar = () => {
                                 </Nav.Link>)
                             }
 
-                            <Nav.Link    style={{ borderRight: "3px solid #0000001A", height: "40px", padding: "0 15px" }}
+                            <Nav.Link  disabled={true}  style={{ borderRight: "3px solid #0000001A", height: "40px", padding: "0 15px" }}
                                 href=""
                                 className="nav-text d-flex align-items-center justify-content-center">
                                 <p style={{ color: "black", marginTop: "15px" }}>الدردشه</p>
@@ -115,7 +115,7 @@ const NavBar = () => {
                                 <p style={{ color: "black", marginTop: "15px" }}>المفضله</p>
                                 <img style={{ paddingRight: "8px" }} src={IconFavourite} className="login-img" alt="sfvs" />
                             </Nav.Link>
-                            <Nav.Link  style={{ borderRight: "3px solid #0000001A", height: "40px", padding: "0 15px" }}
+                            <Nav.Link disabled={true} style={{ borderRight: "3px solid #0000001A", height: "40px", padding: "0 15px" }}
                                 href="/shoping"
                                 className="nav-text d-flex align-items-center justify-content-center">
                                 <p style={{ color: "black", marginTop: "15px" }}>العربه</p>

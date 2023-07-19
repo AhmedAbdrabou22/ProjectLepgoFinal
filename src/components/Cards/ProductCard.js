@@ -49,7 +49,11 @@ const ProductCard = ({ title, desc, img, id, rates, duration, amount, favProd  ,
             // RemoveProductToWishList()
             // console.log(fitem);
         } else {
-            addProductToWishList()
+            if(localStorage.getItem('user')){
+                addProductToWishList()
+            }else{
+                swal('لابد من التسجيل ')
+            }
         }
         // setIsFav(!isFav)
     }

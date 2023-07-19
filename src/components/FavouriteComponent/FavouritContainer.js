@@ -9,6 +9,7 @@ import ProductCardContainer from '../Home/ProductCardContainer'
 import { useDispatch, useSelector } from 'react-redux'
 import { ShowFavouriteItem } from '../../redux/action/FavouriteAction'
 import { Spinner } from 'react-bootstrap'
+import swal from 'sweetalert'
 const FavouritContainer = () => {
 
 
@@ -34,7 +35,11 @@ const FavouritContainer = () => {
         if(loading === false){
             if(res){
                 // console.log(res.data); 
-                setFavProducts(res.data.map(item=>item.product_id))
+                if(localStorage.getItem('user')){
+                    setFavProducts(res.data.map(item=>item.product_id))
+                }else{
+                    swal("لا بد من التسجيل اولا ")
+                }
             }
         }
     } , [loading])
@@ -44,12 +49,14 @@ const FavouritContainer = () => {
         <div>
             <SubTitle title="المفضله" /> <span>({count} منتجات)</span>
             {
-                res.data ?(
-                    res.data.map((item)=>{
-                        return(
-                            <FavouriteCard img={item.image} title={item.title} desc={item.desc} amount={item.amount} city={item.city} duration = {item.duration} identity={item.id}  id={item.product_id} rate={item.total_rate}/>
-                        )
-                    })
+                res.data  ?(
+                    localStorage.getItem('user') ? (
+                        res.data.map((item)=>{
+                            return(
+                                <FavouriteCard img={item.image} title={item.title} desc={item.desc} amount={item.amount} city={item.city} duration = {item.duration} identity={item.id}  id={item.product_id} rate={item.total_rate}/>
+                            )
+                        })
+                    ):(null)
                 ):(<Spinner/>)
             }
             {/* <MostRented/> */}

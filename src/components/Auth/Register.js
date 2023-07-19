@@ -56,6 +56,12 @@ const Register = () => {
         }
     }
 
+
+    const verify_Email_to_activate =async ()=>{
+        await dispatch(VerifyEmailCode({
+            email,
+        }))
+    }
     
     const onSubmit = async () => {
         validationData();
@@ -67,7 +73,6 @@ const Register = () => {
             phone_number: phone,
             address,
         }))
-        // await dispatch(VerifyEmailCode())
         setLoading(false)
     }
     const data = useSelector(state => state.UserReducer.createUSer);
@@ -79,6 +84,8 @@ const Register = () => {
                     localStorage.setItem('token', data.data.token);
                     localStorage.setItem('user', JSON.stringify(data));
                     console.log(data);
+                    verify_Email_to_activate(); 
+                    localStorage.setItem('user', JSON.stringify(data));
                     // console.log(getVerify);
                     swal("تم التسجيل ينجاح")
                     setName('');
@@ -87,8 +94,9 @@ const Register = () => {
                     setPassword('');
                     setAddress('');
                     setTimeout(()=>{
-                        window.location.href='/';
-                    },500)
+                        // window.location.href='/';
+                        navigate('/verify-email')
+                    },1500)
                 }
             }else{
                 swal("هناك خطا في البيانات")
