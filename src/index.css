@@ -393,7 +393,7 @@ input:hover {
   border-radius: 5px;
 }
 
-.addProduct input[type="text"] , .addProduct select {
+.addProduct input[type="text"] ,.addProduct input[type="number"] , .addProduct select {
   padding: 10px;
   border-radius: 10px;
   -webkit-border-radius: 10px;

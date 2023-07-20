@@ -85,7 +85,7 @@ const Register = () => {
                     localStorage.setItem('user', JSON.stringify(data));
                     console.log(data);
                     verify_Email_to_activate(); 
-                    localStorage.setItem('user', JSON.stringify(data));
+                    // localStorage.setItem('user', JSON.stringify(data));
                     // console.log(getVerify);
                     swal("تم التسجيل ينجاح")
                     setName('');

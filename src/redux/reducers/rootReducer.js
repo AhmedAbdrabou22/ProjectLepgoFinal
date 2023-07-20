@@ -4,6 +4,7 @@ import ProductReducer from './ProductReducer'
 import UserReducer from "./Authreducer"
 import OfferReducer from "./OfferReducer"
 import FavouriteItemReducer from "./FavouriteReducer"
+import StoreProductReducer from "./StoreProductReducer"
 
 export default combineReducers({
     allCategory:CategoryReducers,
@@ -11,4 +12,5 @@ export default combineReducers({
     UserReducer:UserReducer,
     OfferReducer:OfferReducer,
     FavouriteItemReducer:FavouriteItemReducer,
+    StoreProductReducer: StoreProductReducer
 })
