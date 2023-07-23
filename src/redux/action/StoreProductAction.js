@@ -14,6 +14,7 @@ const StoreProduct = (formatData) => {
             let res = await baseURL.post('/api/v1/products/store' ,formatData , config )
 
             dispatch({ type: 'storeProduct', payload: res })
+            console.log(res);
         } catch (e) {
             dispatch({ type: 'Get_Errors', payload: e.res })
             console.log(e);

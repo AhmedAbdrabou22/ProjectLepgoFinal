@@ -107,7 +107,7 @@ const UploadCondition = () => {
     } , [idGovern])
 
 
-    console.log(city.data);
+    // console.log(city.data);
 
     var infoUser = JSON.parse(localStorage.getItem('user'));
 
@@ -135,12 +135,12 @@ const UploadCondition = () => {
         formData.append("available", available)
 
         setLoading(true)
-        await dispatch(UpdateDetails({
-            name: infoUser.data.user.name,
-            address: "22st",
-            city_id: cityId,
-            phone_number: infoUser.data.user.phone_number
-        }))
+        // await dispatch(UpdateDetails({
+        //     name: infoUser.data.user.name,
+        //     address: "22st",
+        //     city_id: cityId,
+        //     phone_number: infoUser.data.user.phone_number
+        // }))
         await dispatch(StoreProduct(formData))
         setLoading(false)
 
@@ -159,7 +159,6 @@ const UploadCondition = () => {
             setenum_durations('')
             setDesc("")
             setConditions("")
-            
             setTimeout(() => {
                 setLoading(true)
             }, 1500);
@@ -167,6 +166,8 @@ const UploadCondition = () => {
             if (r) {
                 console.log(r.data);
                 swal(`${r.data.message}`)
+            }else{
+                swal('عليك تحديث البيانات في الصفحه الرئيسيه')
             }
         }
 
