@@ -6,7 +6,6 @@ const UserData = () => {
 
     if (localStorage.getItem('user') != null) {
         userData = JSON.parse(localStorage.getItem('user'))
-        console.log(userData.data.user.address)
     } else {
         userData = ""
     }
@@ -51,6 +50,14 @@ const UserData = () => {
                             <div className="p-1 item-delete-edit">{
                                 userData.data.user.address ? (
                                     userData.data.user.address
+                                ) :('لم يتم تسجيل')
+                            }</div>
+                        </Col>
+                        <Col xs="12" className="d-flex">
+                            <div className="p-2">تفيعل الحساب:</div>
+                            <div className="p-1 item-delete-edit">{
+                                userData.data.user.is_verified ? (
+                                    userData.data.user.is_verified === "1" ? ("الحساب مفعل") : ('فعل حسابك يسط')
                                 ) :('لم يتم تسجيل')
                             }</div>
                         </Col>

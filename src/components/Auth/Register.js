@@ -14,7 +14,7 @@ const Register = () => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [phone, setPhone] = useState("")
-    const [address, setAddress] = useState("")
+    const [addresUser, setAddress] = useState("")
     const [loading, setLoading] = useState(true)
 
     const onChangeName = (event) => {
@@ -42,7 +42,7 @@ const Register = () => {
             swal("please Enter your email")
             return;
         }
-        if (address === "") {
+        if (addresUser === "") {
             swal("please Enter your address")
             return;
         }
@@ -71,7 +71,7 @@ const Register = () => {
             email,
             password,
             phone_number: phone,
-            address,
+            address:addresUser
         }))
         setLoading(false)
     }
@@ -105,7 +105,7 @@ const Register = () => {
     }, [loading])
 
 
-    return [name, email, password, phone, address, onChangeName, onChangeEmail, onChangePassword, onChangePhone, onChangeAddress , onSubmit]
+    return [name, email, password, phone, addresUser, onChangeName, onChangeEmail, onChangePassword, onChangePhone, onChangeAddress , onSubmit]
 
 }
 

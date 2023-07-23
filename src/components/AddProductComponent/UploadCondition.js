@@ -8,6 +8,9 @@ import { useDispatch, useSelector } from "react-redux"
 import { getAllCategory } from '../../redux/action/categoryAction.js'
 import { StoreProduct } from '../../redux/action/StoreProductAction';
 import swal from 'sweetalert';
+import { UpdateDetails } from '../../redux/action/UpdateDetailsAction';
+import { getAllGovernments } from '../../redux/action/GovernmentAction';
+import baseURL from '../../Api/baseUrl';
 
 
 const UploadCondition = () => {
@@ -18,8 +21,17 @@ const UploadCondition = () => {
         dispatch(getAllCategory());
     }, [])
 
+    useEffect(() => {
+        dispatch(getAllGovernments());
+    }, [])
+
 
     const categories = useSelector(state => state.allCategory.category)
+    const governments = useSelector(state => state.GovernmentsReducer.Governments);
+
+    // if(governments){
+    //     console.log(governments.data);
+    // }
 
 
 
@@ -60,20 +72,44 @@ const UploadCondition = () => {
     const [duration, setDuration] = useState(0);
     const [amount, setAmount] = useState(0);
     const [categoryId, setCategoryId] = useState(0);
-    const [enum_durations, setenum_durations] = useState('hour');
+    const [enum_durations, setenum_durations] = useState('');
     const [discount, setDiscount] = useState(0);
     const [available, setAvailable] = useState(1);
     const [loading, setLoading] = useState(true);
-
+    const [idGovern , setIdgovern] = useState(0)
+    const [cityId , setCityId] = useState(0)
+    const [city , setCity] = useState([])
     //Store Id Category
     const onSelectCategory = (e) => {
         setCategoryId(e.target.value)
     }
+    const onSelectLocatioin = (e) => {
+        setLocation(e.target.value)
+        setIdgovern(e.target.value)
+    }
+    const onSelectEnum = (e) => {
+        setenum_durations(e.target.value)
+    }
+    const onSelectCity = (e) => {
+        setCityId(e.target.value)
+    }
+
+    // console.log(location);
+
+    const fetchCities = async ()=>{
+        let city =  await baseURL.get(`/api/v1/cities/${idGovern}`)
+        // console.log(city);
+        setCity(city)
+    }
+
+    useEffect(()=>{
+        fetchCities()
+    } , [idGovern])
 
 
-    // console.log(images);
+    console.log(city.data);
 
-
+    var infoUser = JSON.parse(localStorage.getItem('user'));
 
 
     //to Save Data
@@ -91,14 +127,20 @@ const UploadCondition = () => {
         formData.append("category_id", categoryId)
         formData.append("location", location)
         formData.append("amount", amount)
-        images.map((image) =>formData.append("images[]", image))
+        images.map((image) => formData.append("images[]", image))
         formData.append("duration", duration)
-        formData.append("city_id", "138")
+        formData.append("city_id", cityId)
         formData.append("enum_durations", enum_durations)
         formData.append("discount", discount)
         formData.append("available", available)
 
         setLoading(true)
+        await dispatch(UpdateDetails({
+            name: infoUser.data.user.name,
+            address: "22st",
+            city_id: cityId,
+            phone_number: infoUser.data.user.phone_number
+        }))
         await dispatch(StoreProduct(formData))
         setLoading(false)
 
@@ -146,7 +188,7 @@ const UploadCondition = () => {
                     <div className="image-container">
                         {images.map((image, index) => (
                             <img key={index} src={URL.createObjectURL(image)} alt={`Image ${index}`}
-                                style={{ width: "100px", height: "100px" }}/>
+                                style={{ width: "100px", height: "100px" }} />
                         ))}
                     </div>
                 </div>
@@ -155,7 +197,6 @@ const UploadCondition = () => {
                 <div className="mt-5">
                     <abel>تحديد نوع المنتج</abel>
                     <select className="w-100 mt-2 py-2"
-
                         name="category"
                         onChange={onSelectCategory}
                     >
@@ -199,48 +240,71 @@ const UploadCondition = () => {
                     <div className='w-100'>
                         <label>  مدة الحجز </label>
                         <br />
-                        <input type='number' className='w-100 mt-2' placeholder="السعر"
+                        <input type='number' className='w-75 mt-2' placeholder="السعر"
 
                             value={duration}
                             onChange={(e) => setDuration(e.target.value)}
                         />
                     </div>
 
-                    {/* <div className='time w-50' style={{ marginRight: "50px" }}>
-                        <div className='d-flex align-items-center'>
-                            <div className='plustime' onClick={increaseTime}>
-                                <img src={plus} alt="plus" />
-                            </div>
-                            <span>{count} ساعه </span>
-                            <div className='minusTime' onClick={DecreaseTime}>
-                                <img src={mins} alt="minus" />
-                            </div>
-                        </div>
-                    </div> */}
+                    <div className='w-100'>
+                        <label>  مدة الحجز </label>
+                        <br />
+                        <select className='w-75' name="enum-duration"
+
+                            onChange={onSelectEnum}
+                        >
+                            <option value="year">year</option>
+                            <option value="month">month</option>
+                            <option value="week">week</option>
+                            <option value="day">day</option>
+                            <option value="hour">hour</option>
+                        </select>
+                    </div>
                 </div>
 
                 <div className='mt-4 d-flex justify-content-between  align-items-center'>
-                    <div className='w-75'>
+                    <div className='w-100'>
                         <label>المحافظه</label>
                         <br />
-                        <input type='text' className='w-100  mt-2' placeholder="المحافظة"
-                            value={location}
-                            onChange={(e) => setLocation(e.target.value)}
-                        />
+                        <select className="w-75 mt-2 py-2"
+                        name="govern"
+                        onChange={onSelectLocatioin}
+                    >
+                        <option value="0">اختر المحافظه</option>
+                        {
+                            governments && governments.data ? (
+                                governments.data.map((item) => {
+                                    return (
+                                        <option value={item.id}>{item.name}</option>
+                                    )
+                                })
+                            ) : (null)
+                        }
+                    </select>
                     </div>
-                    <div className='w-50'>
-                        <label>المحافظه</label>
+                    <div className='w-100'>
+                        <label>المدينه</label>
                         <br />
-                        <input type='text' className='w-75 mt-2' placeholder="المحافظة"
-                        
-                        value={place}
-                        onChange={(e)=>setPlace(e.target.value)}
-
-                        />
+                        <select className="w-75 mt-2 py-2"
+                        name="cityId"
+                        onChange={onSelectCity}
+                    >
+                        <option value="0">اختر المدينه</option>
+                        {
+                            city && city.data ? (
+                                city.data.data.map((item) => {
+                                    return (
+                                        <option value={item.id}>{item.name}</option>
+                                    )
+                                })
+                            ) : (null)
+                        }
+                    </select>
                     </div>
-                    <div className='locationTime '>
+                    {/* <div className='locationTime '>
                         <img src={LocationSvg} alt="Location" style={{ marginRight: "4px" }} />
-                    </div>
+                    </div> */}
                 </div>
 
                 <div className='mt-4'>

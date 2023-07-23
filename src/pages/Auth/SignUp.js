@@ -11,7 +11,7 @@ import Register from '../../components/Auth/Register';
 import { Container } from 'react-bootstrap';
 // import Login from './Login';
 function SignUp() {
-    const [name, email, password, phone, address, onChangeName, onChangeEmail, onChangePassword, onChangePhone, onChangeAddress, onSubmit] = Register();
+    const [name, email, password, phone, addresUser, onChangeName, onChangeEmail, onChangePassword, onChangePhone, onChangeAddress, onSubmit] = Register();
 
 
 
@@ -40,7 +40,7 @@ function SignUp() {
                             <div className='formInput w-75 mx-auto'>
                                 <img src={user} className='imgInput' alt="img" />
                                 <input type='text' className='w-100  form-control mb-4'
-                                    value={address}
+                                    value={addresUser}
                                     onChange={onChangeAddress}
                                     placeholder='العنوان' style={{ textAlign: "right", margin: "auto" }} />
                             </div>
