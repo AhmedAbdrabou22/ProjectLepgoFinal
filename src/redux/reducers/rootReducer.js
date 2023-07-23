@@ -7,6 +7,7 @@ import FavouriteItemReducer from "./FavouriteReducer"
 import StoreProductReducer from "./StoreProductReducer"
 import UpdateDetails from "./UpdateDetailsReducer"
 import GovernmentsReducer from "./GovernmentReducer"
+import MyProductsRed from "./GetMyProductsReducer"
 
 export default combineReducers({
     allCategory:CategoryReducers,
@@ -16,5 +17,6 @@ export default combineReducers({
     FavouriteItemReducer:FavouriteItemReducer,
     StoreProductReducer: StoreProductReducer,
     updateDetails:UpdateDetails,
-    GovernmentsReducer:GovernmentsReducer
+    GovernmentsReducer:GovernmentsReducer,
+    MyProductsRed : MyProductsRed
 })

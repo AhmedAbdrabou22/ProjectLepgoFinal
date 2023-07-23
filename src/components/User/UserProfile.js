@@ -3,6 +3,7 @@ import { Col, Row } from 'react-bootstrap'
 import Pen from "../../images/pen.svg"
 import { Tabs, Tab } from 'react-bootstrap';
 import UserData from './UserData';
+import GetMyProducts from './GetMyProducts';
 
 const UserProfile = () => {
     return (
@@ -11,7 +12,7 @@ const UserProfile = () => {
                 <UserData/>
             </Tab>
             <Tab eventKey="profile" title={<span style={{color:"#CB955B"}}>ادارة منتجاتي</span>}>
-                <p>This is the profile tab.</p>
+                <GetMyProducts/>
             </Tab>
         </Tabs>
     )
