@@ -12,7 +12,7 @@ const UpdateDetails = (data) => {
             let res = await baseURL.put('/api/v1/users/update_details' ,data , config )
 
             dispatch({ type: 'updateDetails', payload: res })
-            console.log(res);
+            // console.log(res);
         } catch (e) {
             dispatch({ type: 'updateDetails', payload: e.res })
             console.log(e);

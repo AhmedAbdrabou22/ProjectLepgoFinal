@@ -4,12 +4,18 @@ import Modal from 'react-bootstrap/Modal';
 import Pen from "../../images/pen.svg"
 import Button from 'react-bootstrap/Button';
 import { getAllGovernments } from '../../redux/action/GovernmentAction';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector} from 'react-redux';
+import {useNavigate} from "react-router-dom";
 import baseURL from '../../Api/baseUrl';
 import { UpdateDetails } from '../../redux/action/UpdateDetailsAction';
+import {VerifyEmailCodeNumOtp} from '../../redux/action/AuthAction';
+import {VerifyEmailCode} from '../../redux/action/AuthAction';
+import swal from "sweetalert";
 
 const UserData = () => {
     const dispatch = useDispatch();
+
+    const navigate = useNavigate();
 
     let userData = '';
 
@@ -73,7 +79,30 @@ const UserData = () => {
             phone_number: userData.data.user.phone_number
         }))
         setLoading(false)
+    }
 
+    const updateDetailss = useSelector(state => state.updateDetails.updateDetails);
+  
+
+    // useEffect(()=>{
+    //     if(updateDetailss.data){
+    //         swal('تم تحديث البيانات')
+    //     }else{
+    //         swal('هناك خطاء في بيانات')
+    //     }
+    // } , [loading])
+
+
+
+    const onSubmit =async ()=>{
+        setLoading(true)
+        await dispatch(VerifyEmailCode({
+            email:userData.data.user.name,
+        }))
+
+
+        navigate('/verify-email')
+        // setTimeout(()=>{navigate('/')},1500)
     }
 
 
@@ -113,19 +142,13 @@ const UserData = () => {
                         </Col>
                     </Row>
                     <Row>
-                        {/* <Col xs="12" className="d-flex">
-                            <div className="p-2">العنوان:</div>
-                            <div className="p-1 item-delete-edit">{
-                                userData.data.user.address ? (
-                                    userData.data.user.address
-                                ) : ('لم يتم تسجيل')
-                            }</div>
-                        </Col> */}
                         <Col xs="12" className="d-flex">
                             <div className="p-2">تفيعل الحساب:</div>
                             <div className="p-1 item-delete-edit">{
                                 userData.data.user.is_verified ? (
-                                    userData.data.user.is_verified === "1" ? ("الحساب مفعل") : ('فعل حسابك يسط')
+                                    userData.data.user.is_verified === "1" ? ("الحساب مفعل") : (
+                                        <button className="btn" onClick={onSubmit} style={{background:"rgb(203, 149, 91)"  , color:"white"}}>فعل حسابك</button>
+                                    )
                                 ) : ('لم يتم تسجيل')
                             }</div>
                         </Col>

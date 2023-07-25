@@ -47,7 +47,7 @@ const ForgetPassHook = () => {
                 }
             } else {
                 console.log(result);
-                swal(`لقد ارسلنا لك ايميل وبقي اكتب كلمة السر في ورقة متخنقناش`);
+                swal(`لقد ارسلنا لك ايميل `);
             }
         }
     }, [loading])

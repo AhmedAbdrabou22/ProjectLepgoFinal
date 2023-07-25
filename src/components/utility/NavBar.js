@@ -51,7 +51,7 @@ const NavBar = () => {
                         </Nav.Link>
                     </Nav>
 
-                    <Nav>
+                    {/* <Nav>
                         <Nav.Link>
                             <div className='formloaction'>
                                 <select style={{ border: "none" }}>
@@ -59,7 +59,7 @@ const NavBar = () => {
                                 </select>
                             </div>
                         </Nav.Link>
-                    </Nav>
+                    </Nav> */}
 
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">

@@ -8,7 +8,7 @@ import Navbar from 'react-bootstrap/Navbar';
 const CategoryHeader = () => {
     const handler = () => { };
     return (
-        <Container fluid={true}>
+        <Container fluid={true} style={{background:"white"}}>
             <Navbar expand="lg"  style={{ background: "white", alignItems: "center" }}>
 
 

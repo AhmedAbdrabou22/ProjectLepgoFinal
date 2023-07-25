@@ -76,7 +76,7 @@ code {
 .location .formloaction {
   border: none;
   width: 10px;
-  background-color: red !important;
+  /* background-color: red !important; */
 }
 
 .cat-header {
@@ -594,6 +594,10 @@ textarea {
     overflow-x: hidden;
   }
 
+  textarea{
+    width:100%
+  }
+
 
   .s {
     flex-direction: column;
@@ -644,6 +648,9 @@ textarea {
 
   .detailsProduct {
     padding-top: 140px
+  }
+  .rowFooter{
+    width:60%;
   }
 }
 

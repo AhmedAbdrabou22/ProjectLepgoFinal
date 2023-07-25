@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import ccPaypal from "../../images/cc-paypal.svg"
 import cash from "../../images/CACH.svg"
 import masterCard from "../../images/mastercard.svg"
@@ -14,8 +14,8 @@ const Footer = () => {
     return (
         <div className="footer-background footer mt-3 pt-2">
             <Container className="" fluid={true}>
-                <div className='d-flex justify-content-between s  align-items-center'>
-                    <div className='policy w-40'>
+                <Row style={{margin:"auto"}} className="rowFooter">
+                    <Col xl="6" md="6" sm="12" xs="12"  className='policy '>
                         <div className='d-flex justify-content-center align-items-center s'>
                             <div>
                                 <ul>
@@ -51,9 +51,9 @@ const Footer = () => {
                                 </ul>
                             </div>
                         </div>
-                    </div>
+                    </Col>
 
-                    <div className='contact w-50'>
+                    <Col xl="6" md="6" sm="12" xs="12" className='contact'>
                         <div className='d-flex justify-content-evenly align-items-center s'>
                             <div className='contacCashes'>
                                 <h4>طرق الدفع</h4>
@@ -87,8 +87,8 @@ const Footer = () => {
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
+                    </Col>
+                </Row>
             </Container>
         </div>
     )
