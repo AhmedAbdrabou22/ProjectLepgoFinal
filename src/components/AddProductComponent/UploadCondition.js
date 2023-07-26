@@ -158,7 +158,10 @@ const UploadCondition = () => {
             setDiscount(0)
             setenum_durations('')
             setDesc("")
+            setAmount(0)
             setConditions("")
+            setDuration(0)
+            
             setTimeout(() => {
                 setLoading(true)
             }, 1500);

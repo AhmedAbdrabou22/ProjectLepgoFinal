@@ -2,6 +2,7 @@ import { GetAllProducts ,Get_Errors} from '../type'
 
 const initial = {
     product: [],
+    deleteProducts:[],
     loading: true,
 }
 
@@ -17,6 +18,12 @@ const ProductReducer = (state = initial, action) => {
             return {
                 ...state,
                 product: action.payload,
+                loading: false
+            }
+        case "deleteProduct":
+            return {
+                ...state,
+                deleteProducts: action.payload,
                 loading: false
             }
         case "Get_Errors":
