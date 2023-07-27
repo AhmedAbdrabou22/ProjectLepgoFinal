@@ -33,7 +33,7 @@ const FavouritContainer = () => {
 
     useEffect(()=>{
         if(loading === false){
-            if(res){
+            if(res.data){
                 // console.log(res.data); 
                 if(localStorage.getItem('user')){
                     setFavProducts(res.data.map(item=>item.product_id))

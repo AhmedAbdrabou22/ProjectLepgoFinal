@@ -58,7 +58,7 @@ const OwnProductCard = ({ title, desc, img, id, rates, duration, amount }) => {
 
 
     return (
-        <Col xs="12" sm="12" md="6" lg="3" className="my-4 d-flex justify-content-around ">
+        <Col xs="12" sm="12" md="6" lg="2" className="my-4 d-flex justify-content-around ">
             <Link to={`/product/${id}`} style={{ textDecoration: "none" }}>
                 <Card className={`${shadowClass} ${myClass}`} onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave} style={{ background: "#F9F9FA", borderRadius: "20px", transition: "0.3s", padding: "8px" }}>

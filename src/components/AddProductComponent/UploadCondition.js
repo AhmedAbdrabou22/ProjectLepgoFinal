@@ -76,9 +76,9 @@ const UploadCondition = () => {
     const [discount, setDiscount] = useState(0);
     const [available, setAvailable] = useState(1);
     const [loading, setLoading] = useState(true);
-    const [idGovern , setIdgovern] = useState(0)
-    const [cityId , setCityId] = useState(0)
-    const [city , setCity] = useState([])
+    const [idGovern, setIdgovern] = useState(0)
+    const [cityId, setCityId] = useState(0)
+    const [city, setCity] = useState([])
     //Store Id Category
     const onSelectCategory = (e) => {
         setCategoryId(e.target.value)
@@ -96,15 +96,15 @@ const UploadCondition = () => {
 
     // console.log(location);
 
-    const fetchCities = async ()=>{
-        let city =  await baseURL.get(`/api/v1/cities/${idGovern}`)
+    const fetchCities = async () => {
+        let city = await baseURL.get(`/api/v1/cities/${idGovern}`)
         // console.log(city);
         setCity(city)
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         fetchCities()
-    } , [idGovern])
+    }, [idGovern])
 
 
     // console.log(city.data);
@@ -134,15 +134,12 @@ const UploadCondition = () => {
         formData.append("discount", discount)
         formData.append("available", available)
 
-        setLoading(true)
-        // await dispatch(UpdateDetails({
-        //     name: infoUser.data.user.name,
-        //     address: "22st",
-        //     city_id: cityId,
-        //     phone_number: infoUser.data.user.phone_number
-        // }))
-        await dispatch(StoreProduct(formData))
-        setLoading(false)
+        if (loading === true) {
+            swal("جاري الرفع الان")
+            setLoading(true)
+            await dispatch(StoreProduct(formData))
+            setLoading(false)
+        }
 
     }
 
@@ -161,7 +158,7 @@ const UploadCondition = () => {
             setAmount(0)
             setConditions("")
             setDuration(0)
-            
+
             setTimeout(() => {
                 setLoading(true)
             }, 1500);
@@ -169,7 +166,7 @@ const UploadCondition = () => {
             if (r) {
                 console.log(r.data);
                 swal(`${r.data.message}`)
-            }else{
+            } else {
                 swal('عليك تحديث البيانات في الصفحه الرئيسيه')
             }
         }
@@ -275,39 +272,39 @@ const UploadCondition = () => {
                         <label>المحافظه</label>
                         <br />
                         <select className="w-75 mt-2 py-2"
-                        name="govern"
-                        onChange={onSelectLocatioin}
-                    >
-                        <option value="0">اختر المحافظه</option>
-                        {
-                            governments && governments.data ? (
-                                governments.data.map((item) => {
-                                    return (
-                                        <option value={item.id}>{item.name}</option>
-                                    )
-                                })
-                            ) : (null)
-                        }
-                    </select>
+                            name="govern"
+                            onChange={onSelectLocatioin}
+                        >
+                            <option value="0">اختر المحافظه</option>
+                            {
+                                governments && governments.data ? (
+                                    governments.data.map((item) => {
+                                        return (
+                                            <option value={item.id}>{item.name}</option>
+                                        )
+                                    })
+                                ) : (null)
+                            }
+                        </select>
                     </div>
                     <div className='w-100'>
                         <label>المدينه</label>
                         <br />
                         <select className="w-75 mt-2 py-2"
-                        name="cityId"
-                        onChange={onSelectCity}
-                    >
-                        <option value="0">اختر المدينه</option>
-                        {
-                            city && city.data ? (
-                                city.data.data.map((item) => {
-                                    return (
-                                        <option value={item.id}>{item.name}</option>
-                                    )
-                                })
-                            ) : (null)
-                        }
-                    </select>
+                            name="cityId"
+                            onChange={onSelectCity}
+                        >
+                            <option value="0">اختر المدينه</option>
+                            {
+                                city && city.data ? (
+                                    city.data.data.map((item) => {
+                                        return (
+                                            <option value={item.id}>{item.name}</option>
+                                        )
+                                    })
+                                ) : (null)
+                            }
+                        </select>
                     </div>
                     {/* <div className='locationTime '>
                         <img src={LocationSvg} alt="Location" style={{ marginRight: "4px" }} />

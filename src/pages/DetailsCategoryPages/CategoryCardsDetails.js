@@ -55,7 +55,7 @@ const res = useSelector(state => state.FavouriteItemReducer.getFavouriteItems)
 
 useEffect(()=>{
     if(loading === false && localStorage.getItem('user')){
-        if(res){
+        if(res.data){
             console.log(res.data); 
             setFavProducts(res.data.map(item=>item.product_id))
         }

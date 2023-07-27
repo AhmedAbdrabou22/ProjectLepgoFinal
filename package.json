@@ -1,6 +1,6 @@
 {
   "name": "lepgo",
-  "homepage":"https://lepgo.online/",
+  "homepage": "https://lepgo.online/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -27,6 +27,7 @@
     "redux-thunk": "^2.4.2",
     "slick-carousel": "^1.8.1",
     "sweetalert": "^2.1.2",
+    "sweetalert2": "^11.7.20",
     "unop-react-dropdown": "^0.2.3",
     "web-vitals": "^2.1.4"
   },
