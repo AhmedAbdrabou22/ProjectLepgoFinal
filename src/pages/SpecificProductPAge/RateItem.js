@@ -3,10 +3,9 @@ import { Col, Row } from "react-bootstrap";
 import rate from "../../images/rate.png";
 import del from "../../images/delete.svg"
 import baseURL from "../../Api/baseUrl";
-const RateItem = (comment ,Identifier) => {
-    console.log(comment.id);
-    console.log(comment.Identifier);
+const RateItem = (comment) => {
     const userData = JSON.parse(localStorage.getItem('user'))
+    // console.log(userData.data.user.id);
 
     const deleteComment = async()=>{
         const config = {
@@ -28,8 +27,8 @@ const RateItem = (comment ,Identifier) => {
                         <div className="cat-rate  d-inline  p-1 pt-2">{comment.rateUs}</div>
                         {
                             userData ? (
-                                comment.user.name === userData.data.user.name ? (
-                                    <img src={del} onClick={deleteComment} alt="delete" className="deleteComment"/>
+                                comment.user.id === userData.data.user.id ? (
+                                    <img src={del} style={{cursor:"pointer"}} onClick={deleteComment} alt="delete" className="deleteComment"/>
                                 ):null
                             ):null
                         }

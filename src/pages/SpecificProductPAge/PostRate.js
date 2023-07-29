@@ -46,8 +46,12 @@ const PostRate = () => {
             product_id:params.id
         }))
         setloading(false)
-        window.location.href=`/product/${params.id}`
+
+        setTimeout(()=>{
+            window.location.href=`/product/${params.id}`
+        } , 500)
     }
+
 
 
     const userData = JSON.parse(localStorage.getItem('user'));

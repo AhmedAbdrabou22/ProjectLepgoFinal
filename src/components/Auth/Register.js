@@ -88,15 +88,7 @@ const Register = () => {
                     // localStorage.setItem('user', JSON.stringify(data));
                     // console.log(getVerify);
                     swal("تم التسجيل ينجاح")
-                    setName('');
-                    setEmail('');
-                    setPhone('');
-                    setPassword('');
-                    setAddress('');
-                    setTimeout(()=>{
-                        // window.location.href='/';
-                        navigate('/verify-email')
-                    },1500)
+                    navigate('/verify-email')
                 }
             }else{
                 swal("هناك خطا في البيانات")

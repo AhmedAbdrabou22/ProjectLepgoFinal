@@ -1,3 +1,4 @@
+import swal from 'sweetalert'
 import baseURL from '../../Api/baseUrl'
 const PostCommenttoProduct = (data) => {
     const config = {
@@ -13,6 +14,10 @@ const PostCommenttoProduct = (data) => {
             console.log(res.data);
         } catch (e) {
             dispatch({ type: "getErrors", payload: "Error through Loadin Data" + e })
+            console.log(e.message);
+            if(e.message === "Request failed with status code 401"){
+                swal(`قم بتحديث بياناتك في الصفحه الرئيسيه ورجاء ان لم تفعل الايميل قم بتفعيله`)
+            }
         }
     }
 }
