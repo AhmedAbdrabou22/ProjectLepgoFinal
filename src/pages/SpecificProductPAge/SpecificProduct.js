@@ -5,6 +5,8 @@ import ImageGallery from "../../components/ProductComponents/ImageGallery.js"
 import DetailsProduct from "../../components/ProductComponents/DetailsProduct.js"
 import { useParams } from 'react-router-dom'
 import baseURL from '../../Api/baseUrl.js'
+import PostRate from './PostRate.js'
+import RateItem from './RateItem.js'
 
 const SpecificProduct = () => {
     let params = useParams();
@@ -18,8 +20,6 @@ const SpecificProduct = () => {
         const detailFilmById = await baseURL.get(`https://api.lepgo.online/api/v1/products/${params.id}`);
         // console.log(detailFilmById.data);
         setDataId(detailFilmById.data)
-        console.log(detailFilmById.data);
-
     }
 
     let text = "";
@@ -52,6 +52,14 @@ const SpecificProduct = () => {
     useEffect(() => {
         fetchFilmbyId()
     }, [])
+
+    if (dataId.data) {
+        console.log(dataId.data.reviews);
+    }
+
+
+
+
     return (
         <div style={{ minHeight: "768px", paddingTop: "200px" }}>
             <Container>
@@ -61,6 +69,16 @@ const SpecificProduct = () => {
                     </Col>
                     <Col xs="12" sm="12" md="12" lg="8" className="">
                         <DetailsProduct title={text} desc={description} conditions={conditions} place={place} />
+                        <PostRate />
+                        {
+                            dataId.data ? (
+                                dataId.data.reviews.map((item)=>{
+                                    return(
+                                        <RateItem comment={item.comment} rateUs={item.rate} user={item.user}/>
+                                    )
+                                })
+                            ):null
+                        }
                     </Col>
                 </Row>
             </Container>

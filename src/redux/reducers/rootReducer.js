@@ -8,6 +8,7 @@ import StoreProductReducer from "./StoreProductReducer"
 import UpdateDetails from "./UpdateDetailsReducer"
 import GovernmentsReducer from "./GovernmentReducer"
 import MyProductsRed from "./GetMyProductsReducer"
+import CommentsReducer from "./PostCommentReducer"
 
 export default combineReducers({
     allCategory:CategoryReducers,
@@ -18,5 +19,6 @@ export default combineReducers({
     StoreProductReducer: StoreProductReducer,
     updateDetails:UpdateDetails,
     GovernmentsReducer:GovernmentsReducer,
-    MyProductsRed : MyProductsRed
+    MyProductsRed : MyProductsRed,
+    CommentsReducer:CommentsReducer
 })

@@ -798,3 +798,36 @@ button[type="submit"] {
   margin: 15px auto;
   width:150px;
 }
+
+
+
+/**Style Comments */
+.product-cart-add {
+  cursor: pointer;
+  text-align: center;
+  height: 45px;
+  border-radius: 9px;
+  border: none;
+  background-color: #CB955B;
+  color: #ffffff;
+}
+.product-cart-add:hover {
+  background-color: #08324B !important;
+  color:white;
+}
+.rate-name {
+  color: #555550;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 19px;
+  text-align: right !important;
+}
+.rate-description {
+  color: #555550;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 19px;
+  text-align: right;
+}
+/**Style Comments */
