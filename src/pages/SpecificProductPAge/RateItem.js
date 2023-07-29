@@ -23,6 +23,7 @@ const RateItem = (comment ,Identifier) => {
                 <Row className="mt-2">
                     <Col className="d-felx me-5 commentContainer" style={{position:"relative"}}>
                         <div className="rate-name  d-inline">{comment.user.name}</div>
+                        {/* <br/> */}
                         <img className="" src={rate} alt="" height="16px" width="16px" />
                         <div className="cat-rate  d-inline  p-1 pt-2">{comment.rateUs}</div>
                         {
