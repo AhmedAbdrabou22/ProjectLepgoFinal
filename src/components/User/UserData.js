@@ -84,13 +84,21 @@ const UserData = () => {
     const updateDetailss = useSelector(state => state.updateDetails.updateDetails);
   
 
-    // useEffect(()=>{
-    //     if(updateDetailss.data){
-    //         swal('تم تحديث البيانات')
-    //     }else{
-    //         swal('هناك خطاء في بيانات')
-    //     }
-    // } , [loading])
+    useEffect(()=>{
+        if(updateDetailss && loading===false){
+            if(updateDetailss.status === 200){
+                setShow(false)
+                console.log(updateDetailss.data);
+                swal('تم تحديث البيانات')
+            }else{
+                swal("هناك خطا في اختيار البيانات")
+            }
+        }
+    } , [loading])
+
+    // if(updateDetailss){
+    //     console.log(updateDetailss);
+    // }
 
 
 

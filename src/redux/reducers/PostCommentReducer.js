@@ -14,6 +14,12 @@ const CommentsReducer = (state = initial, action) => {
                 comments: action.payload,
                 loading: false
             }
+        case "getErrors":
+            return {
+                ...state,
+                comments: action.payload,
+                loading: false,
+            }
         default:
             return state;
     }

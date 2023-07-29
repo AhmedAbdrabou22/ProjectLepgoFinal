@@ -74,7 +74,7 @@ const SpecificProduct = () => {
                             dataId.data ? (
                                 dataId.data.reviews.map((item)=>{
                                     return(
-                                        <RateItem comment={item.comment} rateUs={item.rate} user={item.user}/>
+                                        <RateItem Identifier={params.id} comment={item.comment} rateUs={item.rate} user={item.user} id={item.id}/>
                                     )
                                 })
                             ):null

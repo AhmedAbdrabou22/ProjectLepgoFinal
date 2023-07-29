@@ -5,12 +5,13 @@ import ReactStars from "react-rating-stars-component";
 import { json, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux"
 import { PostCommenttoProduct } from '../../redux/action/PostComment';
+import swal from 'sweetalert';
 const PostRate = () => {
 
     let params = useParams();
     const dispatch = useDispatch();
 
-    const [rateData, setRateData] = useState("");
+    const [rateData, setRateData] = useState(0);
 
     const setting = {
         size: 20,
@@ -24,7 +25,6 @@ const PostRate = () => {
         halfIcon: <i className="fa fa-star-half-alt" />,
         filledIcon: <i className="fa fa-star" />,
         onChange: (newValue) => {
-            console.log(`${newValue}`);
             setRateData(newValue);
         },
     };
@@ -35,6 +35,10 @@ const PostRate = () => {
 
 
     const postCommentData = async (e) => {
+        if(rateData === 0){
+            swal('من فضلك اختر التقييم')
+            return;
+        }
         setloading(true)
         await dispatch(PostCommenttoProduct({
             rate:rateData,
@@ -42,6 +46,7 @@ const PostRate = () => {
             product_id:params.id
         }))
         setloading(false)
+        window.location.href=`/product/${params.id}`
     }
 
 
