@@ -84,16 +84,14 @@ code {
   background-color: white;
 }
 
-.cat-text-header {
+
+.cat-text-header{
+  text-decoration: none;
   color: #302F2F;
-  font-weight: 700;
-  font-family: 'Belanosima', sans-serif;
-  font-family: 'Tajawal', sans-serif;
   font-size: 17px;
-  font-weight: bold;
-  cursor: pointer;
-  margin: 1px;
-  padding-left: 15px;
+  margin-left: 10px;
+  display: block;
+  text-align: right;
 }
 
 .cat-text-header:hover {
@@ -120,7 +118,7 @@ code {
 .card-filter {
   background-color: #ffffff;
   position: relative;
-  left: -300px;
+  left: -315px;
   border-radius: 10px;
   padding: 15px;
   min-width: 450px;
@@ -151,13 +149,13 @@ code {
 .slider-item div {
   width: 100%;
   text-align: center;
-  margin: auto;
+  /* margin: auto; */
 }
 
 .slider-item div img {
   background-color: #F2F2F2;
-  width: 70%;
-  height: 70px;
+  width: 65%;
+  height: 65px;
   border-radius: 50%;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
@@ -167,6 +165,7 @@ code {
 
 .sliderCategory {
   width: 100%;
+  /* background-color: red; */
 
 }
 

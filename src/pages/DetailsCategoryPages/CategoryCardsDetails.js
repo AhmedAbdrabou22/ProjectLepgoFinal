@@ -68,7 +68,7 @@ useEffect(()=>{
     return (
         <div style={{ minHeight: "768px", paddingTop: "180px" }}>
             <Container>
-                <Row className='d-flex justify-content-between align-items-center'>
+                <Row className='d-flex'>
                     {
                         dataId.data  ? (
                             dataId.data.map((item)=>{

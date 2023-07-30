@@ -26,7 +26,7 @@ const HomeCategory = () => {
         autoplay: true,
         autoplaySpeed: 2000,
         cssEase: "linear",
-        centerMode: false,
+        centerMode: true,
         centerPadding: "0px",
         responsive: [
             {
@@ -51,15 +51,15 @@ const HomeCategory = () => {
             <Slider {...settings} className='slider-item'>
                 {
                     categories.data ? (
-                        categories.data.map((item , index) => {
+                        categories.data.map((item, index) => {
                             return (<div>
                                 <Link to={`/categorydetails/${item.id}`}>
                                     <img src={item.image} alt="1" />
                                 </Link>
-                                <p style={{ marginRight: "15px" }}>{item.title_ar}</p>
+                                <p style={{ marginLeft: "-14px" , width:"120px" , textAlign:"center"}}>{item.title_ar}</p>
                             </div>)
                         })
-                    ) : (<Spinner/>)
+                    ) : (<Spinner />)
                 }
             </Slider>
         </Container>

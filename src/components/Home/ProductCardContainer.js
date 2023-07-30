@@ -87,7 +87,7 @@ const ProductCardContainer = () => {
         <div className='ProductContainer'>
             <Container>
                 <SubTitle title="منتجات قد تعجبك" />
-                <Row className='d-flex justify-content-between align-items-center'>
+                <Row className='d-flex'>
                     {
                         Products.data ? (
                             Products.data.map((product , index) => {

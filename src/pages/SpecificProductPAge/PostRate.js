@@ -75,6 +75,7 @@ const PostRate = () => {
                     userData ? (<Row className="border-bottom mx-2">
                         <Col className="d-felx me-4 pb-2">
                             <textarea
+                                style={{resize:"none" ,outline:"none"}}
                                 className="input-form-area p-2 mt-3"
                                 rows="2"
                                 cols="20"

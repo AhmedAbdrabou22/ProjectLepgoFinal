@@ -113,7 +113,7 @@ const ProductCard = ({ title, desc, img, id, rates, duration, amount, favProd  ,
 
 
     return (
-        <Col xs="12" sm="12" md="6" lg="3" className="my-4 d-flex justify-content-around ">
+        <Col xl="3" lg="4" md="6" sm="12" className="my-4">
             <Link to={`/product/${id}`} style={{ textDecoration: "none" }}>
                 <Card className={`${shadowClass} ${myClass}`} onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave} style={{ background: "#F9F9FA", borderRadius: "20px", transition: "0.3s", padding: "8px" }}>
@@ -126,7 +126,7 @@ const ProductCard = ({ title, desc, img, id, rates, duration, amount, favProd  ,
                             <img src={favImg} onClick={turnOn} style={{ color: "white" }} alt="heart" />
                         </div>
                     </OverlayTrigger>
-                    <Card.Img variant="top" src={img} style={{ width: "300px", height: "250px", background: "red" }} />
+                    <Card.Img variant="top" src={img} style={{ width: "100%" , borderRadius:"10px" ,  height: "250px"}} />
                     <Card.Body style={{ textAlign: "right" }}>
                         <Card.Text>{title}
                         </Card.Text>
