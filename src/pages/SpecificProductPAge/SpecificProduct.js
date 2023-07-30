@@ -7,6 +7,10 @@ import { useParams } from 'react-router-dom'
 import baseURL from '../../Api/baseUrl.js'
 import PostRate from './PostRate.js'
 import RateItem from './RateItem.js'
+import ProductCard from '../../components/Cards/ProductCard.js'
+import SubTitle from "../../components/utility/subTitle.js"
+import { useDispatch, useSelector } from 'react-redux'
+import { ShowFavouriteItem } from '../../redux/action/FavouriteAction.js'
 
 const SpecificProduct = () => {
     let params = useParams();
@@ -54,9 +58,33 @@ const SpecificProduct = () => {
     }, [])
 
     if (dataId.data) {
-        console.log(dataId.data.reviews);
+        console.log(dataId.data.related_products);
     }
 
+
+    // const favProd = [];
+    const dispatch = useDispatch();
+    const [FavProducts, setFavProducts] = useState([]);
+    const [loading, setLoading] = useState(true)
+
+    useEffect(() => {
+        const get = async () => {
+            setLoading(true)
+            await dispatch(ShowFavouriteItem());
+            setLoading(false)
+        }
+        get();
+    }, [])
+
+    const res = useSelector(state => state.FavouriteItemReducer.getFavouriteItems)
+    useEffect(() => {
+        if (loading === false && localStorage.getItem('user')) {
+            if (res.data) {
+                // console.log(res.data); 
+                setFavProducts(res.data.map(item => item.product_id))
+            }
+        }
+    }, [loading])
 
 
 
@@ -72,15 +100,32 @@ const SpecificProduct = () => {
                         <PostRate />
                         {
                             dataId.data ? (
-                                dataId.data.reviews.map((item)=>{
-                                    return(
-                                        <RateItem Identifier={params.id} comment={item.comment} rateUs={item.rate} user={item.user} id={item.id}/>
+                                dataId.data.reviews.map((item) => {
+                                    return (
+                                        <RateItem Identifier={params.id} comment={item.comment} rateUs={item.rate} user={item.user} id={item.id} />
                                     )
                                 })
-                            ):null
+                            ) : null
                         }
                     </Col>
                 </Row>
+
+
+                <div className='mt-5'>
+                    <SubTitle title="منتجات قد تعجبك" />
+                    <Row className='mt-2 d-flex'>
+                        {
+                            dataId.data ? (
+                                dataId.data.related_products.map((item) => {
+                                    return (
+                                        <ProductCard  favProd={FavProducts} title={item.title} desc={item.desc} img={item.image}
+                                            duration={item.duration} amount={item.amount} id={item.id} />
+                                    )
+                                })
+                            ) : null
+                        }
+                    </Row>
+                </div>
             </Container>
         </div>
     )

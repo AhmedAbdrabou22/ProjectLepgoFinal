@@ -25,7 +25,7 @@ const DetailsProduct = ({title , desc , conditions , place}) => {
                 <p style={{ color: "#424750" }}>شروط الحجز</p>
                 <div className='conditionBook'>
                     <p>
-                       {conditions}
+                        {conditions}
                     </p>
                 </div>
             </div>

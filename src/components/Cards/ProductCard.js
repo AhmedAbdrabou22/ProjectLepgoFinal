@@ -101,6 +101,11 @@ const ProductCard = ({ title, desc, img, id, rates, duration, amount, favProd  ,
     // console.log(arr);
 
 
+    const refresh = ()=>{
+        window.location.href=`/product/${id}`
+    }
+
+
 
 
 
@@ -115,7 +120,8 @@ const ProductCard = ({ title, desc, img, id, rates, duration, amount, favProd  ,
     return (
         <Col xl="3" lg="4" md="6" sm="12" className="my-4">
             <Link to={`/product/${id}`} style={{ textDecoration: "none" }}>
-                <Card className={`${shadowClass} ${myClass}`} onMouseEnter={handleMouseEnter}
+                <Card className={`${shadowClass} ${myClass}`} onMouseEnter={handleMouseEnter} 
+                onClick={refresh}
                     onMouseLeave={handleMouseLeave} style={{ background: "#F9F9FA", borderRadius: "20px", transition: "0.3s", padding: "8px" }}>
                     <OverlayTrigger
                         key="tooltip"

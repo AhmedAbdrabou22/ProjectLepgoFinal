@@ -16,7 +16,7 @@ const Footer = () => {
             <Container className="" fluid={true}>
                 <Row style={{margin:"auto"}} className="rowFooter">
                     <Col xl="6" md="6" sm="12" xs="12"  className='policy '>
-                        <div className='d-flex justify-content-center align-items-center s'>
+                        <div className='d-flex justify-content-center s'>
                             <div>
                                 <ul>
                                     <h5>الاكثر زياره</h5>
@@ -54,7 +54,7 @@ const Footer = () => {
                     </Col>
 
                     <Col xl="6" md="6" sm="12" xs="12" className='contact'>
-                        <div className='d-flex justify-content-evenly align-items-center s'>
+                        <div className='d-flex justify-content-evenly s'>
                             <div className='contacCashes'>
                                 <h4>طرق الدفع</h4>
                                 <img src={cash} alt="Cahs" />
