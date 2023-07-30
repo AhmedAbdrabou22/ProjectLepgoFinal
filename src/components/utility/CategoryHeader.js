@@ -36,7 +36,7 @@ const CategoryHeader = () => {
                                         DataCate.data.slice(1, 8).map((ele) => {
                                             return (
                                                 <div className="card-filter-item">
-                                                    <a className="cat-text-header" href={`/categorydetails/${ele.id}`}>{ele.title_ar}</a>
+                                                    <a className="cat-text-header allfilesLink" href={`/categorydetails/${ele.id}`}>{ele.title_ar}</a>
                                                 </div>
                                             )
                                         })
@@ -50,7 +50,7 @@ const CategoryHeader = () => {
                                         DataCate.data.slice(9, 16).map((ele) => {
                                             return (
                                                 <div className="card-filter-item">
-                                                    <a className="cat-text-header" href={`/categorydetails/${ele.id}`}>{ele.title_ar}</a>
+                                                    <a className="cat-text-header allfilesLink" href={`/categorydetails/${ele.id}`}>{ele.title_ar}</a>
                                                 </div>
                                             )
                                         })

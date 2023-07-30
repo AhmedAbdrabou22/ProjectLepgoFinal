@@ -846,9 +846,9 @@ button[type="submit"] {
   .rowFooter {
     width: 60%;
   }
-  .card-filter-item {
-    font-size: 5px !important;
-    font-weight: 100;
+  .allfilesLink {
+    font-size: 12px !important;
+    font-weight: 900;
     padding: 2px 0;
     color: #302F2F;
   }
