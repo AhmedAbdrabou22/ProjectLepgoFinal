@@ -85,7 +85,7 @@ code {
 }
 
 
-.cat-text-header{
+.cat-text-header {
   text-decoration: none;
   color: #302F2F;
   font-size: 17px;
@@ -118,10 +118,10 @@ code {
 .card-filter {
   background-color: #ffffff;
   position: relative;
-  left: -315px;
+  left: -120px;
   border-radius: 10px;
   padding: 15px;
-  min-width: 450px;
+  min-width: 250px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
@@ -138,7 +138,7 @@ code {
 .card-filter-item {
   font-size: 16px;
   font-weight: 400;
-  padding: 5px 0;
+  padding: 2px 0;
   color: #302F2F;
 }
 
@@ -391,7 +391,7 @@ input:hover {
   border-radius: 5px;
 }
 
-.addProduct input[type="text"] ,.addProduct input[type="number"] , .addProduct select {
+.addProduct input[type="text"], .addProduct input[type="number"], .addProduct select {
   padding: 10px;
   border-radius: 10px;
   -webkit-border-radius: 10px;
@@ -586,71 +586,7 @@ textarea {
   width: 100px !important;
 }
 
-/** Stly Personal Page*/
-@media(max-width:1024px) {
-  body {
-    overflow-x: hidden;
-  }
 
-  textarea{
-    width:100%
-  }
-
-
-  .s {
-    flex-direction: column;
-  }
-
-  .favItem {
-    flex-direction: column;
-    padding: 10px;
-    height: 600px;
-  }
-
-  .infos {
-    text-align: center !important;
-  }
-
-  .infoDetails {
-    margin: auto;
-  }
-
-  .priceDetails {
-    top: 70%;
-  }
-
-  .detailFavItem, .detailsFavItemduration {
-    display: inline;
-    margin: 10px;
-  }
-
-  .f {
-    flex-direction: column;
-  }
-
-  .s {
-    width: 350px !important;
-  }
-
-  .r {
-    width: 100%;
-  }
-
-  .RegisterComponent, .workAt {
-    width: 100% !important;
-  }
-
-  .nav-text {
-    border-right: none !important;
-  }
-
-  .detailsProduct {
-    padding-top: 140px
-  }
-  .rowFooter{
-    width:60%;
-  }
-}
 
 .loading {
   display: flex;
@@ -713,14 +649,6 @@ textarea {
   margin-top: -50px;
 }
 
-@media only screen and (max-width: 767px) {
-  .four_zero_four_bg h1 {
-    font-size: 50px;
-  }
-  .contant_box_404 {
-    margin-top: 20px;
-  }
-}
 
 /*Style 404 not Found */
 
@@ -734,11 +662,13 @@ textarea {
   border-radius: 10px !important;
   border: solid 1px 272727 !important;
 }
+
 .page-link:hover {
   background-color: #CB955B !important;
   color: white !important;
   border: solid 1px #CB955B !important;
 }
+
 /* end pagination */
 
 
@@ -794,7 +724,7 @@ button[type="submit"] {
   border-radius: 4px;
   cursor: pointer;
   margin: 15px auto;
-  width:150px;
+  width: 150px;
 }
 
 
@@ -809,10 +739,12 @@ button[type="submit"] {
   background-color: #CB955B;
   color: #ffffff;
 }
+
 .product-cart-add:hover {
   background-color: #08324B !important;
-  color:white;
+  color: white;
 }
+
 .rate-name {
   color: #555550;
   font-size: 14px;
@@ -821,6 +753,7 @@ button[type="submit"] {
   line-height: 19px;
   text-align: right !important;
 }
+
 .rate-description {
   color: #555550;
   font-size: 14px;
@@ -829,13 +762,94 @@ button[type="submit"] {
   text-align: right;
 }
 
-.deleteComment{
-  position:absolute;
-  left:25px ;
-  top:10px;
+.deleteComment {
+  position: absolute;
+  left: 25px;
+  top: 10px;
   visibility: hidden;
 }
-.commentContainer:hover .deleteComment{
-  visibility:visible;
+
+.commentContainer:hover .deleteComment {
+  visibility: visible;
 }
+
 /**Style Comments */
+
+
+/** Stly Personal Page*/
+@media(max-width:768px) {
+  body {
+    overflow-x: hidden;
+  }
+
+
+  .groubFilter {
+    width: 100%;
+  }
+
+  textarea {
+    width: 100%
+  }
+
+
+  .s {
+    flex-direction: column;
+  }
+
+  .favItem {
+    flex-direction: column;
+    padding: 10px;
+    height: 600px;
+  }
+
+  .infos {
+    text-align: center !important;
+  }
+
+  .infoDetails {
+    margin: auto;
+  }
+
+  .priceDetails {
+    top: 70%;
+  }
+
+  .detailFavItem, .detailsFavItemduration {
+    display: inline;
+    margin: 10px;
+  }
+
+  .f {
+    flex-direction: column;
+  }
+
+  .s {
+    width: 350px !important;
+  }
+
+  .r {
+    width: 100%;
+  }
+
+  .RegisterComponent, .workAt {
+    width: 100% !important;
+  }
+
+  .nav-text {
+    border-right: none !important;
+  }
+
+  .detailsProduct {
+    padding-top: 140px
+  }
+
+  .rowFooter {
+    width: 60%;
+  }
+  .card-filter-item {
+    font-size: 5px !important;
+    font-weight: 100;
+    padding: 2px 0;
+    color: #302F2F;
+  }
+}
