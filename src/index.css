@@ -107,8 +107,9 @@ code {
 .cat-text-header {
   text-decoration: none;
   color: #302F2F;
-  font-size: 15px;
-  margin-left: 20px;
+  font-size: 13px;
+  font-weight: 900;
+  margin-left: 18px;
   display: block;
   text-align: right;
 }
