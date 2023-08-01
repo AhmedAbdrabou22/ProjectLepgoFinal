@@ -30,6 +30,8 @@ const SpecificProduct = () => {
     let description = ""
     let conditions = ""
     let place = "";
+    let price = "";
+    let duration = "";
     let imageOne = null
     let imageTwo = null
     let imageThee = null
@@ -39,6 +41,12 @@ const SpecificProduct = () => {
         description = dataId.data.desc
         conditions = dataId.data.conditions
         place = dataId.data.city
+        price = dataId.data.price
+        duration=dataId.data.duration
+
+
+        // console.log(dataId.data.duration);
+
         for (let i = 0; i < dataId.data.images.length; i++) {
             for (let j = 0; j < 1; j++) {
                 if (i === 0) {
@@ -56,10 +64,6 @@ const SpecificProduct = () => {
     useEffect(() => {
         fetchFilmbyId()
     }, [])
-
-    if (dataId.data) {
-        console.log(dataId.data.related_products);
-    }
 
 
     // const favProd = [];
@@ -96,7 +100,7 @@ const SpecificProduct = () => {
                         <ImageGallery imageOne={imageOne} imageTwo={imageTwo} imageThree={imageThee} imageFour={imageFour} />
                     </Col>
                     <Col xs="12" sm="12" md="12" lg="8" className="">
-                        <DetailsProduct title={text} desc={description} conditions={conditions} place={place} />
+                        <DetailsProduct duration={duration} title={text} desc={description} conditions={conditions} place={place} price={price}/>
                         <PostRate />
                         {
                             dataId.data ? (
@@ -119,7 +123,7 @@ const SpecificProduct = () => {
                                 dataId.data.related_products.map((item) => {
                                     return (
                                         <ProductCard  favProd={FavProducts} title={item.title} desc={item.desc} img={item.image}
-                                            duration={item.duration} amount={item.amount} id={item.id} />
+                                            duration={item.duration} rates={item.total_rate} city={item.city} amount={item.amount} id={item.id} move={true}/>
                                     )
                                 })
                             ) : null

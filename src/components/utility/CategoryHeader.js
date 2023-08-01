@@ -21,7 +21,7 @@ const CategoryHeader = () => {
 
 
     return (
-        <Container fluid={true} style={{ background: "white" }}>
+        <Container fluid={true} style={{ background: "white" }} className='shadow'>
             <Navbar expand="lg" style={{ background: "white", alignItems: "center" }}>
                 <Dropdown>
                     <Dropdown.Toggle variant="light" id="dropdown-basic">

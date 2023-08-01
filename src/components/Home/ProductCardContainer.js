@@ -7,6 +7,7 @@ import { getAllProducts, getAllProductsPage } from '../../redux/action/ProductAc
 import Spinner from 'react-bootstrap/Spinner';
 import PaginationCompontent from '../utility/Pagination'
 import { ShowFavouriteItem } from '../../redux/action/FavouriteAction'
+import { createRef } from 'react';
 const ProductCardContainer = () => {
 
     const dispatch = useDispatch();
@@ -39,6 +40,10 @@ const ProductCardContainer = () => {
 
     const getPage = (page) => {
         dispatch(getAllProductsPage(page))
+
+        myRef.current.scrollIntoView({
+            behavior: "smooth"
+        })
 
     }
 
@@ -77,21 +82,25 @@ const ProductCardContainer = () => {
     // }
 
     if(Products){
-        // console.log(Products);
+        console.log(Products);
         if(res){
-            // console.log(res);
+            console.log(res);
         }
     }
+    const myRef = createRef();
+    setTimeout(()=>{console.log(myRef.current);} , 500)
 
     return (
-        <div className='ProductContainer'>
-            <Container>
+        <div className='ProductContainer mt-5'>
+            <Container id="cont" ref={myRef}>
                 <SubTitle title="منتجات قد تعجبك" />
                 <Row className='d-flex'>
                     {
                         Products.data ? (
                             Products.data.map((product , index) => {
-                                return (<ProductCard favProd={FavProducts} title={product.title} key={index} id={product.id} duration={product.duration} img={product.image} rates={product.total_rate} amount={product.amount} desc = {product.desc}/>)
+                                return (<ProductCard favProd={FavProducts} title={product.title} key={index} id={product.id} duration={product.duration} img={product.image} rates={product.total_rate} amount={product.amount} desc = {product.desc}
+                                city={product.city}
+                                />)
                             })
                         ) : (<Spinner />)
                     }

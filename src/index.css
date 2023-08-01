@@ -16,6 +16,25 @@ body {
 a {
   text-decoration: none;
 }
+.bgNavBar{
+  padding:20px !important;
+  background-color: white !important;
+}
+.circle{
+  width:20px;
+  height: 20px;
+  text-align: center;
+  color: white;
+  position: absolute;
+  background-color: rgb(203, 149, 91);
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  left:5%;
+  top:-5%;
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -59,10 +78,10 @@ code {
 .bgNabBar {
   background-color: #FFFFFF;
 }
-
-.contacCashes {
-  width: 40%;
+.privacy ul li {
+  margin-top: 8px;
 }
+
 
 .contacCashes img {
   padding: 10px;
@@ -88,8 +107,8 @@ code {
 .cat-text-header {
   text-decoration: none;
   color: #302F2F;
-  font-size: 17px;
-  margin-left: 10px;
+  font-size: 15px;
+  margin-left: 20px;
   display: block;
   text-align: right;
 }
@@ -146,11 +165,16 @@ code {
   color: #CB955B;
 }
 
-.slider-item div {
-  width: 100%;
+/* .slider-item div {
+width:50px;
+  height: 50px;
+  border-radius: 50%;
   text-align: center;
-  /* margin: auto; */
-}
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+} */
 
 .slider-item div img {
   background-color: #F2F2F2;
@@ -184,10 +208,12 @@ code {
   -moz-transition: 0.5s;
   -ms-transition: 0.5s;
   -o-transition: 0.5s;
+  border:2px solid #08324B;
 }
 
 .OfferBtn:hover {
-  background-color: #08324B;
+  background-color: rgb(203, 149, 91);
+  border:2px solid rgb(203, 149, 91);;
   color: white;
 }
 
@@ -752,6 +778,7 @@ button[type="submit"] {
   letter-spacing: 0;
   line-height: 19px;
   text-align: right !important;
+  width:250px;
 }
 
 .rate-description {
@@ -851,5 +878,30 @@ button[type="submit"] {
     font-weight: 900;
     padding: 2px 0;
     color: #302F2F;
+  }
+  .bgNavBar{
+    padding:0px !important;
+    background-color: white !important;
+  }
+  .policy{
+    margin-right: -140px !important;
+  }
+  .contacCashes{
+    width:350px !important;
+  }
+  .circle{
+    width:20px;
+    height: 20px;
+    text-align: center;
+    color: white;
+    position: absolute;
+    background-color: rgb(203, 149, 91);
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    left:35%;
+    top:-5%;
   }
 }

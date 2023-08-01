@@ -4,24 +4,27 @@ import { Card, Col } from 'react-bootstrap'
 import heart from "../../images/heart.svg"
 import heartred from '../../images/heartRed.svg'
 import { OverlayTrigger, Tooltip } from 'react-bootstrap';
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTruck } from '@fortawesome/free-solid-svg-icons';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { useDispatch, useSelector } from "react-redux"
 import '@fortawesome/fontawesome-free/css/all.css'
 import { DeleteFavouriteItem, FavouriteItem } from '../../redux/action/FavouriteAction';
+import { Navigate } from 'react-router-dom';
+import location from "../../images/location_pin.svg"
 // import FavouritContainer from '../FavouriteComponent/FavouritContainer';
 import swal from 'sweetalert';
 
 
 
 
-const ProductCard = ({ title, desc, img, id, rates, duration, amount, favProd  ,arrId }) => {
+const ProductCard = ({ title, desc, img, id, rates, duration, amount, favProd ,city }) => {
 
 
 
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
 
 
@@ -42,9 +45,10 @@ const ProductCard = ({ title, desc, img, id, rates, duration, amount, favProd  ,
     };
     const shadowClass = isHovered ? "shadowIt" : "";
 
-    const turnOn = (event) => {
-        event.preventDefault();
-        console.log(favProd);
+    const turnOn = (e) => {
+        // console.log(favProd);
+        e.preventDefault();
+        console.log(e.target.getAttribute("src"));
         if (favProd.some(fitem => fitem === id)) {
             // RemoveProductToWishList()
             // console.log(fitem);
@@ -79,7 +83,7 @@ const ProductCard = ({ title, desc, img, id, rates, duration, amount, favProd  ,
             product_id: id,
         }))
         if (data) {
-            console.log(data);
+            // console.log(data);
             swal("تم اضافة المنتج الي المفضله")
         }
         setFavimg(heartred)
@@ -101,8 +105,13 @@ const ProductCard = ({ title, desc, img, id, rates, duration, amount, favProd  ,
     // console.log(arr);
 
 
-    const refresh = ()=>{
-        window.location.href=`/product/${id}`
+    const refresh = (e)=>{
+        // if(move){
+        //     window.location.href=`/product/${id}`
+        // }
+        if(e.target.getAttribute('src') !== "/static/media/heart.9e4358fd97ab2675b037fa92071b911a.svg"){
+            window.location.href=`/product/${id}`
+        }
     }
 
 
@@ -120,9 +129,8 @@ const ProductCard = ({ title, desc, img, id, rates, duration, amount, favProd  ,
     return (
         <Col xl="3" lg="4" md="6" sm="12" className="my-4">
             <Link to={`/product/${id}`} style={{ textDecoration: "none" }}>
-                <Card className={`${shadowClass} ${myClass}`} onMouseEnter={handleMouseEnter} 
-                onClick={refresh}
-                    onMouseLeave={handleMouseLeave} style={{ background: "#F9F9FA", borderRadius: "20px", transition: "0.3s", padding: "8px" }}>
+                <Card className={`${shadowClass} ${myClass}`} onMouseEnter={handleMouseEnter}  onClick={refresh}
+                    onMouseLeave={handleMouseLeave} style={{ background: "#F9F9FA", borderRadius: "20px", transition: "0.3s", padding: "8px" ,border:"none"}}>
                     <OverlayTrigger
                         key="tooltip"
                         placement="top"
@@ -132,7 +140,7 @@ const ProductCard = ({ title, desc, img, id, rates, duration, amount, favProd  ,
                             <img src={favImg} onClick={turnOn} style={{ color: "white" }} alt="heart" />
                         </div>
                     </OverlayTrigger>
-                    <Card.Img variant="top" src={img} style={{ width: "100%" , borderRadius:"10px" ,  height: "250px"}} />
+                    <Card.Img  variant="top" src={img} style={{ width: "100%" , borderRadius:"10px" ,  height: "250px" , objectFit:"cover"}} />
                     <Card.Body style={{ textAlign: "right" }}>
                         <Card.Text>{title}
                         </Card.Text>
@@ -140,6 +148,10 @@ const ProductCard = ({ title, desc, img, id, rates, duration, amount, favProd  ,
                             <p>
                                 {desc}
                             </p>
+                        </Card.Text>
+                        <Card.Text>
+                            <img src={location} alt="Location" style={{paddingLeft:"5px"}}/>
+                            {city}
                         </Card.Text>
                         <Card.Text>
                             <div style={{ fontWeight: "700" }}>

@@ -6,7 +6,10 @@ import { json, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux"
 import { PostCommenttoProduct } from '../../redux/action/PostComment';
 import swal from 'sweetalert';
+import person from "../../images/person2.jpg"
 const PostRate = () => {
+
+
 
     let params = useParams();
     const dispatch = useDispatch();
@@ -35,21 +38,21 @@ const PostRate = () => {
 
 
     const postCommentData = async (e) => {
-        if(rateData === 0){
+        if (rateData === 0) {
             swal('من فضلك اختر التقييم')
             return;
         }
         setloading(true)
         await dispatch(PostCommenttoProduct({
-            rate:rateData,
-            comment:addcomment,
-            product_id:params.id
+            rate: rateData,
+            comment: addcomment,
+            product_id: params.id
         }))
         setloading(false)
 
-        setTimeout(()=>{
-            window.location.href=`/product/${params.id}`
-        } , 500)
+        setTimeout(() => {
+            window.location.href = `/product/${params.id}`
+        }, 500)
     }
 
 
@@ -60,14 +63,19 @@ const PostRate = () => {
         <div className='w-100'>
             <Row className="mt-3 ">
                 <Col sm="12" className="me-5  d-flex">
-                    <div className="rate-name  d-inline ms-3 mt-1 ">
+                    <div className="rate-name  d-flex  justify-content-evenly align-items-center ms-3 mt-1 " style={{ fontSize: "17px" }}>
+                        {
+                            userData ? (
+                                userData.data.user.image ? ((<img src={userData.data.user.image} alt="person" style={{ width: "50px", height: "50px", borderRadius: "50%" }} />)):((<img src={person} alt="person" style={{ width: "50px", height: "50px", borderRadius: "50%" }} />))
+                            ):null
+                        }
                         {
                             userData ? (userData.data.user.name) : null
                         }
+                        {
+                            userData ? (<ReactStars {...setting} />) : null
+                        }
                     </div>
-                    {
-                        userData ? (<ReactStars {...setting} />) : null
-                    }
                 </Col>
             </Row>
             <div>
@@ -75,7 +83,7 @@ const PostRate = () => {
                     userData ? (<Row className="border-bottom mx-2">
                         <Col className="d-felx me-4 pb-2">
                             <textarea
-                                style={{resize:"none" ,outline:"none"}}
+                                style={{ resize: "none", outline: "none" }}
                                 className="input-form-area p-2 mt-3"
                                 rows="2"
                                 cols="20"

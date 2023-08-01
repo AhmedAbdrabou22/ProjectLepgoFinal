@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 // import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 // import Form from 'react-bootstrap/Form';
@@ -14,6 +14,9 @@ import IconChat from "../../images/chat.svg"
 import IconShopping from "../../images/bdcb0c3f6d67999723518ef3c2ad5494.svg"
 import IconFavourite from "../../images/6f0a18fad030e38fc7194c6a4c334793.svg"
 import notifyLepgo from "../../images/notification-new.svg"
+import { useDispatch, useSelector } from 'react-redux';
+import { ShowFavouriteItem } from '../../redux/action/FavouriteAction';
+import swal from 'sweetalert';
 const NavBar = () => {
 
     // const [userData, setUserData] = useState('')
@@ -33,9 +36,46 @@ const NavBar = () => {
 
         // console.log(user.data.user.name);
 
+        //Favourite
+        const dispatch = useDispatch();
+        const [loading , setLoading] = useState(true)
+        const [count , setCount] = useState(0)
+    
+        const [FavProducts , setFavProducts] = useState([]);
+    
+        useEffect(()=>{
+            const get = async()=>{
+                setLoading(true)
+                await dispatch(ShowFavouriteItem());
+                setLoading(false)
+            }
+            get();
+        } , [])
+    
+    
+        const res = useSelector(state => state.FavouriteItemReducer.getFavouriteItems)
+    
+    
+        useEffect(()=>{
+            if(loading === false){
+                if(res.data){
+                    // console.log(res.data); 
+                    if(localStorage.getItem('user')){
+                        setFavProducts(res.data.map(item=>item.product_id))
+                        // setCount(FavProducts.length)
+                    }
+                }
+            }
+        } , [loading])
+        // let count = FavProducts.length;
+
+        useEffect(()=>{
+            setCount(FavProducts.length)
+        } , [FavProducts.length])
+
     return (
         <div style={{ position: "fixed", zIndex: "25", width: "100%" }}>
-            <Navbar expand="lg" className="navbar-top bgNavBar" style={{ padding: "20px", background: "white" }}>
+            <Navbar expand="lg" className="navbar-top bgNavBar">
                 <Container fluid={true}>
                     <Navbar.Brand className='mx-2'>
                         <a href="/">
@@ -51,15 +91,6 @@ const NavBar = () => {
                         </Nav.Link>
                     </Nav>
 
-                    {/* <Nav>
-                        <Nav.Link>
-                            <div className='formloaction'>
-                                <select style={{ border: "none" }}>
-                                    <option>التسليم الي المنصورة</option>
-                                </select>
-                            </div>
-                        </Nav.Link>
-                    </Nav> */}
 
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
@@ -109,11 +140,12 @@ const NavBar = () => {
                                 <p style={{ color: "black", marginTop: "15px" }}>الدردشه</p>
                                 <img style={{ paddingRight: "8px" }} src={IconChat} className="login-img" alt="sfvs" />
                             </Nav.Link>
-                            <Nav.Link   style={{ borderRight: "3px solid #0000001A", height: "40px", padding: "0 15px" }}
+                            <Nav.Link   style={{ borderRight: "3px solid #0000001A", height: "40px", padding: "0 15px" , position:"relative" }}
                                 href="/favourite"
                                 className="nav-text d-flex align-items-center justify-content-center">
                                 <p style={{ color: "black", marginTop: "15px" }}>المفضله</p>
                                 <img style={{ paddingRight: "8px" }} src={IconFavourite} className="login-img" alt="sfvs" />
+                                <div className="circle">{count}</div>
                             </Nav.Link>
                             <Nav.Link disabled={true} style={{ borderRight: "3px solid #0000001A", height: "40px", padding: "0 15px" }}
                                 href="/shoping"

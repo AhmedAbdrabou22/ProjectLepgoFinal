@@ -14,31 +14,9 @@ const Footer = () => {
     return (
         <div className="footer-background footer mt-3 pt-2">
             <Container className="" fluid={true}>
-                <Row style={{margin:"auto"}} className="rowFooter">
-                    <Col xl="6" md="6" sm="12" xs="12"  className='policy '>
-                        <div className='d-flex justify-content-center s'>
-                            <div>
-                                <ul>
-                                    <h5>الاكثر زياره</h5>
-                                    <div className="horzintal"></div>
-                                    <li><a href="*">عقارات</a></li>
-                                    <li><a href="*">اثاث منزلي </a></li>
-                                    <li><a href="*">محلات تجارية</a></li>
-                                    <li><a href="*">مساحات عمل</a></li>
-                                    <li><a href="*">مخازن</a></li>
-                                </ul>
-                            </div>
-                            <div>
-                                <ul>
-                                    <h5>الخصوصيه</h5>
-                                    <div className="horzintal"></div>
-                                    <li><a href="*">عقارات</a></li>
-                                    <li><a href="*">اثاث منزلي </a></li>
-                                    <li><a href="*">محلات تجارية</a></li>
-                                    <li><a href="*">مساحات عمل</a></li>
-                                    <li><a href="*">مخازن</a></li>
-                                </ul>
-                            </div>
+                <Row style={{ margin: "auto" }} className="rowFooter">
+                    <Col lg="6" md="6" className='policy'>
+                        <div className='privacy d-flex justify-content-center'>
                             <div>
                                 <ul>
                                     <h5>الخصوصيه</h5>
@@ -53,23 +31,8 @@ const Footer = () => {
                         </div>
                     </Col>
 
-                    <Col xl="6" md="6" sm="12" xs="12" className='contact'>
-                        <div className='d-flex justify-content-evenly s'>
-                            <div className='contacCashes'>
-                                <h4>طرق الدفع</h4>
-                                <img src={cash} alt="Cahs" />
-                                <img src={ccPaypal} alt="PayPal" />
-                                <img src={masterCard} alt="MasterCard" />
-                                <img src={visa} alt="Visa" />
-                                <div>
-                                    <img src={fawry} alt="vodafone" />
-                                    <img src={vodafone} alt="fawry" />
-                                    <p>حمل تطبيقك من خلال</p>
-                                    <p>من خلال متجر أبل</p>
-                                    <p>من خلال متجر جوجل</p>
-                                </div>
-                            </div>
-
+                    <Col lg="6" md="6"  className='contact d-flex justify-content-center'>
+                        <div className=''>
                             <div className='contacCashes'>
                                 <h4>تواصل معنا</h4>
                                 <img src={contac1} alt="Cahs" />
@@ -77,13 +40,13 @@ const Footer = () => {
                                 <img src={contac3} alt="MasterCard" />
                                 <img src={contac4} alt="Visa" />
                                 <div>
-                                    <span  style={{display:'block'}}>أو من خلال البريد الاليكتروني</span>
-                                    <a style={{display:'block'}} href="mailto:info@lepgo.com">info@lepgo.com</a>
+                                    <span style={{ display: 'block' }}>أو من خلال البريد الاليكتروني</span>
+                                    <a style={{ display: 'block' }} href="mailto:info@lepgo.com">info@lepgo.com</a>
                                 </div>
 
                                 <div className='mt-2'>
-                                    <span style={{display:'block'}}>أو عبر الهاتف</span>
-                                    <a style={{display:'block'}} href="tel:+20123456789">+20123456789</a>
+                                    <span style={{ display: 'block' }}>أو عبر الهاتف</span>
+                                    <a style={{ display: 'block' }} href="tel:+20123456789">+20123456789</a>
                                 </div>
                             </div>
                         </div>

@@ -50,16 +50,16 @@ const HomeCategory = () => {
         <Container className='mt-5 sliderCategory'>
             <Slider {...settings} className='slider-item'>
                 {
-                    categories.data ? (
+                    categories.data ?  (
                         categories.data.map((item, index) => {
-                            return (<div>
+                            return(<div>
                                 <Link to={`/categorydetails/${item.id}`}>
                                     <img src={item.image} alt="1" />
                                 </Link>
-                                <p style={{ marginLeft: "-14px" , width:"120px" , textAlign:"center"}}>{item.title_ar}</p>
+                                <p style={{ marginLeft: "-14px", width: "120px", textAlign: "center" }}>{item.title_ar}</p>
                             </div>)
                         })
-                    ) : (<Spinner />)
+                    ):(<Spinner animation="grow" />)
                 }
             </Slider>
         </Container>

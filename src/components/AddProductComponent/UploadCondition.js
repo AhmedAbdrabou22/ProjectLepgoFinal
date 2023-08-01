@@ -329,7 +329,7 @@ const UploadCondition = () => {
                     ></textarea>
                 </div>
                 <div className='text-center    mt-3'>
-                    <Button style={{ backgroundColor: "#CB955B", outline: "none" }} className='w-50'
+                    <Button style={{ backgroundColor: "#CB955B", outline: "none" ,border:"none" }} className='w-50'
                         onClick={handleSubmitProduct}
                     >أضف الان</Button>
                 </div>
