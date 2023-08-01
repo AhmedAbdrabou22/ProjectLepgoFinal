@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Card, Col } from 'react-bootstrap'
+import { Card, Col, Toast } from 'react-bootstrap'
 // import bmw from "../../images/Group 598.png"
 import heart from "../../images/heart.svg"
 import heartred from '../../images/heartRed.svg'
@@ -19,8 +19,13 @@ import swal from 'sweetalert';
 
 
 
-const ProductCard = ({ title, desc, img, id, rates, duration, amount, favProd ,city }) => {
+const ProductCard = ({ title, desc, img, id, rates, duration, amount, favProd, city }) => {
 
+    const [showA, setShowA] = useState(false);
+    const [showB, setShowB] = useState(false);
+
+    const toggleShowA = () => setShowA(!showA);
+    const toggleShowB = () => setShowA(!showB);
 
 
     const dispatch = useDispatch();
@@ -53,10 +58,11 @@ const ProductCard = ({ title, desc, img, id, rates, duration, amount, favProd ,c
             // RemoveProductToWishList()
             // console.log(fitem);
         } else {
-            if(localStorage.getItem('user')){
+            if (localStorage.getItem('user')) {
                 addProductToWishList()
-            }else{
-                swal('لابد من التسجيل ')
+            } else {
+                // swal('لابد من التسجيل ')
+                setShowA(!showA)
             }
         }
         // setIsFav(!isFav)
@@ -84,7 +90,7 @@ const ProductCard = ({ title, desc, img, id, rates, duration, amount, favProd ,c
         }))
         if (data) {
             // console.log(data);
-            swal("تم اضافة المنتج الي المفضله")
+            setShowB(!showB)
         }
         setFavimg(heartred)
     }
@@ -105,12 +111,12 @@ const ProductCard = ({ title, desc, img, id, rates, duration, amount, favProd ,c
     // console.log(arr);
 
 
-    const refresh = (e)=>{
+    const refresh = (e) => {
         // if(move){
         //     window.location.href=`/product/${id}`
         // }
-        if(e.target.getAttribute('src') !== "/static/media/heart.9e4358fd97ab2675b037fa92071b911a.svg"){
-            window.location.href=`/product/${id}`
+        if (e.target.getAttribute('src') !== "/static/media/heart.9e4358fd97ab2675b037fa92071b911a.svg") {
+            window.location.href = `/product/${id}`
         }
     }
 
@@ -128,9 +134,26 @@ const ProductCard = ({ title, desc, img, id, rates, duration, amount, favProd ,c
 
     return (
         <Col xl="3" lg="4" md="6" sm="12" className="my-4">
+            <div style={{ position: "fixed", right: "0", top: "22%", zIndex: "100" }}>
+                <Toast show={showA} onClose={() =>setShowA(false)} autohide delay={2000}>
+                    <div className='d-flex'>
+                        <Toast.Header></Toast.Header>
+                        <Toast.Body>لا بد من التسجيل اولا </Toast.Body>
+                    </div>
+                </Toast>
+            </div>
+
+            <div style={{ position: "fixed", right: "0", top: "22%", zIndex: "100" }} >
+                <Toast show={showB} onClose={() =>setShowB(false)} autohide delay={2000}>
+                    <div className='d-flex'>
+                        <Toast.Header></Toast.Header>
+                        <Toast.Body>تم اضافة المنتج الي المفضله</Toast.Body>
+                    </div>
+                </Toast>
+            </div>
             <Link to={`/product/${id}`} style={{ textDecoration: "none" }}>
-                <Card className={`${shadowClass} ${myClass}`} onMouseEnter={handleMouseEnter}  onClick={refresh}
-                    onMouseLeave={handleMouseLeave} style={{ background: "#F9F9FA", borderRadius: "20px", transition: "0.3s", padding: "8px" ,border:"none"}}>
+                <Card className={`${shadowClass} ${myClass}`} onMouseEnter={handleMouseEnter} onClick={refresh}
+                    onMouseLeave={handleMouseLeave} style={{ background: "#F9F9FA", borderRadius: "20px", transition: "0.3s", padding: "8px", border: "none" }}>
                     <OverlayTrigger
                         key="tooltip"
                         placement="top"
@@ -140,17 +163,17 @@ const ProductCard = ({ title, desc, img, id, rates, duration, amount, favProd ,c
                             <img src={favImg} onClick={turnOn} style={{ color: "white" }} alt="heart" />
                         </div>
                     </OverlayTrigger>
-                    <Card.Img  variant="top" src={img} style={{ width: "100%" , borderRadius:"10px" ,  height: "250px" , objectFit:"cover"}} />
+                    <Card.Img variant="top" src={img} style={{ width: "100%", borderRadius: "10px", height: "250px", objectFit: "cover" }} />
                     <Card.Body style={{ textAlign: "right" }}>
                         <Card.Text>{title}
                         </Card.Text>
                         <Card.Text className='textDescription' style={{ textAlign: "right", textDecoration: "none", fontWeight: "500" }}>
-                            <p  style={{ width: '200px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                            <p style={{ width: '200px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                                 {desc}
                             </p>
                         </Card.Text>
                         <Card.Text>
-                            <img src={location} alt="Location" style={{paddingLeft:"5px"}}/>
+                            <img src={location} alt="Location" style={{ paddingLeft: "5px" }} />
                             {city}
                         </Card.Text>
                         <Card.Text>

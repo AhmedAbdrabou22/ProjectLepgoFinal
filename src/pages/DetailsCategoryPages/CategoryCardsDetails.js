@@ -10,7 +10,8 @@ import { useParams } from 'react-router-dom'
 // import baseURL from '../../Api/baseUrl'
 import axios from 'axios'
 import EmptyPage from '../../components/utility/EmptyPage'
-import CategoryCard from '../../components/Cards/categoryCard'
+// import CategoryCard from '../../components/Cards/categoryCard'
+import OfferCategory from "../../components/Home/OfferCategoryContainer"
 import { useDispatch, useSelector } from 'react-redux'
 import { ShowFavouriteItem } from '../../redux/action/FavouriteAction'
 const CategoryCardsDetails = () => {
@@ -80,7 +81,8 @@ useEffect(()=>{
                     }
                 </Row>
             </Container>
-            <MostRented />
+            <OfferCategory />
+            
         </div>
     )
 }

@@ -81,17 +81,17 @@ const Register = () => {
         if (loading === false) {
             if (data) {
                 if(data.data.token){
+                    swal("تم التسجيل ينجاح")
                     localStorage.setItem('token', data.data.token);
                     localStorage.setItem('user', JSON.stringify(data));
                     console.log(data);
                     verify_Email_to_activate(); 
                     // localStorage.setItem('user', JSON.stringify(data));
                     // console.log(getVerify);
-                    swal("تم التسجيل ينجاح")
                     navigate('/verify-email')
                 }
             }else{
-                swal("هناك خطا في البيانات")
+                swal('هناك خطا في البيانات ')
             }
         }
     }, [loading])

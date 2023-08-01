@@ -21,6 +21,7 @@
     "react-paginate": "^8.2.0",
     "react-rating-stars-component": "^2.2.0",
     "react-redux": "^8.1.1",
+    "react-redux-toastr": "^7.6.11",
     "react-router-dom": "^6.14.1",
     "react-scripts": "5.0.1",
     "react-slick": "^0.29.0",
@@ -29,6 +30,7 @@
     "slick-carousel": "^1.8.1",
     "sweetalert": "^2.1.2",
     "sweetalert2": "^11.7.20",
+    "toastr": "^2.1.4",
     "unop-react-dropdown": "^0.2.3",
     "web-vitals": "^2.1.4"
   },

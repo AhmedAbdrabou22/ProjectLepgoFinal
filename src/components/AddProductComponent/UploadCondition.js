@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Button } from 'react-bootstrap';
+import { Button, Toast } from 'react-bootstrap';
 import plus from "../../images/plus.svg"
 import mins from "../../images/minus.svg"
 import LocationSvg from "../../images/location_pin.svg"
@@ -15,6 +15,10 @@ import baseURL from '../../Api/baseUrl';
 
 const UploadCondition = () => {
 
+    const [showA, setShowA] = useState(false);
+    const [showB, setShowB] = useState(false);
+    const [showC, setShowC] = useState(false);
+    const [showD, setShowD] = useState(false);
 
     const dispatch = useDispatch();
     useEffect(() => {
@@ -110,6 +114,7 @@ const UploadCondition = () => {
     // console.log(city.data);
 
     var infoUser = JSON.parse(localStorage.getItem('user'));
+    console.log(infoUser.data.user.is_verified);
 
 
     //to Save Data
@@ -117,7 +122,8 @@ const UploadCondition = () => {
         e.preventDefault();
 
         if (images.length <= 0 || title === "" || categoryId === 0 || amount === "" || desc === "" || conditions === "" || location === "") {
-            swal('ادخل البيانات الصحيحه');
+            // swal('ادخل البيانات الصحيحه');
+            setShowA(!showA)
             return;
         }
         const formData = new FormData();
@@ -134,11 +140,14 @@ const UploadCondition = () => {
         formData.append("discount", discount)
         formData.append("available", available)
 
-        if (loading === true) {
-            swal("جاري الرفع الان")
+        if (loading === true && infoUser.data.user.is_verified === "1") {
+            // swal("جاري الرفع الان")
+            setShowB(!showB)
             setLoading(true)
             await dispatch(StoreProduct(formData))
             setLoading(false)
+        }else{
+            setShowD(!showD)
         }
 
     }
@@ -165,7 +174,8 @@ const UploadCondition = () => {
 
             if (r) {
                 console.log(r.data);
-                swal(`${r.data.message}`)
+                // swal(`${r.data.message}`)
+                setShowC(!showC)
             } else {
                 swal('عليك تحديث البيانات في الصفحه الرئيسيه')
             }
@@ -183,6 +193,38 @@ const UploadCondition = () => {
 
     return (
         <div>
+            <div style={{ position: "fixed", right: "0", top: "22%", zIndex: "100" }}>
+                <Toast show={showA} onClose={() =>setShowA(false)} autohide delay={2000}>
+                    <div className='d-flex'>
+                        <Toast.Header></Toast.Header>
+                        <Toast.Body>ادخل البيانات كامله</Toast.Body>
+                    </div>
+                </Toast>
+            </div>
+            <div style={{ position: "fixed", right: "0", top: "22%", zIndex: "100" }}>
+                <Toast show={showB} onClose={() =>setShowB(false)} autohide delay={2000}>
+                    <div className='d-flex'>
+                        <Toast.Header></Toast.Header>
+                        <Toast.Body>جاري الرفع الان</Toast.Body>
+                    </div>
+                </Toast>
+            </div>
+            <div style={{ position: "fixed", right: "0", top: "22%", zIndex: "100" }}>
+                <Toast show={showC} onClose={() =>setShowC(false)} autohide delay={2000}>
+                    <div className='d-flex'>
+                        <Toast.Header></Toast.Header>
+                        <Toast.Body>تم رفع المنتج بنجاح</Toast.Body>
+                    </div>
+                </Toast>
+            </div>
+            <div style={{ position: "fixed", right: "0", top: "22%", zIndex: "100" }}>
+                <Toast show={showD} onClose={() =>setShowD(false)} autohide delay={2000}>
+                    <div className='d-flex'>
+                        <Toast.Header></Toast.Header>
+                        <Toast.Body>قم بتفعيل الايميل</Toast.Body>
+                    </div>
+                </Toast>
+            </div>
             <div>
                 <div>
                     <div className="file-input">
@@ -329,7 +371,7 @@ const UploadCondition = () => {
                     ></textarea>
                 </div>
                 <div className='text-center    mt-3'>
-                    <Button style={{ backgroundColor: "#CB955B", outline: "none" ,border:"none" }} className='w-50'
+                    <Button style={{ backgroundColor: "#CB955B", outline: "none", border: "none" }} className='w-50'
                         onClick={handleSubmitProduct}
                     >أضف الان</Button>
                 </div>
