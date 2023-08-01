@@ -10,8 +10,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import swal from 'sweetalert';
 import { Link } from 'react-router-dom';
 import { text } from '@fortawesome/fontawesome-svg-core';
+import locationImage from "../../images/location_pin.svg"
 
-const FavouriteCard = ({ img, amount, desc, title, city, duration, identity, id , rate }) => {
+const FavouriteCard = ({ img, amount, desc, title, city, duration, identity, id, rate }) => {
     const dispatch = useDispatch();
     const [favImg, setFavimg] = useState(heartred);
 
@@ -29,7 +30,7 @@ const FavouriteCard = ({ img, amount, desc, title, city, duration, identity, id 
         if (res) {
             console.log(res.data);
             swal("تم حذف المنتج من المفضله")
-            window.location.href="/favourite"
+            window.location.href = "/favourite"
         }
         setFavimg(heart)
     }
@@ -39,13 +40,13 @@ const FavouriteCard = ({ img, amount, desc, title, city, duration, identity, id 
 
     return (
         <div>
-            <Link to={`/product/${id}`} style={{textDecoration:"none"}}>
+            <Link to={`/product/${id}`} style={{ textDecoration: "none" }}>
                 <div className='w-75 mx-auto favItem mt-4 text-center'>
                     <img src={img} style={{ width: "300px", height: "200px" }} alt='img' />
                     <div className='mx-3'>
                         <h2 className='infos'>{title}</h2>
-                        <p className='infos infoDetails  textDescription'>{desc}</p>
-                        <p className='infos'>{city}</p>
+                        <p className='infos infoDetails' style={{ width: '200px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{desc}</p>
+                            <p className='infos'>{city}</p>
                         <div className='d-flex align-items-start w-100'>
                             <img src={favImg} onClick={turnIt} style={{ color: "red", alignSelf: "start", margin: "5px" }} alt="" />
                             <p style={{ color: "#08324B", fontSize: "18px", cursor: "pointer" }} className='infos'>إزالة من المفضلة</p>

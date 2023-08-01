@@ -19,7 +19,7 @@ const PostRate = () => {
     const setting = {
         size: 20,
         count: 5,
-        color: "#979797",
+        color: "#3B3B3B",
         activeColor: "#ffc107",
         value: 0.5,
         a11y: true,
@@ -61,31 +61,27 @@ const PostRate = () => {
 
     return (
         <div className='w-100'>
-            <Row className="mt-3 ">
-                <Col sm="12" className="me-5  d-flex">
-                    <div className="rate-name  d-flex  justify-content-evenly align-items-center ms-3 mt-1 " style={{ fontSize: "17px" }}>
-                        {
-                            userData ? (
-                                userData.data.user.image ? ((<img src={userData.data.user.image} alt="person" style={{ width: "50px", height: "50px", borderRadius: "50%" }} />)):((<img src={person} alt="person" style={{ width: "50px", height: "50px", borderRadius: "50%" }} />))
-                            ):null
-                        }
-                        {
-                            userData ? (userData.data.user.name) : null
-                        }
-                        {
-                            userData ? (<ReactStars {...setting} />) : null
-                        }
-                    </div>
-                </Col>
-            </Row>
-            <div>
+            <div style={{position:"relative"}}>
+                <div className="rate-name  d-flex  justify-content-evenly align-items-center ms-3 mt-1 " style={{ fontSize: "17px",position:"absolute" , right:"8%", top:"-4%",borderRadius:"20px"  , padding:"3px" , background:"#F8F8F8", border:"1px solid #9399A3" , color:"#3B3B3B"}}>
+                    {
+                        userData ? (
+                            userData.data.user.image ? ((<img src={userData.data.user.image} alt="person" style={{ width: "50px", height: "50px", borderRadius: "50%" }} />)) : ((<img src={person} alt="person" style={{ width: "50px", height: "50px", borderRadius: "50%" }} />))
+                        ) : null
+                    }
+                    {
+                        userData ? (userData.data.user.name) : null
+                    }
+                    {
+                        userData ? (<ReactStars {...setting} />) : null
+                    }
+                </div>
                 {
                     userData ? (<Row className="border-bottom mx-2">
                         <Col className="d-felx me-4 pb-2">
                             <textarea
-                                style={{ resize: "none", outline: "none" }}
-                                className="input-form-area p-2 mt-3"
-                                rows="2"
+                                style={{ resize: "none", outline: "none"  , paddingTop:"40px" , background:"white"}}
+                                className="input-form-area  mt-3"
+                                rows="4"
                                 cols="20"
                                 placeholder="اكتب تعليقك...."
                                 value={addcomment}
@@ -97,6 +93,9 @@ const PostRate = () => {
                         </Col>
                     </Row>) : null
                 }
+            </div>
+            <div className='mt-2' style={{textAlign:"right"}}>
+                <p style={{fontSize:"16px" , color:"#000000"}}>مراجعة المستخدمين</p>
             </div>
         </div>
     )
