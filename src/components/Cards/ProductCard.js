@@ -145,7 +145,7 @@ const ProductCard = ({ title, desc, img, id, rates, duration, amount, favProd ,c
                         <Card.Text>{title}
                         </Card.Text>
                         <Card.Text className='textDescription' style={{ textAlign: "right", textDecoration: "none", fontWeight: "500" }}>
-                            <p>
+                            <p  style={{ width: '200px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                                 {desc}
                             </p>
                         </Card.Text>

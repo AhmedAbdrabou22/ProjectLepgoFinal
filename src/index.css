@@ -504,13 +504,12 @@ textarea {
 
 /**style image Gallery */
 /**/
-.textDescription {
-  width: 150px;
-  text-decoration: "none";
-  text-overflow: ellipse;
+/* .textDescription {
+  width: 200px;
   white-space: nowrap;
   overflow: hidden;
-}
+  text-overflow: ellipse !important;
+} */
 
 /**Style Regioster Component */
 .RegisterComponent, .workAt {
