@@ -9,6 +9,7 @@ import UpdateDetails from "./UpdateDetailsReducer"
 import GovernmentsReducer from "./GovernmentReducer"
 import MyProductsRed from "./GetMyProductsReducer"
 import CommentsReducer from "./PostCommentReducer"
+import UploadImageProfile from "./UploadImagePrfileReducer"
 
 export default combineReducers({
     allCategory:CategoryReducers,
@@ -17,6 +18,7 @@ export default combineReducers({
     OfferReducer:OfferReducer,
     FavouriteItemReducer:FavouriteItemReducer,
     StoreProductReducer: StoreProductReducer,
+    UploadImageProfile: UploadImageProfile,
     updateDetails:UpdateDetails,
     GovernmentsReducer:GovernmentsReducer,
     MyProductsRed : MyProductsRed,

@@ -62,7 +62,11 @@ const PostRate = () => {
 
 
     const userData = JSON.parse(localStorage.getItem('user'));
-
+    // const Second = JSON.parse(localStorage.getItem('userData'));
+    // console.log(userData.data.user.image)
+    // userData.data.user.image = "https://lepgo-23.s3.eu-central-1.amazonaws.com/lepgo/images/profiles/1690970986_photo_2023-06-26_21-59-46.jpg"
+    // // console.log(Second.data.user.image);
+    // localStorage.setItem("user", JSON.stringify(userData));
     return (
 
         <div>

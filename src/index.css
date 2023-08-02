@@ -536,13 +536,13 @@ textarea {
   text-align: right;
 }
 
-.item-delete-edit {
+/* .item-delete-edit {
   color: black;
   font-size: 16px;
   letter-spacing: 0;
   text-align: center;
   cursor: pointer;
-}
+} */
 
 .text-form {
   color: #979797;
@@ -805,12 +805,38 @@ button[type="submit"] {
 /**Style Comments */
 
 
+/**uploadImageProfile */
+
+.uploadImageProfile img{
+  width:150px;
+  height: 150px; 
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+} 
+.uploadImageProfileContainer{
+  background-color: red;
+}
+/**uploadImageProfile */
+
+.d{
+  width: 50%;
+}
+
 /** Stly Personal Page*/
 @media(max-width:768px) {
   body {
     overflow-x: hidden;
   }
 
+  .d{
+    width: 100%;
+  }
+  .uploadImageProfileContainer{
+    width: 100%;
+  }
 
   .groubFilter {
     width: 100%;

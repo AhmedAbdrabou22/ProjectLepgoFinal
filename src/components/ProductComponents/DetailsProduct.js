@@ -18,11 +18,11 @@ const DetailsProduct = ({ title, desc, conditions, place, price, duration }) => 
                 <p style={{ color: "#9399A3" }}>{title}</p>
                 <p style={{ color: "#08324B", fontSize: "25px" }}>{desc}</p>
             </div>
-            <div className='mt-5 d-flex justify-content-between w-50'>
+            <div className='mt-5 d-flex justify-content-between d'>
                 <p style={{ color: "#424750", display: "inline", fontSize: "20px" }}>السعر : </p>
                 <p style={{ color: "#08324B", display: "inline", fontSize: "18px" }}>{price} جنيه <span style={{ color: "#CB955B" }}> لمدة {duration} يوم</span></p>
             </div>
-            <div className='location mt-5 d-flex justify-content-between w-50'>
+            <div className='location mt-5 d-flex justify-content-between d'>
                 <p style={{ color: "#424750", display: "inline" }}>المكان : </p>
                 <div>
                     <img src={locationImage} style={{paddingLeft:"5px"}} alt="location" />
