@@ -15,8 +15,8 @@ const Footer = () => {
         <div className="footer-background footer mt-3 pt-2">
             <Container className="" fluid={true}>
                 <Row style={{ margin: "auto" }} className="rowFooter">
-                    <Col lg="6" md="6" className='policy'>
-                        <div className='privacy d-flex justify-content-center'>
+                    <Col md="6" sm="6"  className='policy'>
+                        <div className='d-flex justify-content-center'>
                             <div>
                                 <ul>
                                     <h5>الخصوصيه</h5>
@@ -31,7 +31,7 @@ const Footer = () => {
                         </div>
                     </Col>
 
-                    <Col lg="6" md="6"  className='contact d-flex justify-content-center'>
+                    <Col md="6" sm="6"  className='d-flex justify-content-center'>
                         <div className=''>
                             <div className='contacCashes'>
                                 <h4>تواصل معنا</h4>

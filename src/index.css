@@ -866,7 +866,12 @@ button[type="submit"] {
   }
 
   .priceDetails {
-    top: 70%;
+    top: 60%;
+    width:100%;
+    /* background-color: red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .detailFavItem, .detailsFavItemduration {
@@ -899,7 +904,7 @@ button[type="submit"] {
   }
 
   .rowFooter {
-    width: 60%;
+    width: 100%;
   }
   .allfilesLink {
     font-size: 12px !important;
@@ -910,12 +915,6 @@ button[type="submit"] {
   .bgNavBar{
     padding:0px !important;
     background-color: white !important;
-  }
-  .policy{
-    margin-right: -140px !important;
-  }
-  .contacCashes{
-    width:350px !important;
   }
   .circle{
     width:20px;

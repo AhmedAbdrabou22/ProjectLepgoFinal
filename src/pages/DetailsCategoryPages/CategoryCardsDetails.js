@@ -27,10 +27,6 @@ const CategoryCardsDetails = () => {
     useEffect(()=>{FetchProductCaategory()},[])
 
 
-if(dataId){
-    console.log(dataId.data);
-}
-
 
 const dispatch = useDispatch();
     const dispatch2 = useDispatch();
@@ -57,12 +53,13 @@ const res = useSelector(state => state.FavouriteItemReducer.getFavouriteItems)
 useEffect(()=>{
     if(loading === false && localStorage.getItem('user')){
         if(res.data){
-            console.log(res.data); 
+            // console.log(res.data); 
             setFavProducts(res.data.map(item=>item.product_id))
         }
     }
 } , [loading])
 
+console.log(dataId);
 
 
 
@@ -71,7 +68,7 @@ useEffect(()=>{
             <Container>
                 <Row className='d-flex'>
                     {
-                        dataId.data  ? (
+                        dataId.data ? (
                             dataId.data.map((item)=>{
                                 return (
                                     <ProductCard favProd={FavProducts} rates={item.total_rate} amount={item.amount} duration={item.duration}   desc={item.desc} title={item.title} img={item.image} id={item.id}/>

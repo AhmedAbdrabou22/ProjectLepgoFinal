@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Col, Row } from 'react-bootstrap'
+import { Col, Row, Toast } from 'react-bootstrap'
 import Modal from 'react-bootstrap/Modal';
 import Pen from "../../images/pen.svg"
 import Button from 'react-bootstrap/Button';
@@ -8,9 +8,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from "react-router-dom";
 import baseURL from '../../Api/baseUrl';
 import { UpdateDetails } from '../../redux/action/UpdateDetailsAction';
-import { VerifyEmailCodeNumOtp } from '../../redux/action/AuthAction';
+// import { VerifyEmailCodeNumOtp } from '../../redux/action/AuthAction';
 import { VerifyEmailCode } from '../../redux/action/AuthAction';
-import person from "../../images/person2.jpg"
+// import person from "../../images/person2.jpg"
 import swal from "sweetalert";
 import { UploadImageProfile } from '../../redux/action/UploadImageProfile';
 
@@ -18,6 +18,7 @@ const UserData = () => {
     const dispatch = useDispatch();
 
     const navigate = useNavigate();
+    const [showA, setShowA] = useState(false);
 
     let userData = '';
 
@@ -128,30 +129,50 @@ const UserData = () => {
         fileInput.click();
     };
 
-
-    console.log(images);
     
+
+
     var infoUser = JSON.parse(localStorage.getItem('user'));
 
-    const results = useSelector(state=>state.UploadImageProfile.uploadsImages)
+    const results = useSelector(state => state.UploadImageProfile.uploadsImages)
 
 
-    const handleProfileImage = async(e)=>{
+    const handleProfileImage = async (e) => {
         const formData = new FormData();
         images.map((image) => formData.append("image", image))
         if (loading2 === true && infoUser.data.user.is_verified === "1") {
             setLoading2(true)
             await dispatch(UploadImageProfile(formData))
             setLoading2(false)
-        }else{
+            setShowA(!showA)
+        } else {
             // setShowD(!showD)
+            swal("قم بتفعيل الايميل")
         }
 
     }
 
 
+    if (results) {
+        if (results.status === 200) {
+            console.log('تم التحديث');
+            // setShowA(!showA)
+        } else {
+
+        }
+    }
+
+
     return (
         <div>
+            <div style={{ position: "fixed", right: "0", top: "22%", zIndex: "100" }}>
+                <Toast show={showA} onClose={() => setShowA(false)} autohide delay={2000}>
+                    <div className='d-flex'>
+                        <Toast.Header></Toast.Header>
+                        <Toast.Body>تم تحديث الصورة الشخصية</Toast.Body>
+                    </div>
+                </Toast>
+            </div>
             <div>
                 <div className="user-address-card my-3 px-2">
                     <Row className="d-flex justify-content-between pt-2">
@@ -198,12 +219,12 @@ const UserData = () => {
                         </Col>
                     </Row>
                     <Row className='d-flex justify-content-between  align-items-center'>
-                        <Col  xs="6" className="d-flex">
+                        <Col xs="6" className="d-flex">
                             <div>
                                 <div >
                                     <div className="file-input">
                                         <input type="file" id="file" accept="image/*" onChange={handleImageUpload} style={{ visibility: "hidden" }} />
-                                        <Button className='btn  w-100' style={{background:"rgb(203, 149, 91)" , border:"none" , outline:"none"}} onClick={handleLabelClick}>
+                                        <Button className='btn  w-100' style={{ background: "rgb(203, 149, 91)", border: "none", outline: "none" }} onClick={handleLabelClick}>
                                             الصورة الشخصيه
                                         </Button>
                                     </div>
@@ -220,7 +241,7 @@ const UserData = () => {
                             </div>
                             <div>
                                 {
-                                    images.length===1?(<Button onClick={handleProfileImage} style={{background:"rgb(203, 149, 91)" , border:"none" , outline:"none"}}>اضف الان</Button>):null
+                                    images.length === 1 ? (<Button onClick={handleProfileImage} style={{ background: "rgb(203, 149, 91)", border: "none", outline: "none" }}>اضف الان</Button>) : null
                                 }
                             </div>
                         </Col>

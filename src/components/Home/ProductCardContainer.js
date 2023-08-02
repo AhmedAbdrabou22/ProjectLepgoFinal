@@ -81,12 +81,12 @@ const ProductCardContainer = () => {
     //     console.log(Products.data);
     // }
 
-    if(Products){
-        console.log(Products);
-        if(res){
-            console.log(res);
-        }
-    }
+    // if(Products){
+    //     console.log(Products);
+    //     if(res){
+    //         console.log(res);
+    //     }
+    // }
     const myRef = createRef();
     setTimeout(()=>{console.log(myRef.current);} , 500)
 
