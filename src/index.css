@@ -928,7 +928,24 @@ button[type="submit"] {
     -moz-border-radius: 50%;
     -ms-border-radius: 50%;
     -o-border-radius: 50%;
-    left:35%;
-    top:-5%;
+    left:3%;
+    top:10%;
   }
+  .data{
+    flex-direction: column;
+  }
+  #basic-navbar-nav{
+    display: none;
+  }
+}
+
+.imageProfileContainer{
+  width:150px;
+  height: 150px;
+  background-color: red;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
 }

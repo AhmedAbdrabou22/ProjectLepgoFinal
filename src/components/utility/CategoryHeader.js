@@ -1,14 +1,25 @@
-import React, { useContext, useEffect } from 'react'
-import { Container, Spinner } from "react-bootstrap";
+import React, { useContext, useEffect, useState } from 'react'
+// import { Container, Spinner } from "react-bootstrap";
 import UnopDropdown from "unop-react-dropdown";
 import cash from "../../images/sort.png"
+import { Container, Navbar, Nav, Dropdown } from 'react-bootstrap';
+
 // import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
+// import Nav from 'react-bootstrap/Nav';
+// import Navbar from 'react-bootstrap/Navbar';
 import { useDispatch, useSelector } from "react-redux"
 import { getAllCategory } from "../../redux/action/categoryAction.js"
-import { Dropdown } from 'react-bootstrap';
+// import { Dropdown } from 'react-bootstrap';
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 const CategoryHeader = () => {
+
+
+
+
+
     const handler = () => { };
     const dispatch = useDispatch();
     useEffect(() => {
@@ -18,6 +29,35 @@ const CategoryHeader = () => {
     const DataCate = useSelector(state => state.allCategory.category)
 
 
+    const settings = {
+        dots: false,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 10,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        cssEase: "linear",
+        centerMode: true,
+        centerPadding: "0px",
+        responsive: [
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                },
+                dots: true,
+            },
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                },
+            },
+        ],
+    };
 
 
     return (
@@ -57,25 +97,11 @@ const CategoryHeader = () => {
                                     ) : null
                                 }
                             </div>
-
-                            {/* <div className="groubFilter">
-                                    {
-                                        DataCate.data ? (
-                                            DataCate.data.slice(10, 17).map((ele) => {
-                                                return (
-                                                    <div className="card-filter-item">
-                                                        <a className="cat-text-header" href={`/categorydetails/${ele.id}`}>{ele.title_ar}</a>
-                                                    </div>
-                                                )
-                                            })
-                                        ) : null
-                                    }
-                                </div> */}
                         </div>
                     </Dropdown.Menu>
                 </Dropdown>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav" className='NavBarHeader'>
+                <Navbar.Toggle aria-controls="basic-navbar-nav2" />
+                <Navbar.Collapse id="basic-navbar-nav2" className='NavBarHeader'>
                     <Nav className="mx-4">
                         {
                             DataCate.data ? (
@@ -91,10 +117,12 @@ const CategoryHeader = () => {
                     </Nav>
                 </Navbar.Collapse>
 
-
             </Navbar>
         </Container>
+
     )
 }
 
 export default CategoryHeader
+
+

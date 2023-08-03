@@ -13,6 +13,7 @@ import { VerifyEmailCode } from '../../redux/action/AuthAction';
 // import person from "../../images/person2.jpg"
 import swal from "sweetalert";
 import { UploadImageProfile } from '../../redux/action/UploadImageProfile';
+import personuknown from "../../images/download.png"
 
 const UserData = () => {
     const dispatch = useDispatch();
@@ -27,6 +28,9 @@ const UserData = () => {
     } else {
         userData = ""
     }
+
+
+    const [selectImage , setSelectImage] = useState(false)
 
 
     const [show, setShow] = useState(false);
@@ -127,9 +131,19 @@ const UserData = () => {
         event.preventDefault();
         const fileInput = document.getElementById('file');
         fileInput.click();
+        setSelectImage(true)
     };
 
-    
+
+    useEffect(()=>{
+        if(selectImage === true && images.length !== 0){
+            console.log(images.length)
+            console.log(selectImage)
+            handleProfileImage();
+        }
+    } , [images.length])
+
+
 
 
     var infoUser = JSON.parse(localStorage.getItem('user'));
@@ -137,17 +151,22 @@ const UserData = () => {
     const results = useSelector(state => state.UploadImageProfile.uploadsImages)
 
 
-    const handleProfileImage = async (e) => {
+    const handleProfileImage = async () => {
         const formData = new FormData();
         images.map((image) => formData.append("image", image))
-        if (loading2 === true && infoUser.data.user.is_verified === "1") {
-            setLoading2(true)
-            await dispatch(UploadImageProfile(formData))
-            setLoading2(false)
-            setShowA(!showA)
+        if (loading2 === true) {
+            console.log(loading2);
+            if (infoUser.data.user.is_verified === "1") {
+                setLoading2(true)
+                await dispatch(UploadImageProfile(formData))
+                setLoading2(false)
+                setShowA(!showA)
+            } else {
+                swal("قم بتفعيل الايميل")
+            }
         } else {
             // setShowD(!showD)
-            swal("قم بتفعيل الايميل")
+            // swal("قم بتفعيل الايميل")
         }
 
     }
@@ -163,6 +182,7 @@ const UserData = () => {
     }
 
 
+
     return (
         <div>
             <div style={{ position: "fixed", right: "0", top: "22%", zIndex: "100" }}>
@@ -175,6 +195,27 @@ const UserData = () => {
             </div>
             <div>
                 <div className="user-address-card my-3 px-2">
+                    <Row>
+                        <Col>
+                            <div className='imageProfileContainer'>
+                                {
+                                    infoUser ? (
+                                        infoUser.data.user.image != null ? (
+
+
+                                            <img src={infoUser.data.user.image}  style={{ width: "100%", height: "100%", borderRadius: "50%" }} alt="Profile" />
+
+                                        ) : (
+                                            <div className="file-input">
+                                                <input type="file" id="file" accept="image/*" onChange={handleImageUpload} style={{ visibility: "hidden" }} />
+                                                <img src={personuknown} alt="ProfileImage" style={{ width: "100%", height: "100%" }} onClick={handleLabelClick} />
+                                            </div>
+                                        )
+                                    ) : null
+                                }
+                            </div>
+                        </Col>
+                    </Row>
                     <Row className="d-flex justify-content-between pt-2">
                         <Col xs="6" className="d-flex">
                             <div className="p-2">الاسم:</div>
@@ -219,7 +260,7 @@ const UserData = () => {
                         </Col>
                     </Row>
                     <Row className='d-flex justify-content-between  align-items-center'>
-                        <Col xs="6" className="d-flex">
+                        {/* <Col xs="6" className="d-flex">
                             <div>
                                 <div >
                                     <div className="file-input">
@@ -230,8 +271,8 @@ const UserData = () => {
                                     </div>
                                 </div>
                             </div>
-                        </Col>
-                        <Col xs="6" className="d-flex justify-content-end align-items-center text-center">
+                        </Col> */}
+                        {/* <Col xs="6" className="d-flex justify-content-end align-items-center text-center">
                             <div className='uploadImageProfile'>
                                 {images.map((image, index) => (
                                     <img key={index} src={URL.createObjectURL(image)} alt={`Image ${index}`}
@@ -244,7 +285,7 @@ const UserData = () => {
                                     images.length === 1 ? (<Button onClick={handleProfileImage} style={{ background: "rgb(203, 149, 91)", border: "none", outline: "none" }}>اضف الان</Button>) : null
                                 }
                             </div>
-                        </Col>
+                        </Col> */}
                     </Row>
                 </div>
             </div>

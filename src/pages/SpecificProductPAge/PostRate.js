@@ -80,7 +80,7 @@ const PostRate = () => {
             </div>
             <div className='w-100'>
                 <div style={{ position: "relative" }}>
-                    <div className="rate-name  d-flex  justify-content-evenly align-items-center ms-3 mt-1 " style={{ fontSize: "17px", position: "absolute", right: "8%", top: "-4%", borderRadius: "20px", padding: "3px", background: "#F8F8F8", border: "1px solid #9399A3", color: "#3B3B3B" }}>
+                    <div className="rate-name  d-flex  justify-content-evenly align-items-center ms-3 mt-1 " style={{ fontSize: "14px", position: "absolute", right: "8%", top: "-4%", borderRadius: "20px", padding: "3px", background: "#F8F8F8", border: "1px solid #9399A3", color: "#3B3B3B"  }}>
                         {
                             userData ? (
                                 userData.data.user.image ? ((<img src={userData.data.user.image} alt="person" style={{ width: "50px", height: "50px", borderRadius: "50%" }} />)) : ((<img src={person} alt="person" style={{ width: "50px", height: "50px", borderRadius: "50%" }} />))

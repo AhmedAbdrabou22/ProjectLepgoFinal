@@ -17,61 +17,72 @@ import notifyLepgo from "../../images/notification-new.svg"
 import { useDispatch, useSelector } from 'react-redux';
 import { ShowFavouriteItem } from '../../redux/action/FavouriteAction';
 import swal from 'sweetalert';
+import Button from 'react-bootstrap/Button';
+import Offcanvas from 'react-bootstrap/Offcanvas';
 const NavBar = () => {
 
     // const [userData, setUserData] = useState('')
     let user = ""
-    
-    if (localStorage.getItem('user') != null){
+
+    if (localStorage.getItem('user') != null) {
         user = JSON.parse(localStorage.getItem('user'))
-    }else{
+    } else {
         user = ""
     }
 
-    const logOut = ()=>{
+    const logOut = () => {
         localStorage.removeItem('user')
-        user="";
-        window.location.href="/"
+        user = "";
+        window.location.href = "/"
     }
 
-        // console.log(user.data.user.name);
+    // console.log(user.data.user.name);
 
-        //Favourite
-        const dispatch = useDispatch();
-        const [loading , setLoading] = useState(true)
-        const [count , setCount] = useState(0)
-    
-        const [FavProducts , setFavProducts] = useState([]);
-    
-        useEffect(()=>{
-            const get = async()=>{
-                setLoading(true)
-                await dispatch(ShowFavouriteItem());
-                setLoading(false)
-            }
-            get();
-        } , [])
-    
-    
-        const res = useSelector(state => state.FavouriteItemReducer.getFavouriteItems)
-    
-    
-        useEffect(()=>{
-            if(loading === false){
-                if(res.data){
-                    // console.log(res.data); 
-                    if(localStorage.getItem('user')){
-                        setFavProducts(res.data.map(item=>item.product_id))
-                        // setCount(FavProducts.length)
-                    }
+    //Favourite
+    const dispatch = useDispatch();
+    const [loading, setLoading] = useState(true)
+    const [count, setCount] = useState(0)
+
+    const [FavProducts, setFavProducts] = useState([]);
+
+    useEffect(() => {
+        const get = async () => {
+            setLoading(true)
+            await dispatch(ShowFavouriteItem());
+            setLoading(false)
+        }
+        get();
+    }, [])
+
+
+    const res = useSelector(state => state.FavouriteItemReducer.getFavouriteItems)
+
+
+    useEffect(() => {
+        if (loading === false) {
+            if (res.data) {
+                // console.log(res.data); 
+                if (localStorage.getItem('user')) {
+                    setFavProducts(res.data.map(item => item.product_id))
+                    // setCount(FavProducts.length)
                 }
             }
-        } , [loading])
-        // let count = FavProducts.length;
+        }
+    }, [loading])
+    // let count = FavProducts.length;
 
-        useEffect(()=>{
-            setCount(FavProducts.length)
-        } , [FavProducts.length])
+    useEffect(() => {
+        setCount(FavProducts.length)
+    }, [FavProducts.length])
+
+    const [vis, setVis] = useState(false);
+    const [d, setD] = useState(false);
+
+    const handleClose = () => setVis(false);
+    const handleVis = () => {
+        setVis(true)
+        setD(false)
+    };
 
     return (
         <div style={{ position: "fixed", zIndex: "25", width: "100%" }}>
@@ -92,8 +103,8 @@ const NavBar = () => {
                     </Nav>
 
 
-                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                    <Navbar.Collapse id="basic-navbar-nav">
+                    <Navbar.Toggle className="d-lg-none" onClick={handleVis} aria-controls="basic-navbar-nav" />
+                    <Navbar.Collapse show={d} id="basic-navbar-nav">
                         <FormControl
                             type="search"
                             placeholder="انت بدور علي ايه"
@@ -101,13 +112,13 @@ const NavBar = () => {
                             aria-label="Search"
                         />
                         <Nav>
-                            <Nav.Link  style={{ borderRight: "3px solid #0000001A", width: "100px", margin:"auto", height: "40px", padding: "0 5px" }}
+                            <Nav.Link style={{ borderRight: "3px solid #0000001A", width: "100px", margin: "auto", height: "40px", padding: "0 5px" }}
                                 href="/addProduct"
                                 className="nav-text d-flex align-items-center text-center justify-content-center">
                                 <p style={{ color: "black", marginTop: "15px" }}>en</p>
                             </Nav.Link>
 
-                            <Nav.Link    style={{ borderRight: "3px solid #0000001A", width: "200px", margin:"auto" , height: "40px", padding: "0 5px" }}
+                            <Nav.Link style={{ borderRight: "3px solid #0000001A", width: "200px", margin: "auto", height: "40px", padding: "0 5px" }}
                                 href="/addProduct"
                                 className="nav-text d-flex align-items-center text-center justify-content-center">
                                 <p style={{ color: "black", marginTop: "15px" }}>اضافة منتج للحجز</p>
@@ -116,14 +127,14 @@ const NavBar = () => {
 
                             {
                                 user !== "" ? (
-                                    <NavDropdown    title={user.data.user.name} style={{ borderRight: "3px solid #0000001A", padding: "0 5px" }} id="basic-nav-dropdown">
+                                    <NavDropdown title={user.data.user.name} style={{ borderRight: "3px solid #0000001A", padding: "0 5px" }} id="basic-nav-dropdown">
                                         <NavDropdown.Item href="/user/profile">الصفحة الشخصيه</NavDropdown.Item>
                                         <NavDropdown.Divider />
                                         <NavDropdown.Item href="/" onClick={logOut}>
                                             تسجيل الخروج
                                         </NavDropdown.Item>
                                     </NavDropdown>
-                                ) : (<Nav.Link    style={{ borderRight: "3px solid #0000001A", height: "40px", padding: "0 15px" }}
+                                ) : (<Nav.Link style={{ borderRight: "3px solid #0000001A", height: "40px", padding: "0 15px" }}
                                     href="/login"
 
                                     className="nav-text d-flex align-items-center justify-content-center">
@@ -134,13 +145,13 @@ const NavBar = () => {
                                 </Nav.Link>)
                             }
 
-                            <Nav.Link  disabled={true}  style={{ borderRight: "3px solid #0000001A", height: "40px", padding: "0 15px" }}
+                            <Nav.Link disabled={true} style={{ borderRight: "3px solid #0000001A", height: "40px", padding: "0 15px" }}
                                 href=""
                                 className="nav-text d-flex align-items-center justify-content-center">
                                 <p style={{ color: "black", marginTop: "15px" }}>الدردشه</p>
                                 <img style={{ paddingRight: "8px" }} src={IconChat} className="login-img" alt="sfvs" />
                             </Nav.Link>
-                            <Nav.Link   style={{ borderRight: "3px solid #0000001A", height: "40px", padding: "0 15px" , position:"relative" }}
+                            <Nav.Link style={{ borderRight: "3px solid #0000001A", height: "40px", padding: "0 15px", position: "relative" }}
                                 href="/favourite"
                                 className="nav-text d-flex align-items-center justify-content-center">
                                 <p style={{ color: "black", marginTop: "15px" }}>المفضله</p>
@@ -157,9 +168,83 @@ const NavBar = () => {
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
+
+            <Offcanvas show={vis} onHide={handleClose}>
+                <Offcanvas.Header closeButton>
+                    <Offcanvas.Title>
+                        <Navbar.Brand className='mx-2'>
+                            <a href="/">
+                                <img src={lepgoImage} className="logo" alt="sfvs" />
+                            </a>
+                        </Navbar.Brand>
+                    </Offcanvas.Title>
+                </Offcanvas.Header>
+                <Offcanvas.Body className='flex-column'>
+                    <FormControl
+                        type="search"
+                        placeholder="انت بدور علي ايه"
+                        className="mx-2 w-100"
+                        aria-label="Search"
+                    />
+                    <div>
+                        <div className='d-flex das flex-column' style={{ textAlign: "left" }}>
+                            <Nav.Link style={{ borderRight: "3px solid #0000001A" ,  marginBottom:"10px"}}
+                                href="/addProduct"
+                                className="nav-text">
+                                <p style={{ color: "black", marginTop: "15px", textAlign: "left" }}>en</p>
+                            </Nav.Link>
+
+                            <Nav.Link style={{ borderRight: "3px solid #0000001A" ,  marginBottom:"10px"}}
+                                href="/addProduct"
+                                className="nav-text">
+                                <p style={{ color: "black", marginTop: "15px", }}>اضافة منتج للحجز<img style={{ paddingRight: "8px" }} src={IconProduct} className="login-img" alt="sfvs" /></p>
+                            </Nav.Link>
+
+                            {
+                                user !== "" ? (
+                                    <NavDropdown title={user.data.user.name} style={{ borderRight: "3px solid #0000001A"  ,marginBottom:"10px"}} id="basic-nav-dropdown">
+                                        <NavDropdown.Item href="/user/profile">الصفحة الشخصيه</NavDropdown.Item>
+                                        <NavDropdown.Divider />
+                                        <NavDropdown.Item href="/" onClick={logOut}>
+                                            تسجيل الخروج
+                                        </NavDropdown.Item>
+                                    </NavDropdown>
+                                ) : (<Nav.Link style={{ borderRight: "3px solid #0000001A", height: "40px" ,  marginBottom:"10px"}}
+                                    href="/login"
+
+                                    className="nav-text">
+                                    <p style={{ color: "black", marginTop: "15px" }}>
+                                        حسابي
+                                    </p>
+                                    <img style={{ paddingRight: "5px" }} src={IconProfile} className="login-img" alt="sfvs" />
+                                </Nav.Link>)
+                            }
+
+                            <Nav.Link disabled={true} style={{ borderRight: "3px solid #0000001A", height: "40px" , marginBottom:"10px"}}
+                                href=""
+                                className="nav-text">
+                                <p style={{ color: "black", marginTop: "15px" }}> الدردشه <img style={{ paddingRight: "5px" }} src={IconChat} className="login-img" alt="sfvs" /></p>
+                            </Nav.Link>
+                            <Nav.Link style={{ borderRight: "3px solid #0000001A", height: "40px", position: "relative" ,  marginBottom:"10px"}}
+                                href="/favourite"
+                                className="nav-text">
+                                <p style={{ color: "black", marginTop: "15px" }}>المفضله  <img style={{ paddingRight: "8px" }} src={IconFavourite} className="login-img" alt="sfvs" /></p>
+                                <div className="circle">{count}</div>
+                            </Nav.Link>
+                            <Nav.Link disabled={true} style={{ borderRight: "3px solid #0000001A", height: "40px" , marginBottom:"10px"}}
+                                href="/shoping"
+                                className="nav-text">
+                                <p style={{ color: "black", marginTop: "15px" }}>العربه<img style={{ paddingRight: "5px" }} src={IconShopping} className="login-img" alt="sfvs" /></p>
+                            </Nav.Link>
+                        </div>
+                    </div>
+                </Offcanvas.Body>
+            </Offcanvas>
             <CategoryHeader />
+
         </div>
     )
 }
 
 export default NavBar
+
