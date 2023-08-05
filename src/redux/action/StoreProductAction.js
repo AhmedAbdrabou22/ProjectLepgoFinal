@@ -1,6 +1,7 @@
 
 
 import baseURL from '../../Api/baseUrl'
+import swal from 'sweetalert'
 
 const StoreProduct = (formatData) => {
     return async (dispatch) => {
@@ -17,7 +18,10 @@ const StoreProduct = (formatData) => {
             console.log(res);
         } catch (e) {
             dispatch({ type: 'Get_Errors', payload: e.res })
-            console.log(e);
+            console.log(e.response.status);
+            if(e.response.status === 401){
+                swal("قم بتحديث البيانات في الصفحه الرئيسيه")
+            }
         }
     }
 }

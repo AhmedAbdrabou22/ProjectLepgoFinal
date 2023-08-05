@@ -30,7 +30,7 @@ const UserData = () => {
     }
 
 
-    const [selectImage , setSelectImage] = useState(false)
+    const [selectImage, setSelectImage] = useState(false)
 
 
     const [show, setShow] = useState(false);
@@ -135,13 +135,13 @@ const UserData = () => {
     };
 
 
-    useEffect(()=>{
-        if(selectImage === true && images.length !== 0){
+    useEffect(() => {
+        if (selectImage === true && images.length !== 0) {
             console.log(images.length)
             console.log(selectImage)
             handleProfileImage();
         }
-    } , [images.length])
+    }, [images.length])
 
 
 
@@ -203,7 +203,8 @@ const UserData = () => {
                                         infoUser.data.user.image != null ? (
 
 
-                                            <img src={infoUser.data.user.image}  style={{ width: "100%", height: "100%", borderRadius: "50%" }} alt="Profile" />
+                                            
+                                                <img src={infoUser.data.user.image} style={{ width: "100%", height: "100%", borderRadius: "50%" }} alt="Profile" />
 
                                         ) : (
                                             <div className="file-input">

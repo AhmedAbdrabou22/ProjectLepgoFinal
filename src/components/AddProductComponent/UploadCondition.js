@@ -114,7 +114,6 @@ const UploadCondition = () => {
     // console.log(city.data);
 
     var infoUser = JSON.parse(localStorage.getItem('user'));
-    console.log(infoUser.data.user.is_verified);
 
 
     //to Save Data
@@ -202,7 +201,7 @@ const UploadCondition = () => {
                 </Toast>
             </div>
             <div style={{ position: "fixed", right: "0", top: "22%", zIndex: "100" }}>
-                <Toast show={showB} onClose={() =>setShowB(false)} autohide delay={2000}>
+                <Toast show={showB} onClose={() =>setShowB(false)} autohide delay={5000}>
                     <div className='d-flex'>
                         <Toast.Header></Toast.Header>
                         <Toast.Body>جاري الرفع الان</Toast.Body>
