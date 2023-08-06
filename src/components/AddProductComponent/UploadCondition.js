@@ -139,20 +139,24 @@ const UploadCondition = () => {
         formData.append("discount", discount)
         formData.append("available", available)
 
-        if (loading === true && infoUser.data.user.is_verified === "1") {
-            // swal("جاري الرفع الان")
-            setShowB(!showB)
-            setLoading(true)
-            await dispatch(StoreProduct(formData))
-            setLoading(false)
+        if (infoUser) {
+            if (loading === true && infoUser.data.user.is_verified === "1") {
+                // swal("جاري الرفع الان")
+                setShowB(!showB)
+                setLoading(true)
+                await dispatch(StoreProduct(formData))
+                setLoading(false)
+            } else {
+                setShowD(!showD)
+            }
         }else{
-            setShowD(!showD)
+            swal("قم بالتسجيل")
         }
-
     }
 
     // console.log(images[0]);
     const r = useSelector(state => state.StoreProductReducer.storeProducts)
+    // console.log(r);
 
     useEffect(() => {
 
@@ -167,9 +171,9 @@ const UploadCondition = () => {
             setConditions("")
             setDuration(0)
 
-            setTimeout(() => {
+            // setTimeout(() => {
                 setLoading(true)
-            }, 1500);
+            // }, 1500);
 
             if (r) {
                 console.log(r.data);
@@ -193,7 +197,7 @@ const UploadCondition = () => {
     return (
         <div>
             <div style={{ position: "fixed", right: "0", top: "22%", zIndex: "100" }}>
-                <Toast show={showA} onClose={() =>setShowA(false)} autohide delay={2000}>
+                <Toast show={showA} onClose={() => setShowA(false)} autohide delay={2000}>
                     <div className='d-flex'>
                         <Toast.Header></Toast.Header>
                         <Toast.Body>ادخل البيانات كامله</Toast.Body>
@@ -201,7 +205,7 @@ const UploadCondition = () => {
                 </Toast>
             </div>
             <div style={{ position: "fixed", right: "0", top: "22%", zIndex: "100" }}>
-                <Toast show={showB} onClose={() =>setShowB(false)} autohide delay={5000}>
+                <Toast show={showB} onClose={() => setShowB(false)} autohide delay={5000}>
                     <div className='d-flex'>
                         <Toast.Header></Toast.Header>
                         <Toast.Body>جاري الرفع الان</Toast.Body>
@@ -209,7 +213,7 @@ const UploadCondition = () => {
                 </Toast>
             </div>
             <div style={{ position: "fixed", right: "0", top: "22%", zIndex: "100" }}>
-                <Toast show={showC} onClose={() =>setShowC(false)} autohide delay={2000}>
+                <Toast show={showC} onClose={() => setShowC(false)} autohide delay={2000}>
                     <div className='d-flex'>
                         <Toast.Header></Toast.Header>
                         <Toast.Body>تم رفع المنتج بنجاح</Toast.Body>
@@ -217,7 +221,7 @@ const UploadCondition = () => {
                 </Toast>
             </div>
             <div style={{ position: "fixed", right: "0", top: "22%", zIndex: "100" }}>
-                <Toast show={showD} onClose={() =>setShowD(false)} autohide delay={2000}>
+                <Toast show={showD} onClose={() => setShowD(false)} autohide delay={2000}>
                     <div className='d-flex'>
                         <Toast.Header></Toast.Header>
                         <Toast.Body>قم بتفعيل الايميل</Toast.Body>

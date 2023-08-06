@@ -21,6 +21,9 @@ const StoreProduct = (formatData) => {
             console.log(e.response.status);
             if(e.response.status === 401){
                 swal("قم بتحديث البيانات في الصفحه الرئيسيه")
+                setTimeout(()=>{
+                    window.location.href = '/addProduct'
+                } , 1500)
             }
         }
     }

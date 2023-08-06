@@ -29,7 +29,7 @@ const CategoryHeader = () => {
     const DataCate = useSelector(state => state.allCategory.category)
 
 
-    console.log(DataCate.data);
+    // console.log(DataCate.data);
 
 
     return (
@@ -44,28 +44,32 @@ const CategoryHeader = () => {
                         <div className="card-filter d-flex justify-content-center align-items-center">
                             <div className="groubFilter">
                                 {
-                                    DataCate.data ? (
-                                        DataCate.data.slice(1, 8).map((ele) => {
-                                            return (
-                                                <div className="card-filter-item">
-                                                    <a className="cat-text-header allfilesLink" href={`/categorydetails/${ele.id}`}>{ele.title_ar}</a>
-                                                </div>
-                                            )
-                                        })
+                                    DataCate ? (
+                                        DataCate.data ? (
+                                            DataCate.data.slice(1, 8).map((ele) => {
+                                                return (
+                                                    <div className="card-filter-item">
+                                                        <a className="cat-text-header allfilesLink" href={`/categorydetails/${ele.id}`}>{ele.title_ar}</a>
+                                                    </div>
+                                                )
+                                            })
+                                        ) : null
                                     ) : null
                                 }
                             </div>
 
                             <div className="groubFilter">
                                 {
-                                    DataCate.data ? (
-                                        DataCate.data.slice(9, 16).map((ele) => {
-                                            return (
-                                                <div className="card-filter-item">
-                                                    <a className="cat-text-header allfilesLink" href={`/categorydetails/${ele.id}`}>{ele.title_ar}</a>
-                                                </div>
-                                            )
-                                        })
+                                    DataCate ? (
+                                        DataCate.data ? (
+                                            DataCate.data.slice(9, 16).map((ele) => {
+                                                return (
+                                                    <div className="card-filter-item">
+                                                        <a className="cat-text-header allfilesLink" href={`/categorydetails/${ele.id}`}>{ele.title_ar}</a>
+                                                    </div>
+                                                )
+                                            })
+                                        ) : null
                                     ) : null
                                 }
                             </div>
@@ -76,14 +80,16 @@ const CategoryHeader = () => {
                 <Navbar.Collapse id="basic-navbar-nav2" className='NavBarHeader'>
                     <Nav className="mx-4">
                         {
-                            DataCate.data ? (
-                                DataCate.data.map((ele) => {
-                                    return (
-                                        <div>
-                                            <a className="cat-text-header" href={`/categorydetails/${ele.id}`}>{ele.title_ar}</a>
-                                        </div>
-                                    )
-                                })
+                            DataCate ? (
+                                DataCate.data ? (
+                                    DataCate.data.map((ele) => {
+                                        return (
+                                            <div>
+                                                <a className="cat-text-header" href={`/categorydetails/${ele.id}`}>{ele.title_ar}</a>
+                                            </div>
+                                        )
+                                    })
+                                ) : null
                             ) : null
                         }
                     </Nav>
