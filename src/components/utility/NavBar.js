@@ -112,9 +112,9 @@ const NavBar = () => {
                             aria-label="Search"
                         />
                         <Nav>
-                            <Nav.Link style={{ borderRight: "3px solid #0000001A", width: "100px", margin: "auto", height: "40px", padding: "0 5px" }}
-                                href="/addProduct"
-                                className="nav-text d-flex align-items-center text-center justify-content-center">
+                            <Nav.Link style={{ borderRight: "3px solid #0000001A", width: "100px", margin: "auto", height:"40px" , padding: "0 5px" }}
+                                href=""
+                                className="nav-text d-flex justify-content-center align-items-center">
                                 <p style={{ color: "black", marginTop: "15px" }}>en</p>
                             </Nav.Link>
 
@@ -187,14 +187,13 @@ const NavBar = () => {
                         aria-label="Search"
                     />
                     <div>
-                        <div className='d-flex das flex-column' style={{ textAlign: "left" }}>
-                            <Nav.Link style={{ borderRight: "3px solid #0000001A" ,  marginBottom:"10px"}}
-                                href="/addProduct"
+                        <div className='d-flex das flex-column' style={{ textAlign: "right"}}>
+                            <Nav.Link style={{textAlign:"right"}}
+                                href=""
                                 className="nav-text">
-                                <p style={{ color: "black", marginTop: "15px", textAlign: "left" }}>en</p>
+                                <p style={{ color: "black", marginTop: "15px", textAlign: "right" }}>en</p>
                             </Nav.Link>
-
-                            <Nav.Link style={{ borderRight: "3px solid #0000001A" ,  marginBottom:"10px"}}
+                            <Nav.Link style={{ marginBottom:"10px"}}
                                 href="/addProduct"
                                 className="nav-text">
                                 <p style={{ color: "black", marginTop: "15px", }}>اضافة منتج للحجز<img style={{ paddingRight: "8px" }} src={IconProduct} className="login-img" alt="sfvs" /></p>
@@ -209,18 +208,18 @@ const NavBar = () => {
                                             تسجيل الخروج
                                         </NavDropdown.Item>
                                     </NavDropdown>
-                                ) : (<Nav.Link style={{ borderRight: "3px solid #0000001A", height: "40px" ,  marginBottom:"10px"}}
+                                ) : (<Nav.Link style={{marginBottom:"10px"}}
                                     href="/login"
 
                                     className="nav-text">
                                     <p style={{ color: "black", marginTop: "15px" }}>
                                         حسابي
+                                        <img style={{ paddingRight: "5px" }} src={IconProfile} className="" alt="sfvs" />
                                     </p>
-                                    <img style={{ paddingRight: "5px" }} src={IconProfile} className="login-img" alt="sfvs" />
                                 </Nav.Link>)
                             }
 
-                            <Nav.Link disabled={true} style={{ borderRight: "3px solid #0000001A", height: "40px" , marginBottom:"10px"}}
+                            <Nav.Link disabled={true} style={{height: "40px" , marginBottom:"10px"}}
                                 href=""
                                 className="nav-text">
                                 <p style={{ color: "black", marginTop: "15px" }}> الدردشه <img style={{ paddingRight: "5px" }} src={IconChat} className="login-img" alt="sfvs" /></p>
@@ -229,7 +228,7 @@ const NavBar = () => {
                                 href="/favourite"
                                 className="nav-text">
                                 <p style={{ color: "black", marginTop: "15px" }}>المفضله  <img style={{ paddingRight: "8px" }} src={IconFavourite} className="login-img" alt="sfvs" /></p>
-                                <div className="circle">{count}</div>
+                                <div className="circle1">{count}</div>
                             </Nav.Link>
                             <Nav.Link disabled={true} style={{ borderRight: "3px solid #0000001A", height: "40px" , marginBottom:"10px"}}
                                 href="/shoping"

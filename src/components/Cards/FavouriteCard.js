@@ -59,7 +59,7 @@ const FavouriteCard = ({ img, amount, desc, title, city, duration, identity, id,
             </div>
             <Link to={`/product/${id}`} style={{ textDecoration: "none" }}>
                 <div className='w-75 mx-auto favItem mt-4 text-center'>
-                    <img src={img} style={{ width: "300px", height: "200px", borderRadius: "20px" }} alt='img' />
+                    <img src={img} className='imageFav' alt='img' />
                     <div className='mx-3'>
                         <h2 className='infos'>{title}</h2>
                         <p className='infos infoDetails' style={{ width: '200px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{desc}</p>

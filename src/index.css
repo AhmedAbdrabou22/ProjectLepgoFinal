@@ -20,7 +20,7 @@ a {
   /* padding:20px !important; */
   background-color: white !important;
 }
-.circle{
+.circle , .circle1{
   width:20px;
   height: 20px;
   text-align: center;
@@ -34,6 +34,10 @@ a {
   -o-border-radius: 50%;
   left:5%;
   top:-5%;
+}
+.circle1{
+  right:20%;
+  top:-1%;
 }
 
 code {
@@ -336,7 +340,12 @@ input:hover {
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
 }
-
+.imageFav{
+    width: 300px;
+    height: 180px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
 .priceDetails {
   position: absolute;
   top: 10%;
@@ -824,7 +833,9 @@ button[type="submit"] {
 .d{
   width: 50%;
 }
-
+.sliderNavBar{
+  display: none !important;
+}
 /** Stly Personal Page*/
 @media(max-width:768px) {
   body {
@@ -937,6 +948,17 @@ button[type="submit"] {
   #basic-navbar-nav{
     display: none;
   }
+  .sliderNavBar{
+    display: block !important;
+  }
+  .imageFav{
+    width:100%;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
 }
 
 .imageProfileContainer{
