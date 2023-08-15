@@ -15,6 +15,7 @@ import SignUp from './pages/Auth/SignUp';
 import UserProfilePage from './pages/User/UserProfilePage';
 import ForgetPass from './pages/Auth/ForgetPass';
 import VerifyEmailPage from './pages/Auth/VerifyEmailPage';
+import ExchangeProducts from './pages/ExchangeProducts/ExchangeProducts';
 function App() {
   return (
     <div className="App">
@@ -28,6 +29,7 @@ function App() {
           <Route path="/favourite" element={<FavouritePage />}></Route>
           <Route path="/shoping" element={<ShopingPage />}></Route>
           <Route path="/product/:id" element={<SpecificProduct />}></Route>
+          <Route path="/exchangeproducts" element={<ExchangeProducts />}></Route>
           <Route path="/categorydetails/:id" element={<CategoryCardsDetails />}></Route>
           <Route path="/addProduct" element={<AddProductPage />}></Route>
           <Route path="/login" element={<LoginPage />}></Route>

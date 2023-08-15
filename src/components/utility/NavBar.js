@@ -108,14 +108,19 @@ const NavBar = () => {
                         <FormControl
                             type="search"
                             placeholder="انت بدور علي ايه"
-                            className="mx-2 w-100"
+                            className="mx-2 w-75"
                             aria-label="Search"
                         />
                         <Nav>
-                            <Nav.Link style={{ borderRight: "3px solid #0000001A", width: "100px", margin: "auto", height:"40px" , padding: "0 5px" }}
+                            <Nav.Link style={{ borderRight: "3px solid #0000001A", width: "50px", margin: "auto", height:"40px" , padding: "0 5px" }}
                                 href=""
                                 className="nav-text d-flex justify-content-center align-items-center">
                                 <p style={{ color: "black", marginTop: "15px" }}>en</p>
+                            </Nav.Link>
+                            <Nav.Link style={{ borderRight: "3px solid #0000001A",width:"120px", margin: "auto", height:"40px" , padding: "0 5px" }}
+                                href="/exchangeproducts"
+                                className="nav-text d-flex justify-content-center align-items-center">
+                                <p style={{ color: "black", marginTop: "15px" }}>منتجات التبديل</p>
                             </Nav.Link>
 
                             <Nav.Link style={{ borderRight: "3px solid #0000001A", width: "200px", margin: "auto", height: "40px", padding: "0 5px" }}

@@ -1,6 +1,7 @@
 import {combineReducers} from "redux"
 import CategoryReducers from "./categoryReducers"
 import ProductReducer from './ProductReducer'
+import ExProductReducer from './ExchangeProductsReducer'
 import UserReducer from "./Authreducer"
 import OfferReducer from "./OfferReducer"
 import FavouriteItemReducer from "./FavouriteReducer"
@@ -14,6 +15,7 @@ import UploadImageProfile from "./UploadImagePrfileReducer"
 export default combineReducers({
     allCategory:CategoryReducers,
     allProducts:ProductReducer,
+    ExallProducts:ExProductReducer,
     UserReducer:UserReducer,
     OfferReducer:OfferReducer,
     FavouriteItemReducer:FavouriteItemReducer,
