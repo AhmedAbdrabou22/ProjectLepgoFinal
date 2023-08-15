@@ -11,6 +11,7 @@ import GovernmentsReducer from "./GovernmentReducer"
 import MyProductsRed from "./GetMyProductsReducer"
 import CommentsReducer from "./PostCommentReducer"
 import UploadImageProfile from "./UploadImagePrfileReducer"
+import CategoryExReducer from "./CategoryExReducer"
 
 export default combineReducers({
     allCategory:CategoryReducers,
@@ -24,5 +25,6 @@ export default combineReducers({
     updateDetails:UpdateDetails,
     GovernmentsReducer:GovernmentsReducer,
     MyProductsRed : MyProductsRed,
-    CommentsReducer:CommentsReducer
+    CommentsReducer:CommentsReducer,
+    allExCategory:CategoryExReducer
 })

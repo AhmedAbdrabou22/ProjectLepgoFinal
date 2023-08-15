@@ -19,13 +19,10 @@ import swal from 'sweetalert';
 
 
 
-const ExProductCard = ({ title, desc, img, id, rates, duration, amount, city }) => {
+const ExProductCard = ({ title, desc, img, id, rates,city }) => {
 
-    const [showA, setShowA] = useState(false);
-    const [showB, setShowB] = useState(false);
 
-    const toggleShowA = () => setShowA(!showA);
-    const toggleShowB = () => setShowA(!showB);
+
 
 
     // const dispatch = useDispatch();
@@ -36,9 +33,7 @@ const ExProductCard = ({ title, desc, img, id, rates, duration, amount, city }) 
     const myClass = 'productCard';
     const [isHovered, SetHovered] = useState(false);
 
-    const [favImg, setFavimg] = useState(heart);
 
-    // const [isFav , setIsFav] = useState(false)
 
 
     const handleMouseEnter = () => {
@@ -54,15 +49,14 @@ const ExProductCard = ({ title, desc, img, id, rates, duration, amount, city }) 
 
 
 
-    const refresh = (e) => {
-        // if(move){
-        //     window.location.href=`/product/${id}`
-        // }
-        if (e.target.getAttribute('src') !== "/static/media/heart.9e4358fd97ab2675b037fa92071b911a.svg") {
-            window.location.href = `/product/${id}`
-        }
-    }
-
+    // const refresh = (e) => {
+    //     // if(move){
+    //     //     window.location.href=`/product/${id}`
+    //     // }
+    //     if (e.target.getAttribute('src') !== "/static/media/heart.9e4358fd97ab2675b037fa92071b911a.svg") {
+    //         window.location.href = `/product/${id}`
+    //     }
+    // }
 
 
 
@@ -95,8 +89,8 @@ const ExProductCard = ({ title, desc, img, id, rates, duration, amount, city }) 
                 </Toast>
             </div> */}
 
-            <Link to={`/product/${id}`} style={{ textDecoration: "none" }}>
-                <Card className={`${shadowClass} ${myClass}`} onMouseEnter={handleMouseEnter} onClick={refresh}
+            <div style={{ textDecoration: "none" }}>
+                <Card className={`${shadowClass} ${myClass}`} onMouseEnter={handleMouseEnter} onClick={(e)=>e.preventDefault()}
                     onMouseLeave={handleMouseLeave} style={{ background: "#F9F9FA", borderRadius: "20px", transition: "0.3s", padding: "8px", border: "none" }}>
                     <Card.Img variant="top" src={img} style={{ width: "100%", borderRadius: "10px", height: "250px", objectFit: "cover" }} />
                     <Card.Body style={{ textAlign: "right" }}>
@@ -112,11 +106,11 @@ const ExProductCard = ({ title, desc, img, id, rates, duration, amount, city }) 
                             {city}
                         </Card.Text>
                         <Card.Text>
-                            <div style={{ fontWeight: "700" }}>
+                            {/* <div style={{ fontWeight: "700" }}>
                                 <span style={{ color: "#08324B" }}> {amount}  جنيه</span>
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 <span style={{ color: "#CB955B" }}>لمدة {duration} يوم </span>
-                            </div>
+                            </div> */}
                             <div className='d-flex justify-content-between align-items-center my-2'>
                                 <div style={{ display: "flex", background: "#CB955B", color: "#08324B", padding: "5px 15px", borderRadius: "10px" }}>
                                     <span> <FontAwesomeIcon icon={faTruck} />&nbsp; &nbsp;غير قابل للشحن</span>
@@ -129,7 +123,7 @@ const ExProductCard = ({ title, desc, img, id, rates, duration, amount, city }) 
                         </Card.Text>
                     </Card.Body>
                 </Card>
-            </Link>
+            </div>
         </Col>
     )
 }

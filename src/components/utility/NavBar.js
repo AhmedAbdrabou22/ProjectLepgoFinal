@@ -203,6 +203,11 @@ const NavBar = () => {
                                 className="nav-text">
                                 <p style={{ color: "black", marginTop: "15px", }}>اضافة منتج للحجز<img style={{ paddingRight: "8px" }} src={IconProduct} className="login-img" alt="sfvs" /></p>
                             </Nav.Link>
+                            <Nav.Link style={{ marginBottom:"10px"}}
+                                href="/exchangeproducts"
+                                className="nav-text">
+                                <p style={{ color: "black", marginTop: "15px", }}> منتجات للتبديل</p>
+                            </Nav.Link>
 
                             {
                                 user !== "" ? (
