@@ -54,7 +54,7 @@ const HomeCategory = () => {
                     categories.data ?  (
                         categories.data.map((item, index) => {
                             return(<div>
-                                <Link to={`/categorydetails/${item.id}`}>
+                                <Link to={`/excategorydetails/${item.id}`}>
                                     <img src={item.image} alt="1" />
                                 </Link>
                                 <p style={{ marginLeft: "-14px", width: "120px", textAlign: "center" }}>{item.title_ar}</p>

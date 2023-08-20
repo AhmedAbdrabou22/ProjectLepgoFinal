@@ -58,7 +58,7 @@ useEffect(()=>{
     }
 } , [loading])
 
-console.log(dataId);
+// console.log(dataId);
 
 
 
